@@ -1,0 +1,224 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+ .ie8 {
+	.theme-ttl {
+		-moz-background-size: cover;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center top;
+		width: 100%;
+		.wrap { height: 110px;}
+		.theme-ttl-image {
+			position: absolute;
+			top: 0;
+			left: 10px;
+			&.sp { display: none;}
+		}
+	}
+
+	/*-----------------
+		theme-index
+	-------------------*/
+	.theme-ttl {
+		&.index {
+			background-image: url(../img/index/bg_index.jpg);
+			.wrap { height: 553px;}
+			.theme-ttl-index {
+				text-align: center;
+				margin-bottom: 100px;
+				.theme-ttl-image {
+					margin-top: 96px;//カルーセル表示
+					//カルーセル非表示margin-top: 150px;
+					position: static;
+				}
+			}
+			.carousel {
+				&.sp { display: none;}
+				position: relative;
+				background: url(../img/index/bg_carousel.png) repeat center top;
+				padding: 15px;
+				margin: 0 76px;
+				.carousel-inner {
+					ul {
+						li {
+							text-align: center;
+						}
+					}
+				}
+				.owl-prev,.owl-next {
+					position: absolute;
+					cursor: pointer;
+					z-index: 0;
+					top: 15px;
+					width: 19px;
+					height: 39px;
+					text-indent: 100%;
+					white-space: nowrap;
+					overflow: hidden;
+					&.disabled {
+						display: none !important;
+					}
+				}
+				.owl-prev {
+					left: -22px;
+					background: url(../img/index/img_caroarrow_l.png);
+				}
+				.owl-next {
+					right: -22px;
+					background: url(../img/index/img_caroarrow_r.png);
+				}
+			}
+		}
+	}
+	.topics-index {
+		margin: 0 10px 60px;
+		.topics-inner { display: inline-block;
+			&.ttl {
+				float: left;
+				width: 14%;
+				img { width: 90%;
+					&.sp { display: none;}
+				}
+			}
+			&.list {
+				float: right;
+				width: 86%;
+				li {
+					border-bottom: 1px dotted #8c8d8d;
+					padding: 0 0 10px;
+					margin-top: 13px;
+					width: 100%;
+					&:first-child { margin-top: 0;}
+					dl {
+						font-size: 108%;
+						dt,dd { display: inline-block;}
+						dt {
+							float: left;
+							width: 12%;
+						}
+						dd {
+							float: right;
+							width: 88%;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*-----------------
+		theme-concept
+	-------------------*/
+	.theme-ttl {
+		&.concept { background-image: url(../img/concept/bg_concept.jpg);}
+	}
+	.concept-body {
+		text-align: center;
+		.conpept-body-ttl01 { margin-bottom: 72px;}
+		.conpept-body-ttl02 {
+			.sp { display: none;}
+			margin-bottom: 50px;
+		}
+		.conpept-body-desc { }
+	}
+
+	/*-----------------
+		theme-message
+	-------------------*/
+	.theme-ttl {
+		&.message { background-image: url(../img/message/bg_message.jpg);}
+	}
+	.message-body {
+		margin: 0 60px;
+		.message-body-ttl { margin-bottom: 25px;}
+		.message-body-mv { text-align: center; margin-bottom: 40px;}
+	}
+
+	/*-----------------
+		theme-people
+	-------------------*/
+	.theme-ttl {
+		&.people { background-image: url(../img/people/bg_people.jpg);}
+	}
+	.people-body {
+		margin: 0 60px;
+		.people-body-ttl {
+			&.sp { display: none;}
+		}
+		.people-body-desc { text-align: center;
+			img {
+				&.sp { display: none;}
+			}
+		}
+	}
+
+
+	/*-----------------
+		theme-company
+	-------------------*/
+	.theme-ttl {
+		&.company { background-image: url(../img/company/bg_company.jpg);}
+	}
+	.company-body {
+		margin: 0 60px;
+		.company-body-ttl { margin-bottom: 25px;}
+	}
+
+	/*-----------------
+		theme-recruit
+	-------------------*/
+	.theme-ttl {
+		&.recruit { background-image: url(../img/recruit/bg_recruit.jpg);}
+	}
+	.recruit-body {
+		margin: 0 60px;
+		.recruit-body-ttl { margin-bottom: 25px;}
+		.recruit-body-detail {
+			font-size: 116%;
+			border-bottom: 1px dotted #cbcccc;
+			dt,dd { display: table-cell;}
+			dt { vertical-align: middle;
+				.inner {
+					margin: 15px 0;
+					width: 111px;
+					color: #37abe8;
+					font-weight: bold;
+					display: block;
+				}
+			}
+			dd {
+				.inner {
+					margin: 15px 0;
+					width: 721px;
+					display: block;
+					border-left: 2px solid #37abe8;
+					padding-left: 25px;
+					line-height: 1.6;
+					ul {
+						margin-left: 1em;
+						li {
+							list-style-type: disc;
+						}
+					}
+				}
+			}
+		}
+	}
+	.recruit-inquiry {
+		margin: 0 50px;
+		.recruit-inquiry-info {
+			dl { display: inline; float: left; margin-right: 1em; color: #3f3a39;
+				dt,dd { display: table-cell; line-height: 1.6; padding: 0 10px; vertical-align: baseline;}
+				dt { background: #37abe8; color: #ffffff; font-size: 123.1%;}
+				dd { font-size: 138.5%;
+					a { color: #3f3a39; text-decoration: none;
+						&:hover { text-decoration: underline;}
+					}
+				}
+			}
+		}
+	}
+}

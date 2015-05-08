@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+body {
+	background: #eefbfb url(../img/bg.gif) repeat center top;
+	min-width: 1150px;
+}
+/*--------------------------
+	header
+--------------------------*/
+#header {
+	background-color: #fa5798;
+	overflow: hidden;
+	margin-bottom: 17px;
+	.header-inner {
+		display: table;
+		@extend %clf;
+		@extend %wrap;
+		.logo {
+			display: table-cell;
+		}
+	}
+}
+
+/*--------------------------
+	gnav
+--------------------------*/
+#gnav {
+		display: table-cell;
+	li {
+		display: table-cell;
+		border-right: 1px solid #fff;
+	}
+}
+
+/*--------------------------
+	contents,main,side
+--------------------------*/
+#contents {
+		@extend %clf;
+		@extend %wrap;
+}
+#main {
+	display: inline-block;
+	@extend %fl_l;
+	width: 824px;
+}
+#side {
+	display: inline-block;
+	@extend %fl_r;
+	width: 300px;
+}

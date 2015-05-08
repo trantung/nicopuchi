@@ -1,0 +1,21 @@
+@charset "utf-8";
+@mixin addquery($point) {
+	@media screen and (max-width: $point) { @content; }
+}
+#header,
+#gnav,
+#footer,
+.pagetop { display: none;}
+
+@include addquery(960px) {
+
+}
+@include addquery(768px) {
+
+
+
+}
+
+@include addquery(640px) {
+
+}

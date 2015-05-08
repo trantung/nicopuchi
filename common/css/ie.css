@@ -1,0 +1,318 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+/* line 6, ../scss/ie.scss */
+.ie8 {
+  /*-----------------
+  	theme-index
+  -------------------*/
+  /*-----------------
+  	theme-concept
+  -------------------*/
+  /*-----------------
+  	theme-message
+  -------------------*/
+  /*-----------------
+  	theme-people
+  -------------------*/
+  /*-----------------
+  	theme-company
+  -------------------*/
+  /*-----------------
+  	theme-recruit
+  -------------------*/
+}
+/* line 7, ../scss/ie.scss */
+.ie8 .theme-ttl {
+  -moz-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 100%;
+}
+/* line 13, ../scss/ie.scss */
+.ie8 .theme-ttl .wrap {
+  height: 110px;
+}
+/* line 14, ../scss/ie.scss */
+.ie8 .theme-ttl .theme-ttl-image {
+  position: absolute;
+  top: 0;
+  left: 10px;
+}
+/* line 18, ../scss/ie.scss */
+.ie8 .theme-ttl .theme-ttl-image.sp {
+  display: none;
+}
+/* line 26, ../scss/ie.scss */
+.ie8 .theme-ttl.index {
+  background-image: url(../img/index/bg_index.jpg);
+}
+/* line 28, ../scss/ie.scss */
+.ie8 .theme-ttl.index .wrap {
+  height: 553px;
+}
+/* line 29, ../scss/ie.scss */
+.ie8 .theme-ttl.index .theme-ttl-index {
+  text-align: center;
+  margin-bottom: 100px;
+}
+/* line 32, ../scss/ie.scss */
+.ie8 .theme-ttl.index .theme-ttl-index .theme-ttl-image {
+  margin-top: 96px;
+  position: static;
+}
+/* line 38, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel {
+  position: relative;
+  background: url(../img/index/bg_carousel.png) repeat center top;
+  padding: 15px;
+  margin: 0 76px;
+}
+/* line 39, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel.sp {
+  display: none;
+}
+/* line 46, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel .carousel-inner ul li {
+  text-align: center;
+}
+/* line 51, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel .owl-prev, .ie8 .theme-ttl.index .carousel .owl-next {
+  position: absolute;
+  cursor: pointer;
+  z-index: 0;
+  top: 15px;
+  width: 19px;
+  height: 39px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 61, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel .owl-prev.disabled, .ie8 .theme-ttl.index .carousel .owl-next.disabled {
+  display: none !important;
+}
+/* line 65, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel .owl-prev {
+  left: -22px;
+  background: url(../img/index/img_caroarrow_l.png);
+}
+/* line 69, ../scss/ie.scss */
+.ie8 .theme-ttl.index .carousel .owl-next {
+  right: -22px;
+  background: url(../img/index/img_caroarrow_r.png);
+}
+/* line 76, ../scss/ie.scss */
+.ie8 .topics-index {
+  margin: 0 10px 60px;
+}
+/* line 78, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner {
+  display: inline-block;
+}
+/* line 79, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.ttl {
+  float: left;
+  width: 14%;
+}
+/* line 82, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.ttl img {
+  width: 90%;
+}
+/* line 83, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.ttl img.sp {
+  display: none;
+}
+/* line 86, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list {
+  float: right;
+  width: 86%;
+}
+/* line 89, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list li {
+  border-bottom: 1px dotted #8c8d8d;
+  padding: 0 0 10px;
+  margin-top: 13px;
+  width: 100%;
+}
+/* line 94, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list li:first-child {
+  margin-top: 0;
+}
+/* line 95, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list li dl {
+  font-size: 108%;
+}
+/* line 97, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list li dl dt, .ie8 .topics-index .topics-inner.list li dl dd {
+  display: inline-block;
+}
+/* line 98, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list li dl dt {
+  float: left;
+  width: 12%;
+}
+/* line 102, ../scss/ie.scss */
+.ie8 .topics-index .topics-inner.list li dl dd {
+  float: right;
+  width: 88%;
+}
+/* line 116, ../scss/ie.scss */
+.ie8 .theme-ttl.concept {
+  background-image: url(../img/concept/bg_concept.jpg);
+}
+/* line 118, ../scss/ie.scss */
+.ie8 .concept-body {
+  text-align: center;
+}
+/* line 120, ../scss/ie.scss */
+.ie8 .concept-body .conpept-body-ttl01 {
+  margin-bottom: 72px;
+}
+/* line 121, ../scss/ie.scss */
+.ie8 .concept-body .conpept-body-ttl02 {
+  margin-bottom: 50px;
+}
+/* line 122, ../scss/ie.scss */
+.ie8 .concept-body .conpept-body-ttl02 .sp {
+  display: none;
+}
+/* line 132, ../scss/ie.scss */
+.ie8 .theme-ttl.message {
+  background-image: url(../img/message/bg_message.jpg);
+}
+/* line 134, ../scss/ie.scss */
+.ie8 .message-body {
+  margin: 0 60px;
+}
+/* line 136, ../scss/ie.scss */
+.ie8 .message-body .message-body-ttl {
+  margin-bottom: 25px;
+}
+/* line 137, ../scss/ie.scss */
+.ie8 .message-body .message-body-mv {
+  text-align: center;
+  margin-bottom: 40px;
+}
+/* line 144, ../scss/ie.scss */
+.ie8 .theme-ttl.people {
+  background-image: url(../img/people/bg_people.jpg);
+}
+/* line 146, ../scss/ie.scss */
+.ie8 .people-body {
+  margin: 0 60px;
+}
+/* line 149, ../scss/ie.scss */
+.ie8 .people-body .people-body-ttl.sp {
+  display: none;
+}
+/* line 151, ../scss/ie.scss */
+.ie8 .people-body .people-body-desc {
+  text-align: center;
+}
+/* line 153, ../scss/ie.scss */
+.ie8 .people-body .people-body-desc img.sp {
+  display: none;
+}
+/* line 163, ../scss/ie.scss */
+.ie8 .theme-ttl.company {
+  background-image: url(../img/company/bg_company.jpg);
+}
+/* line 165, ../scss/ie.scss */
+.ie8 .company-body {
+  margin: 0 60px;
+}
+/* line 167, ../scss/ie.scss */
+.ie8 .company-body .company-body-ttl {
+  margin-bottom: 25px;
+}
+/* line 174, ../scss/ie.scss */
+.ie8 .theme-ttl.recruit {
+  background-image: url(../img/recruit/bg_recruit.jpg);
+}
+/* line 176, ../scss/ie.scss */
+.ie8 .recruit-body {
+  margin: 0 60px;
+}
+/* line 178, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-ttl {
+  margin-bottom: 25px;
+}
+/* line 179, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail {
+  font-size: 116%;
+  border-bottom: 1px dotted #cbcccc;
+}
+/* line 182, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail dt, .ie8 .recruit-body .recruit-body-detail dd {
+  display: table-cell;
+}
+/* line 183, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail dt {
+  vertical-align: middle;
+}
+/* line 184, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail dt .inner {
+  margin: 15px 0;
+  width: 111px;
+  color: #37abe8;
+  font-weight: bold;
+  display: block;
+}
+/* line 193, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail dd .inner {
+  margin: 15px 0;
+  width: 721px;
+  display: block;
+  border-left: 2px solid #37abe8;
+  padding-left: 25px;
+  line-height: 1.6;
+}
+/* line 200, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail dd .inner ul {
+  margin-left: 1em;
+}
+/* line 202, ../scss/ie.scss */
+.ie8 .recruit-body .recruit-body-detail dd .inner ul li {
+  list-style-type: disc;
+}
+/* line 210, ../scss/ie.scss */
+.ie8 .recruit-inquiry {
+  margin: 0 50px;
+}
+/* line 213, ../scss/ie.scss */
+.ie8 .recruit-inquiry .recruit-inquiry-info dl {
+  display: inline;
+  float: left;
+  margin-right: 1em;
+  color: #3f3a39;
+}
+/* line 214, ../scss/ie.scss */
+.ie8 .recruit-inquiry .recruit-inquiry-info dl dt, .ie8 .recruit-inquiry .recruit-inquiry-info dl dd {
+  display: table-cell;
+  line-height: 1.6;
+  padding: 0 10px;
+  vertical-align: baseline;
+}
+/* line 215, ../scss/ie.scss */
+.ie8 .recruit-inquiry .recruit-inquiry-info dl dt {
+  background: #37abe8;
+  color: #ffffff;
+  font-size: 123.1%;
+}
+/* line 216, ../scss/ie.scss */
+.ie8 .recruit-inquiry .recruit-inquiry-info dl dd {
+  font-size: 138.5%;
+}
+/* line 217, ../scss/ie.scss */
+.ie8 .recruit-inquiry .recruit-inquiry-info dl dd a {
+  color: #3f3a39;
+  text-decoration: none;
+}
+/* line 218, ../scss/ie.scss */
+.ie8 .recruit-inquiry .recruit-inquiry-info dl dd a:hover {
+  text-decoration: underline;
+}

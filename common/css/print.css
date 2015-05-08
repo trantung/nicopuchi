@@ -1,0 +1,7 @@
+/* line 5, ../scss/print.scss */
+#header,
+#gnav,
+#footer,
+.pagetop {
+  display: none;
+}
