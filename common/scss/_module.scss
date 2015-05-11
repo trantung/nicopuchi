@@ -1,1 +1,58 @@
 @charset "utf-8";
+/*****************************
+	backgound
+******************************/
+.bg-type01 { background-image: url(../../common/img/bg_type01.gif); background-repeat: repeat;}
+.bg-type02 { background-image: url(../../common/img/bg_type02.gif); background-repeat: repeat;}
+.bg-type03 { background-image: url(../../common/img/bg_type03.gif); background-repeat: repeat;}
+.bg-type04 { background-image: url(../../common/img/bg_type04.gif); background-repeat: repeat;}
+.bg-type05 { background-image: url(../../common/img/bg_type05.gif); background-repeat: repeat;}
+
+
+/*****************************
+	icon
+******************************/
+.icn {
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 32px;
+	&.type01 { background-image: url(../../common/img/icn01.png);}
+	&.type02 { background-image: url(../../common/img/icn02.png);}
+	&.type03 { background-image: url(../../common/img/icn03.png);}
+	&.type04 { background-image: url(../../common/img/icn04.png);}
+	&.type05 { background-image: url(../../common/img/icn05.png);}
+	&.type06 { background-image: url(../../common/img/icn06.png); padding-left: 35px;}
+	&.type07 { background-image: url(../../common/img/icn07.png);}
+}
+
+/*****************************
+	list
+******************************/
+.list-type01 { border-top: 1px solid #cdcdcd;
+	li {
+		background-image: url(../../common/img/common/icn_arrow02.png);
+		background-repeat: no-repeat;
+		background-position: 10px center;
+		background-size: 9px 11px;
+		-webkit-background-size: 9px 11px;
+		padding: 15px 10px 10px 30px;
+		border-bottom: 1px solid #cdcdcd;
+		a { color: #16609d;}
+	}
+}
+
+/*****************************
+	module
+******************************/
+.module-type01 {
+}
+.module-head {
+	@extend %clf;
+	position: relative;
+	.right {
+		position: absolute;
+		top: 5px;
+		right: 0;
+	}
+}
+.module-body {}

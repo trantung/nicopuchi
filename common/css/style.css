@@ -2453,9 +2453,204 @@ body {
   width: 300px;
 }
 
+/*index*/
+/* 3.カルーセルスライダー */
+/* line 6, ../scss/_theme.scss */
+.slider-area {
+  width: 720px;
+  position: relative;
+  padding: 20px 0;
+}
+/* line 11, ../scss/_theme.scss */
+.slider-area .slider-type02 li {
+  width: 145px !important;
+}
+/* line 13, ../scss/_theme.scss */
+.slider-area .slider-type02 li a {
+  background-color: #ffffff;
+  display: block;
+  text-decoration: none;
+  width: 140px;
+  min-height: 152px;
+}
+/* line 20, ../scss/_theme.scss */
+.slider-area .slider-type02 li a span {
+  display: block;
+}
+/* line 22, ../scss/_theme.scss */
+.slider-area .slider-type02 li a span.update {
+  background-color: #000000;
+  color: #ffffff;
+  display: block;
+  font-size: 77%;
+  padding: 5px 10px;
+}
+/* line 29, ../scss/_theme.scss */
+.slider-area .slider-type02 li a span.model-name {
+  color: #000000;
+  padding: 5px;
+  font-size: 93%;
+  font-weight: bold;
+}
+/* line 37, ../scss/_theme.scss */
+.slider-area .slider-type02 li a:hover .model-name {
+  color: #ff778c;
+  text-decoration: underline;
+}
+
+/* line 46, ../scss/_theme.scss */
+.slider-area .bx-wrapper,
+.slider-area .bx-wrapper {
+  width: inherit;
+  margin: 0 52px !important;
+}
+
+/* line 51, ../scss/_theme.scss */
+.slider-area .bx-prev,
+.slider-area .bx-next {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 31px;
+  height: 31px;
+  top: 80px;
+}
+
+/* line 63, ../scss/_theme.scss */
+.slider-area .bx-prev {
+  background-image: url(../../common/img/arrow_left01.png);
+  left: 0;
+}
+
+/* line 67, ../scss/_theme.scss */
+.slider-area .bx-next {
+  background-image: url(../../common/img/arrow_right01.png);
+  right: -104px;
+}
+
+/* line 73, ../scss/_theme.scss */
+.bnr-area li {
+  margin-top: 10px;
+}
+/* line 75, ../scss/_theme.scss */
+.bnr-area li:first-child {
+  margin-top: 0;
+}
+
+/*****************************
+	backgound
+******************************/
+/* line 5, ../scss/_module.scss */
+.bg-type01 {
+  background-image: url(../../common/img/bg_type01.gif);
+  background-repeat: repeat;
+}
+
+/* line 6, ../scss/_module.scss */
+.bg-type02 {
+  background-image: url(../../common/img/bg_type02.gif);
+  background-repeat: repeat;
+}
+
+/* line 7, ../scss/_module.scss */
+.bg-type03 {
+  background-image: url(../../common/img/bg_type03.gif);
+  background-repeat: repeat;
+}
+
+/* line 8, ../scss/_module.scss */
+.bg-type04 {
+  background-image: url(../../common/img/bg_type04.gif);
+  background-repeat: repeat;
+}
+
+/* line 9, ../scss/_module.scss */
+.bg-type05 {
+  background-image: url(../../common/img/bg_type05.gif);
+  background-repeat: repeat;
+}
+
+/*****************************
+	icon
+******************************/
+/* line 15, ../scss/_module.scss */
+.icn {
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 32px;
+}
+/* line 19, ../scss/_module.scss */
+.icn.type01 {
+  background-image: url(../../common/img/icn01.png);
+}
+/* line 20, ../scss/_module.scss */
+.icn.type02 {
+  background-image: url(../../common/img/icn02.png);
+}
+/* line 21, ../scss/_module.scss */
+.icn.type03 {
+  background-image: url(../../common/img/icn03.png);
+}
+/* line 22, ../scss/_module.scss */
+.icn.type04 {
+  background-image: url(../../common/img/icn04.png);
+}
+/* line 23, ../scss/_module.scss */
+.icn.type05 {
+  background-image: url(../../common/img/icn05.png);
+}
+/* line 24, ../scss/_module.scss */
+.icn.type06 {
+  background-image: url(../../common/img/icn06.png);
+  padding-left: 35px;
+}
+/* line 25, ../scss/_module.scss */
+.icn.type07 {
+  background-image: url(../../common/img/icn07.png);
+}
+
+/*****************************
+	list
+******************************/
+/* line 31, ../scss/_module.scss */
+.list-type01 {
+  border-top: 1px solid #cdcdcd;
+}
+/* line 32, ../scss/_module.scss */
+.list-type01 li {
+  background-image: url(../../common/img/common/icn_arrow02.png);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 9px 11px;
+  -webkit-background-size: 9px 11px;
+  padding: 15px 10px 10px 30px;
+  border-bottom: 1px solid #cdcdcd;
+}
+/* line 40, ../scss/_module.scss */
+.list-type01 li a {
+  color: #16609d;
+}
+
+/*****************************
+	module
+******************************/
+/* line 49, ../scss/_module.scss */
+.module-head {
+  position: relative;
+}
+/* line 52, ../scss/_module.scss */
+.module-head .right {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
 /* clearfix */
 /* line 9, ../scss/style.scss */
-#header .header-inner:after, #contents:after {
+#header .header-inner:after, #contents:after, .module-head:after {
   content: ".";
   display: block;
   clear: both;
@@ -2464,12 +2659,12 @@ body {
 }
 
 /* line 10, ../scss/style.scss */
-#header .header-inner, #contents {
+#header .header-inner, #contents, .module-head {
   min-height: 1px;
 }
 
 /* line 11, ../scss/style.scss */
-* html #header .header-inner, #header * html .header-inner, * html #contents {
+* html #header .header-inner, #header * html .header-inner, * html #contents, * html .module-head {
   height: 1px;
   /*\*/
   /*/ height: auto; overflow: hidden; /**/

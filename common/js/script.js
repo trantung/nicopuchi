@@ -1,40 +1,8 @@
 (function($) {
 
-	//スマホ用グローバルナビ
-	$("#gnav .sp").css({display: 'none'});
-	var flg = "close";
-	$("#gnav-tgl").click(function(){
-		$("#gnav .sp").slideToggle();
-		if(flg == "close"){
-			$(this).addClass('open');
-			flg = "open";
-		}else{
-			$(this).removeClass("open");
-			flg = "close";
-		}
-		return false;
-	});
-
-	//スマホ用ログインナビ
-
-	$("#head-profile").hide();
-	var flg2 = "close2";
-	$("#logout-tgl,.head-profile-close,.overlay-login").click(function(){
-		$("#head-profile").slideToggle();
-		if(flg2 == "close2"){
-			$("#head-profile").css({ display: 'block'});
-			$(".overlay-login").fadeIn(500);
-			flg2 = "open2";
-		}else{
-			$("#head-profile").css({ display: 'none'});
-			$(".overlay-login").fadeOut(1000);
-			flg2 = "close2";
-		}
-	});
-
 	//ロールオーバーボタン画像透過
-	$("a.fdb img").click(function (){
-		}).hover(function () {
+	$("a.fdb img").click(function (){})
+		.hover(function () {
 			$(this).animate( { opacity:0.7 }, { queue:false, duration:100 } );
 			}, function () {
 			$(this).animate( { opacity:1 }, { queue:false, duration:200 } );
