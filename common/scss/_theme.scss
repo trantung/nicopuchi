@@ -2,51 +2,43 @@
 
 /*index*/
 
-/* 3.カルーセルスライダー */
+/* カルーセルスライダー */
+#mainvisual {
+	margin-bottom: 8px;
+}
 .slider-area {
 	width: 720px;
-	position: relative;
 	padding: 20px 0;
-	.slider-type02 {
-		li {
-			width: 145px!important;
-			a {
-				background-color: #ffffff;
-				display: block;
-				text-decoration: none;
-				width: 140px;
-				min-height: 152px;
-				.thumbsnail {}
-				span {
-					display: block;
-					&.update {
-						background-color: #000000;
-						color: #ffffff;
-						display: block;
-						font-size: 77%;
-						padding: 5px 10px;
-					}
-					&.model-name {
-						color: #000000;
-						padding: 5px;
-						font-size: 93%;
-						font-weight: bold;
-					}
-				}
-				&:hover {
-					.model-name {
-						color: #ff778c;
-						text-decoration: underline;
-					}
-				}
-			}
-		}
-	}
 }
-.slider-area .bx-wrapper,
+#mainvisual .bx-wrapper,
 .slider-area .bx-wrapper {
 	width: inherit;
+	position: relative;
+	height: 100%;
+}
+.slider-area .bx-wrapper {
 	margin: 0 52px!important;
+}
+#mainvisual .bx-prev,
+#mainvisual .bx-next {
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position: absolute;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 44px;
+	height: 44px;
+	top: 42%;
+	padding-bottom: 45%;
+}
+#mainvisual .bx-prev {
+	background-image: url(../../common/img/arrow_left02.png);
+	left: 0;
+}
+#mainvisual .bx-next {
+	background-image: url(../../common/img/arrow_right02.png);
+	right: 0;
 }
 .slider-area .bx-prev,
 .slider-area .bx-next {
@@ -58,17 +50,136 @@
 	overflow: hidden;
 	width: 31px;
 	height: 31px;
-	top: 80px;
+	top: 42%;
+	padding-bottom: 45%;
 }
 .slider-area .bx-prev {
 	background-image: url(../../common/img/arrow_left01.png);
-	left: 0;
+	left: -52px;
 }
 .slider-area .bx-next {
 	background-image: url(../../common/img/arrow_right01.png);
-	right: -104px;
+	right: -52px;
 }
 
+.index-list {
+	li {
+		width: 145px!important;
+		a,.no-link {
+			background-color: #ffffff;
+			display: block;
+			text-decoration: none;
+			width: 140px;
+			min-height: 152px;
+			.thumbsnail {
+				vertical-align: middle;
+			}
+			span {
+				display: block;
+				&.update {
+					background-color: #000000;
+					color: #ffffff;
+					display: block;
+					font-size: 77%;
+					padding: 5px 10px;
+					margin-bottom: 5px;
+				}
+				&.model-name {
+					color: #000000;
+					padding: 5px;
+					font-size: 93%;
+					font-weight: bold;
+					&.type02 {
+						color: #ff778c;
+						font-weight: normal;
+					}
+				}
+				&.blog-ttl {
+					color: #000000;
+					padding: 5px;
+					font-size: 93%;
+					font-weight: bold;
+					-webkit-line-clamp: 3;
+					-moz-line-clamp: 3;
+					-ms-line-clamp: 3;
+					line-clamp: 3;
+					-webkit-box-orient: vertical;
+					-moz-box-orient: vertical;
+					-ms-box-orient: vertical;
+					box-orient: vertical;
+					display: -webkit-box;
+					display: -moz-box;
+					display: -ms-box;
+					display: box;
+					overflow: hidden;
+					white-space: normal;
+					text-overflow: ellipsis;
+					-o-text-overflow: ellipsis;
+					line-height: 1.4;
+					height: 3.6em;
+				}
+				&.blog-desc {
+					color: #000000;
+					padding: 5px;
+					font-size: 93%;
+					font-weight: bold;
+				}
+				&.blog-theme {
+					color: #ff778c;
+					padding: 5px;
+					font-size: 93%;
+					font-weight: normal;
+				}
+			}
+			&:hover {
+				.model-name,
+				.blog-ttl {
+					color: #ff778c;
+					text-decoration: underline;
+				}
+				.model-name.type02 {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+/*タイムライン*/
+#timeline {
+	width: 804px;
+	margin: 0 auto;
+	overflow: hidden;
+	.timeline-inner {
+		width: 100%;
+		margin: 11px auto;
+		.item {
+			width: 258px;
+			margin: 5px;
+			a {
+				border: 6px solid #ffffff;
+				display: block;
+				&:hover { border: 6px solid #fa5798;}
+			}
+		}
+	}
+}
+
+/*weloveput*/
+#weloveputi {
+	padding: 13px;
+	li {
+		margin: 2px;
+		a {
+			background-color: #ffffff;
+			display: block;
+			.name {
+				display: block;
+				padding: 10px 6px;
+			}
+		}
+	}
+}
 .bnr-area {
 	li {
 		margin-top: 10px;
