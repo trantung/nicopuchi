@@ -1,7 +1,7 @@
 (function($) {
 
 	//ロールオーバーボタン画像透過
-	$("a.fdb img").click(function (){})
+	$("a.fdb").click(function (){})
 		.hover(function () {
 			$(this).animate( { opacity:0.7 }, { queue:false, duration:100 } );
 			}, function () {

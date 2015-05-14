@@ -7,6 +7,8 @@
 .bg-type03 { background-image: url(../../common/img/bg_type03.gif); background-repeat: repeat;}
 .bg-type04 { background-image: url(../../common/img/bg_type04.gif); background-repeat: repeat;}
 .bg-type05 { background-image: url(../../common/img/bg_type05.gif); background-repeat: repeat;}
+.bg-type06 { background-image: url(../../common/img/bg_type06.gif); background-repeat: repeat;}
+.bg-type07 { background-image: url(../../common/img/bg_type07.gif); background-repeat: repeat;}
 
 
 /*****************************
@@ -47,6 +49,19 @@
 		display: inline-block;
 		a { color: #16609d;}
 	}
+}
+
+/*****************************
+	inner
+******************************/
+.inner5 {
+	padding: 5px;
+}
+.inner10 {
+	padding: 10px;
+}
+.inner15 {
+	padding: 15px;
 }
 
 /*****************************

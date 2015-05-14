@@ -11,7 +11,9 @@ body {
 	background-color: #fa5798;
 	overflow: hidden;
 	margin-bottom: 17px;
+	width: 100%;
 	.header-inner {
+		min-width: 1150px;
 		display: table;
 		@extend %clf;
 		@extend %wrap;
@@ -38,6 +40,7 @@ body {
 #contents {
 		@extend %clf;
 		@extend %wrap;
+		padding-bottom: 30px;
 }
 #main {
 	display: inline-block;
@@ -48,4 +51,56 @@ body {
 	display: inline-block;
 	@extend %fl_r;
 	width: 300px;
+}
+#footer {
+	background-color: #fcf960;
+	.footer-inner {
+		@extend %wrap;
+		display: table;
+		padding: 28px 0;
+		dl {
+			display: table-cell;
+			vertical-align: top;
+			&.left { width: 732px;}
+			&.right { width: 418px;}
+			dt {}
+			dd {
+				ul {
+					@extend %clf;
+					max-width: 666px;
+					li {
+						display: inline-block;
+						float: left;
+						margin-top: 15px;
+						margin-left: 24px;
+						&:nth-child(4n+1) { margin-left: 0;}
+					}
+				}
+			}
+		}
+	}
+}
+#footer2 {
+	background-color: #ffffff;
+	.inner {
+		@extend %wrap;
+		position: relative;
+		.social-area {
+			padding: 15px 0;
+			@extend %clf;
+			li {
+				display: inline-block;
+				float: left;
+				margin-left: 10px;
+				&:first-child { margin-left: 0;}
+			}
+		}
+		.copyright {
+			color: #fa5798;
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			font-size: 77%;
+		}
+	}
 }
