@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+body {
+	background: #eefbfb url(../img/bg.gif) repeat center top;
+}
+/*--------------------------
+	header
+--------------------------*/
+#header {
+	background-color: #fff;
+	overflow: hidden;
+	width: 100%;
+	.header-inner {
+		position: relative;
+		@extend %clf;
+		@extend %wrap;
+
+		height: 47px;
+		text-align: center;
+		.logo {
+			width: 100%;
+			img {
+				width: 320px;
+				height: 47px;
+			}
+		}
+		.btn-gnav {
+			background-image: url(../img/sp/btn_gnav_close.png);
+			background-repeat: repeat-y;
+			background-position: right top;
+			background-size: 47px 47px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: block;
+			img {
+				width: 47px;
+			}
+			&.open {
+				background-image: url(../img/sp/btn_gnav_open.png);
+				background-repeat: repeat-y;
+				background-position: right top;
+				background-size: 47px 47px;
+			}
+		}
+	}
+}
+
+/*--------------------------
+	gnav
+--------------------------*/
+#gnav {
+	li {
+		background-color: #fa5798;
+		background-image: url(../img/sp/bg_line01.png);
+		background-repeat: repeat-y;
+		background-position: right top;
+		background-size: 1px 1px;
+		display: inline-block;
+		float: left;
+		width: 50%;
+		&:nth-child(n+3) {
+			border-top: 1px solid #ff7bac;
+		}
+		&:nth-child(2n) {
+			background-image: none;
+			float: right;
+		}
+		a {
+			background-image: url(../img/sp/arrow01.png);
+			background-position: right 18px center;
+			background-repeat: no-repeat;
+			background-size: 7px 11px;
+			display: block;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+/*--------------------------
+	contents,main,side
+--------------------------*/
+#contents {
+		padding-bottom: 30px;
+}
+#main {
+	width: 100%;
+}
+#side {
+	width: 100%;
+}
+#footer {
+	background-color: #fcf960;
+	.footer-inner {
+		@extend %wrap;
+		display: table;
+		padding: 28px 0;
+		dl {
+			display: table-cell;
+			vertical-align: top;
+
+			dt {}
+			dd {
+				ul {
+					@extend %clf;
+					li {
+						display: inline-block;
+						float: left;
+						margin-top: 15px;
+						margin-left: 24px;
+						&:nth-child(4n+1) { margin-left: 0;}
+					}
+				}
+			}
+		}
+	}
+}
+#footer2 {
+	background-color: #ffffff;
+	.inner {
+		@extend %wrap;
+		position: relative;
+		.social-area {
+			padding: 15px 0;
+			@extend %clf;
+			li {
+				display: inline-block;
+				float: left;
+				margin-left: 10px;
+				&:first-child { margin-left: 0;}
+			}
+		}
+		.copyright {
+			color: #fa5798;
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+			font-size: 77%;
+		}
+	}
+}

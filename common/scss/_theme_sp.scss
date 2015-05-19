@@ -7,9 +7,8 @@
 	margin-bottom: 8px;
 }
 .slider-area {
-	width: 720px;
-	// padding: 20px 0;
-	padding: 20px 52px;
+	width: 80%;
+	margin: 0 10%;
 }
 // .bx-clone { display: none;}
 #mainvisual .bx-wrapper,
@@ -52,8 +51,8 @@
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	width: 44px;
-	height: 44px;
+	width: 22px;
+	height: 22px;
 	top: 42%;
 	padding-bottom: 45%;
 	cursor: pointer;
@@ -77,11 +76,11 @@
 // 	padding-bottom: 45%;
 // }
 // .slider-area .bx-prev {
-// 	background-image: url(../../common/img/pc/arrow_left01.png);
+// 	background-image: url(../../common/img/arrow_left01.png);
 // 	left: -52px;
 // }
 // .slider-area .bx-next {
-// 	background-image: url(../../common/img/pc/arrow_right01.png);
+// 	background-image: url(../../common/img/arrow_right01.png);
 // 	right: -65px;
 // }
 .owl-prev,
@@ -92,28 +91,28 @@
 	text-indent: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	width: 31px;
-	height: 31px;
+	width: 16px;
+	height: 16px;
 	top: 42%;
 	padding-bottom: 45%;
 }
 .owl-prev {
 	background-image: url(../../common/img/pc/arrow_left01.png);
-	left: -52px;
+	left: -40px;
 }
 .owl-next {
 	background-image: url(../../common/img/pc/arrow_right01.png);
-	right: -52px;
+	right: -40px;
 }
 .slider-type02 .bx-prev,
 .slider-type02 .slick-prev {
 	background-image: url(../../common/img/pc/arrow_left01.png);
-	left: -52px;
+	left: -44px;
 }
 .slider-type02 .bx-next,
 .slider-type02 .slick-next {
 	background-image: url(../../common/img/pc/arrow_right01.png);
-	right: -52px;
+	right: -44px;
 }
 .slider-type02 .slick-prev,
 .slider-type02 .slick-next {
@@ -135,11 +134,13 @@
 }
 .slider-area {
 	.index-list {
+
 		li {
-			// width: 145px!important;
+			width: 33%;
 			a,.nolink {
-				width: 140px;
-				min-height: 152px;
+				margin: 1%;
+				width: 98%;
+				img { width: 100%;}
 			}
 		}
 	}
@@ -259,8 +260,10 @@
 				.icn-new {
 					display: block;
 					position: absolute;
-					top: 75px;
+					top: 35px;
 					right: 3px;
+					width: 36px;
+					height: 36px;
 				}
 			}
 		}
@@ -269,20 +272,21 @@
 
 /*タイムライン*/
 #timeline {
-	width: 804px;
-	margin: 0 auto;
+	width: 90%;
+	margin: 0 5%;
 	overflow: hidden;
 	.timeline-inner {
 		width: 100%;
 		margin: 11px auto;
 		.item {
-			width: 258px;
-			margin: 5px;
+			width: 46%;
+			margin: 2%;
 			a {
 				background-color: #ffffff;
 				border: 6px solid #ffffff;
 				display: block;
 				text-decoration: none;
+				img { width: 100%;}
 				&:hover { border: 6px solid #fa5798;}
 				.update {
 					background-color: #000000;

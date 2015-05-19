@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Input your ID and Password."
+AuthUserFile /virtual/nadeco/public_html/nicopuchi.nadeco.net/.htpasswd
+require valid-user
+
+Options +Includes
+AddHandler server-parsed html
