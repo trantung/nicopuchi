@@ -1,7 +1,11 @@
 @charset "utf-8";
 
 body {
-	background: #eefbfb url(../img/bg.gif) repeat center top;
+	background-color: #eefbfb;
+	background-image: url(../img/sp/bg.gif);
+	background-repeat: repeat;
+	background-position: left top;
+	background-size: 100%;
 }
 /*--------------------------
 	header
@@ -82,9 +86,7 @@ body {
 /*--------------------------
 	contents,main,side
 --------------------------*/
-#contents {
-		padding-bottom: 30px;
-}
+#contents {}
 #main {
 	width: 100%;
 }
@@ -92,52 +94,48 @@ body {
 	width: 100%;
 }
 #footer {
-	background-color: #fcf960;
+	background-color: #fdfc9c;
 	.footer-inner {
-		@extend %wrap;
-		display: table;
-		padding: 28px 0;
-		dl {
-			display: table-cell;
-			vertical-align: top;
-
-			dt {}
-			dd {
-				ul {
-					@extend %clf;
-					li {
-						display: inline-block;
-						float: left;
-						margin-top: 15px;
-						margin-left: 24px;
-						&:nth-child(4n+1) { margin-left: 0;}
-					}
+		.footer-inner-ttl {
+			background-color: #fcf960;
+			padding: 10px 0;
+		}
+		ul {
+			@extend %clf;
+			li {
+				background-image: url(../img/sp/bg_line02.png);
+				background-repeat: repeat-y;
+				background-position: right top;
+				background-size: 1px 1px;
+				display: inline-block;
+				float: left;
+				width: 50%;
+				&:nth-child(n+3) {
+					border-top: 1px solid #ffcd52;
+				}
+				&:nth-child(2n) {
+					background-image: none;
+					float: right;
+				}
+				&.bdb {
+					border-bottom: 1px solid #ffcd52;
+				}
+				a {
+					background-image: url(../img/sp/arrow02.png);
+					background-position: right 18px center;
+					background-repeat: no-repeat;
+					background-size: 7px 11px;
+					display: block;
 				}
 			}
 		}
 	}
 }
-#footer2 {
+.copyright {
 	background-color: #ffffff;
-	.inner {
-		@extend %wrap;
-		position: relative;
-		.social-area {
-			padding: 15px 0;
-			@extend %clf;
-			li {
-				display: inline-block;
-				float: left;
-				margin-left: 10px;
-				&:first-child { margin-left: 0;}
-			}
-		}
-		.copyright {
-			color: #fa5798;
-			position: absolute;
-			right: 0;
-			bottom: 20px;
-			font-size: 77%;
-		}
-	}
+	color: #fa5798;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 20px 0;
 }
