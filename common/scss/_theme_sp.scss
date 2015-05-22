@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import "compass/utilities";
+@import "compass";
 /*index*/
 
 /* カルーセルスライダー */
@@ -17,6 +18,7 @@
 	.bx-pager {
 		@include clearfix;
 		li {
+			background-color: #000000;
 			display: inline-block;
 			float: left;
 			width: 49.5%;
@@ -30,15 +32,13 @@
 				margin-top: 0;
 			}
 			a {
-				background-color: #000000;
 				display: block;
 				text-align: center;
 				position: relative;
 				img {
 					&.thumbsnail {
 						display: block;
-						opacity: 0.8;
-						-moz-opacity: 0.8;
+						@include opacity(.5);
 					}
 					&.cover {
 						display: none;
@@ -50,8 +50,7 @@
 				&.active {
 					img {
 						&.thumbsnail {
-							opacity: 1;
-							-moz-opacity: 1;
+							@include opacity(1);
 						}
 						&.cover {
 							display: block;
@@ -130,6 +129,8 @@
 			li {
 				width: 33%;
 				a,.nolink {
+					display: block;
+					overflow: hidden;
 					margin: 1%;
 					width: 98%;
 				}
@@ -156,6 +157,8 @@
 				min-height: auto;
 			}
 			a {
+				display: block;
+				overflow: hidden;
 				span {
 					&.blog-ttl {
 						padding: 5px 5px 0;
@@ -424,12 +427,13 @@
 				}
 			}
 			a {
+				display: block;
 				dl {
 					display: table;
 					width: 94%;
 					border-top: 1px dotted #cccccc;
-					margin: 0 3% 10px;
-					padding-top: 10px;
+					margin: 0 3%;
+					padding: 10px 0;
 					dt,dd {
 						display: table-cell;
 						vertical-align: top;
@@ -499,8 +503,8 @@
 							font-weight: bold;
 							.price {
 								display: block;
-								margin-top: 10px;
-								font-size: 74%;
+								margin-top: 5px;
+								font-size: 12px;
 								font-weight: bold;
 								white-space: nowrap;
 							}
