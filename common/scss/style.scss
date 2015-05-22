@@ -3,12 +3,6 @@
 @import "layout";
 @import "theme";
 @import "module";
-@import "mixin";
-
-/* clearfix */
-%clf:after  { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
-%clf        { min-height: 1px; }
-* html %clf { height: 1px; /*\*//*/ height: auto; overflow: hidden; /**/ }
 
 /* wrap */
 %wrap { width: 1150px; margin: 0 auto; overflow: hidden;}

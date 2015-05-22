@@ -1,4 +1,7 @@
 @charset "utf-8";
+@import "compass/utilities";
+@import "mixin";
+
 /*****************************
 	backgound
 ******************************/
@@ -71,7 +74,7 @@
 	margin-bottom: 20px;
 }
 .module-head {
-	@extend %clf;
+	@include clearfix;
 	position: relative;
 	.right {
 		position: absolute;

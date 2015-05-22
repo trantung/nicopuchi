@@ -1,0 +1,14 @@
+/* clearfix */
+@mixin clf {
+	min-height: 1px;
+	&:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+}
+
+/* border-radius */
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}

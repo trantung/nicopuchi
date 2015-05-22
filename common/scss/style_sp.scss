@@ -3,7 +3,6 @@
 @import "layout_sp";
 @import "theme_sp";
 @import "module_sp";
-@import "mixin_sp";
 
 /* clearfix */
 %clf:after  { content: "."; display: block; clear: both; height: 0; visibility: hidden; }

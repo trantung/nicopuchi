@@ -1,5 +1,5 @@
 @charset "utf-8";
-
+@import "compass/utilities";
 /*index*/
 
 /* カルーセルスライダー */
@@ -10,25 +10,54 @@
 	width: 80%;
 	padding: 10px 10%;
 }
-.bx-pager {
+.slider-selector {
 	background-color: #fb76af;
-	@extend %clf;
-	text-align: center;
-	padding: 0 5% 1%;
 	border-bottom: 2px solid #fa5798;
-	li {
-		display: inline-block;
-		width: 44%;
-		margin: 1% 1% 0 0;
-		&:nth-child(2n) { margin: 1% 0 0;}
-		a {
-			display: block;
-			&.active {
-				-moz-box-sizing: border-box;
-				-webkit-box-sizing: border-box;
-				-o-box-sizing: border-box;
-				-ms-box-sizing: border-box;
-				border: 3px solid #fff100;
+	padding: 10px;
+	.bx-pager {
+		@include clearfix;
+		li {
+			display: inline-block;
+			float: left;
+			width: 49.5%;
+			margin-top: 1%;
+			overflow: hidden;
+			&:nth-child(2n) {
+				margin-left: 1%;
+				float: right;
+			}
+			&:first-child,&:nth-child(2) {
+				margin-top: 0;
+			}
+			a {
+				background-color: #000000;
+				display: block;
+				text-align: center;
+				position: relative;
+				img {
+					&.thumbsnail {
+						display: block;
+						opacity: 0.8;
+						-moz-opacity: 0.8;
+					}
+					&.cover {
+						display: none;
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+				}
+				&.active {
+					img {
+						&.thumbsnail {
+							opacity: 1;
+							-moz-opacity: 1;
+						}
+						&.cover {
+							display: block;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -236,7 +265,7 @@
 	margin: 0 10px;
 	padding-bottom: 10px;
 	.timeline-inner {
-		@extend %clf;
+		@include clearfix;
 		.item {
 			width: 49%;
 			margin: 1% 2% 1% 0;
@@ -260,8 +289,9 @@
 					dd {
 						text-decoration: none;
 						color: #ffffff;
-						font-size: 10px;
+						font-size: 12px;
 						padding: 5px;
+						text-align: center;
 					}
 				}
 				span {

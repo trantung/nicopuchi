@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import "compass/utilities";
+@import "mixin";
 
 /*index*/
 
@@ -324,7 +326,7 @@
 						text-overflow: ellipsis;
 						-o-text-overflow: ellipsis;
 						line-height: 1.4;
-						height: 2.6em;
+						max-height: 2.6em;
 					}
 					&.blog-desc {
 						font-size: 93%;
@@ -532,7 +534,7 @@
 		li {
 			overflow: hidden;
 			dl {
-				@extend %clf;
+				@include clearfix;
 				dt,dd {
 					display: inline-block;
 				}
@@ -559,7 +561,7 @@
 	}
 }
 #puchicore5 {
-	@extend %clf;
+	@include clearfix;
 	@extend %wrap;
 	border-top: 1px solid #fa5798;
 	.ttl {

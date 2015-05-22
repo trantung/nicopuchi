@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import "compass/utilities";
+@import "mixin";
 
 body {
 	background: #eefbfb url(../common/img/pc/bg.gif) repeat center top;
@@ -15,7 +17,7 @@ body {
 	.header-inner {
 		min-width: 1150px;
 		display: table;
-		@extend %clf;
+		@include clearfix;
 		@extend %wrap;
 		.logo {
 			display: table-cell;
@@ -38,7 +40,7 @@ body {
 	contents,main,side
 --------------------------*/
 #contents {
-		@extend %clf;
+		@include clearfix;
 		@extend %wrap;
 		padding-bottom: 30px;
 }
@@ -66,7 +68,7 @@ body {
 			dt {}
 			dd {
 				ul {
-					@extend %clf;
+					@include clearfix;
 					max-width: 666px;
 					li {
 						display: inline-block;
@@ -87,7 +89,7 @@ body {
 		position: relative;
 		.social-area {
 			padding: 15px 0;
-			@extend %clf;
+			@include clearfix;
 			li {
 				display: inline-block;
 				float: left;

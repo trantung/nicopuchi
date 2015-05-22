@@ -1,4 +1,6 @@
 @charset "utf-8";
+@import "compass/utilities";
+@import "mixin";
 
 body {
 	background-color: #eefbfb;
@@ -54,30 +56,33 @@ body {
 	gnav
 --------------------------*/
 #gnav {
-	li {
-		background-color: #fa5798;
-		background-image: url(../img/sp/bg_line01.png);
-		background-repeat: repeat-y;
-		background-position: right top;
-		background-size: 1px 1px;
-		display: inline-block;
-		float: left;
-		width: 50%;
-		&:nth-child(n+3) {
-			border-top: 1px solid #ff7bac;
-		}
-		&:nth-child(2n) {
-			background-image: none;
-			float: right;
-		}
-		a {
-			background-image: url(../img/sp/arrow01.png);
-			background-position: right 18px center;
-			background-repeat: no-repeat;
-			background-size: 7px 11px;
-			display: block;
-			img {
-				width: 100%;
+	ul {
+		@include clearfix;
+		li {
+			background-color: #fa5798;
+			background-image: url(../img/sp/bg_line01.png);
+			background-repeat: repeat-y;
+			background-position: right top;
+			background-size: 1px 1px;
+			display: inline-block;
+			float: left;
+			width: 50%;
+			&:nth-child(n+3) {
+				border-top: 1px solid #ff7bac;
+			}
+			&:nth-child(2n) {
+				background-image: none;
+				float: right;
+			}
+			a {
+				background-image: url(../img/sp/arrow01.png);
+				background-position: right 18px center;
+				background-repeat: no-repeat;
+				background-size: 7px 11px;
+				display: block;
+				img {
+					width: 100%;
+				}
 			}
 		}
 	}
