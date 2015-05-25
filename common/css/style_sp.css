@@ -2420,55 +2420,42 @@ body {
 #header {
   background-color: #fff;
   overflow: hidden;
-  width: 100%;
 }
-/* line 20, ../scss/_layout_sp.scss */
+/* line 19, ../scss/_layout_sp.scss */
 #header .header-inner {
   position: relative;
-  height: 47px;
-  text-align: center;
-}
-/* line 27, ../scss/_layout_sp.scss */
-#header .header-inner .logo {
+  display: table;
   width: 100%;
 }
-/* line 29, ../scss/_layout_sp.scss */
-#header .header-inner .logo img {
-  width: 320px;
-  height: 47px;
+/* line 24, ../scss/_layout_sp.scss */
+#header .header-inner .logo {
+  display: table-cell;
+  width: 85.3125%;
 }
-/* line 34, ../scss/_layout_sp.scss */
+/* line 28, ../scss/_layout_sp.scss */
 #header .header-inner .btn-gnav {
+  display: table-cell;
+  width: 14.6875%;
   background-image: url(../img/sp/btn_gnav_close.png);
-  background-repeat: repeat-y;
+  background-repeat: no-repeat;
   background-position: right top;
-  background-size: 47px 47px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: block;
+  background-size: 100%;
+  box-sizing: content-box;
 }
-/* line 43, ../scss/_layout_sp.scss */
-#header .header-inner .btn-gnav img {
-  width: 47px;
-}
-/* line 46, ../scss/_layout_sp.scss */
+/* line 36, ../scss/_layout_sp.scss */
 #header .header-inner .btn-gnav.open {
   background-image: url(../img/sp/btn_gnav_open.png);
-  background-repeat: repeat-y;
-  background-position: right top;
-  background-size: 47px 47px;
 }
 
 /*--------------------------
 	gnav
 --------------------------*/
-/* line 60, ../scss/_layout_sp.scss */
+/* line 47, ../scss/_layout_sp.scss */
 #gnav ul {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 62, ../scss/_layout_sp.scss */
+/* line 49, ../scss/_layout_sp.scss */
 #gnav ul li {
   background-color: #fa5798;
   background-image: url(../img/sp/bg_line01.png);
@@ -2479,16 +2466,16 @@ body {
   float: left;
   width: 50%;
 }
-/* line 71, ../scss/_layout_sp.scss */
+/* line 58, ../scss/_layout_sp.scss */
 #gnav ul li:nth-child(n+3) {
   border-top: 1px solid #ff7bac;
 }
-/* line 74, ../scss/_layout_sp.scss */
+/* line 61, ../scss/_layout_sp.scss */
 #gnav ul li:nth-child(2n) {
   background-image: none;
   float: right;
 }
-/* line 78, ../scss/_layout_sp.scss */
+/* line 65, ../scss/_layout_sp.scss */
 #gnav ul li a {
   background-image: url(../img/sp/arrow01.png);
   background-position: right 18px center;
@@ -2496,7 +2483,7 @@ body {
   background-size: 7px 11px;
   display: block;
 }
-/* line 84, ../scss/_layout_sp.scss */
+/* line 71, ../scss/_layout_sp.scss */
 #gnav ul li a img {
   width: 100%;
 }
@@ -2504,26 +2491,26 @@ body {
 /*--------------------------
 	contents,main,side
 --------------------------*/
-/* line 96, ../scss/_layout_sp.scss */
+/* line 83, ../scss/_layout_sp.scss */
 #main {
   width: 100%;
 }
 
-/* line 99, ../scss/_layout_sp.scss */
+/* line 86, ../scss/_layout_sp.scss */
 #side {
   width: 100%;
 }
 
-/* line 102, ../scss/_layout_sp.scss */
+/* line 89, ../scss/_layout_sp.scss */
 #footer {
   background-color: #fdfc9c;
 }
-/* line 105, ../scss/_layout_sp.scss */
+/* line 92, ../scss/_layout_sp.scss */
 #footer .footer-inner .footer-inner-ttl {
   background-color: #fcf960;
   padding: 10px 0;
 }
-/* line 111, ../scss/_layout_sp.scss */
+/* line 98, ../scss/_layout_sp.scss */
 #footer .footer-inner ul li {
   background-image: url(../img/sp/bg_line02.png);
   background-repeat: repeat-y;
@@ -2533,20 +2520,20 @@ body {
   float: left;
   width: 50%;
 }
-/* line 119, ../scss/_layout_sp.scss */
+/* line 106, ../scss/_layout_sp.scss */
 #footer .footer-inner ul li:nth-child(n+3) {
   border-top: 1px solid #ffcd52;
 }
-/* line 122, ../scss/_layout_sp.scss */
+/* line 109, ../scss/_layout_sp.scss */
 #footer .footer-inner ul li:nth-child(2n) {
   background-image: none;
   float: right;
 }
-/* line 126, ../scss/_layout_sp.scss */
+/* line 113, ../scss/_layout_sp.scss */
 #footer .footer-inner ul li.bdb {
   border-bottom: 1px solid #ffcd52;
 }
-/* line 129, ../scss/_layout_sp.scss */
+/* line 116, ../scss/_layout_sp.scss */
 #footer .footer-inner ul li a {
   background-image: url(../img/sp/arrow02.png);
   background-position: right 18px center;
@@ -2555,7 +2542,7 @@ body {
   display: block;
 }
 
-/* line 140, ../scss/_layout_sp.scss */
+/* line 127, ../scss/_layout_sp.scss */
 .copyright {
   background-color: #ffffff;
   color: #fa5798;
@@ -2563,6 +2550,19 @@ body {
   font-size: 12px;
   font-weight: bold;
   padding: 20px 0;
+}
+
+/* line 135, ../scss/_layout_sp.scss */
+.pagetop {
+  position: fixed;
+  right: 10px;
+  bottom: 60px;
+  overflow: hidden;
+}
+/* line 140, ../scss/_layout_sp.scss */
+.pagetop a {
+  display: block;
+  width: 44px;
 }
 
 /*index*/
@@ -3381,7 +3381,7 @@ body {
 
 /* clearfix */
 /* line 8, ../scss/style_sp.scss */
-#header .header-inner:after, #footer .footer-inner ul:after {
+#footer .footer-inner ul:after {
   content: ".";
   display: block;
   clear: both;
@@ -3390,12 +3390,12 @@ body {
 }
 
 /* line 9, ../scss/style_sp.scss */
-#header .header-inner, #footer .footer-inner ul {
+#footer .footer-inner ul {
   min-height: 1px;
 }
 
 /* line 10, ../scss/style_sp.scss */
-* html #header .header-inner, #header * html .header-inner, * html #footer .footer-inner ul, #footer .footer-inner * html ul {
+* html #footer .footer-inner ul, #footer .footer-inner * html ul {
   height: 1px;
   /*\*/
   /*/ height: auto; overflow: hidden; /**/

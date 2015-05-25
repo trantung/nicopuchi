@@ -62,51 +62,8 @@
 	color: transparent;
 	border: none;
 	outline: none;
-	// background: transparent;
 }
 .slick-dots { display: none!important;}
-// .slider-area .bx-prev,
-// .slider-area .bx-next {
-// 	background-repeat: no-repeat;
-// 	background-position: 0 0;
-// 	position: absolute;
-// 	text-indent: 100%;
-// 	white-space: nowrap;
-// 	overflow: hidden;
-// 	width: 44px;
-// 	height: 44px;
-// 	top: 42%;
-// 	padding-bottom: 45%;
-// }
-// .slider-area .bx-prev {
-// 	background-image: url(../../common/img/pc/arrow_left01.png);
-// 	left: -52px;
-// }
-// .slider-area .bx-next {
-// 	background-image: url(../../common/img/pc/arrow_right01.png);
-// 	right: -65px;
-// }
-.owl-prev,
-.owl-next {
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	position: absolute;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	width: 31px;
-	height: 31px;
-	top: 42%;
-	padding-bottom: 45%;
-}
-.owl-prev {
-	background-image: url(../../common/img/pc/arrow_left01.png);
-	left: -52px;
-}
-.owl-next {
-	background-image: url(../../common/img/pc/arrow_right01.png);
-	right: -52px;
-}
 .slider-type02 .bx-prev,
 .slider-type02 .slick-prev {
 	background-image: url(../../common/img/pc/arrow_left01.png);
@@ -133,12 +90,10 @@
 	color: transparent;
 	border: none;
 	outline: none;
-	// background: transparent;
 }
 .slider-area {
 	.index-list {
 		li {
-			// width: 145px!important;
 			a,.nolink {
 				width: 140px;
 				min-height: 152px;
@@ -580,6 +535,43 @@
 			&:nth-child(5n+1) { margin-left: 0;}
 			&:nth-child(-n+5) { margin-top: 0;}
 			a { color: #16609d;}
+		}
+	}
+}
+
+/*02*/
+
+.page02-01 {
+	@include clearfix;
+	background-color: #ffffff;
+	overflow: hidden;
+	.left {
+		display: inline-block;
+		float: left;
+		width: 492px;
+		margin: 0 10px;
+	}
+	.right {
+		display: inline-block;
+		float: right;
+		width: 252px;
+		margin: 0 10px;
+	}
+}
+.page02-01-foot {
+	position: relative;
+	margin-bottom: 20px;
+	dt {
+		position: absolute;
+		top: -15px;
+		left: 0;
+	}
+	dd {
+		background: #f7f7f7;
+		padding: 15px 15px 15px 105px;
+		.desc {
+			line-height: 1.8;
+			margin-bottom: 1em;
 		}
 	}
 }

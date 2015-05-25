@@ -16,38 +16,25 @@ body {
 #header {
 	background-color: #fff;
 	overflow: hidden;
-	width: 100%;
 	.header-inner {
 		position: relative;
-		@extend %clf;
+		display: table;
+		width: 100%;
 		@extend %wrap;
-
-		height: 47px;
-		text-align: center;
 		.logo {
-			width: 100%;
-			img {
-				width: 320px;
-				height: 47px;
-			}
+			display: table-cell;
+			width: 85.3125%;
 		}
 		.btn-gnav {
+			display: table-cell;
+			width: 14.6875%;
 			background-image: url(../img/sp/btn_gnav_close.png);
-			background-repeat: repeat-y;
+			background-repeat: no-repeat;
 			background-position: right top;
-			background-size: 47px 47px;
-			position: absolute;
-			top: 0;
-			right: 0;
-			display: block;
-			img {
-				width: 47px;
-			}
+			background-size: 100%;
+			box-sizing: content-box;
 			&.open {
 				background-image: url(../img/sp/btn_gnav_open.png);
-				background-repeat: repeat-y;
-				background-position: right top;
-				background-size: 47px 47px;
 			}
 		}
 	}
@@ -144,4 +131,14 @@ body {
 	font-size: 12px;
 	font-weight: bold;
 	padding: 20px 0;
+}
+.pagetop {
+	position: fixed;
+	right: 10px;
+	bottom: 60px;
+	overflow: hidden;
+	a {
+		display: block;
+		width: 44px;
+	}
 }

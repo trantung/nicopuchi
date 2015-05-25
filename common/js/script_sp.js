@@ -60,13 +60,13 @@
 	});
 
 	//スマホ用ページトップ
-	$(".pagetop.pc").hide();
+	$(".pagetop").hide();
 	$(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 300) {
-				$('.pagetop.pc').fadeIn();
+				$('.pagetop').fadeIn();
 			} else {
-				$('.pagetop.pc').fadeOut();
+				$('.pagetop').fadeOut();
 			}
 		});
 
