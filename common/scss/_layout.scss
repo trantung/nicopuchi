@@ -57,8 +57,7 @@ body {
 			background-position: left center;
 			padding-left: 25px;
 		}
-		&:first-child:before,
-		&:last-child:before {
+		&:first-child:before{
 			content: none;
 		}
 		&:before {

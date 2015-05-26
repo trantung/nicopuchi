@@ -22,9 +22,21 @@
 /*****************************
 	border
 ******************************/
+.bdb-violet { border-bottom: 4px solid #d7a7db;}
+
+/*****************************
+	border
+******************************/
 .bdbd {
 	border-bottom: 1px dotted #cccccc;
 }
+
+/*****************************
+	position
+******************************/
+.prl { position: relative;}
+.pab { position: absolute;}
+.pfx { position: fixed;}
 
 /*****************************
 	icon
@@ -41,11 +53,40 @@
 	&.type06 { background-image: url(../../common/img/pc/icn06.png); padding-left: 35px;}
 	&.type07 { background-image: url(../../common/img/pc/icn07.png);}
 	&.type09 { background-image: url(../../common/img/pc/icn09.png); padding-left: 25px;}
+	&.type10 { background-image: url(../../common/img/pc/icn10.png); padding-left: 25px;}
+	&.type11 { background-image: url(../../common/img/pc/icn11.png);}
 	&.top {
 		&.type09 {
 			background-image: url(../../common/img/pc/icn09.png);
 			background-position: left -5px;
 			padding-left: 25px;
+		}
+	}
+}
+
+/*****************************
+	btn
+******************************/
+.btn {
+	@include border-radius(4px);
+	text-decoration: none;
+	&.type01 {
+		background-color: #fa5798;
+		color: #ffffff;
+		width: 398px;
+		display: table;
+		margin: 15px auto 0;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		font-size: 93%;
+	}
+	span {
+		display: table-cell;
+		vertical-align: middle;
+		height: 38px;
+		img {
+			vertical-align: middle;
 		}
 	}
 }
@@ -74,7 +115,7 @@
 		text-indent: -1em;
 		margin-left: 1em;
 		color: #999999;
-		font-size: 93%;
+		font-size: 77%;
 	}
 }
 
@@ -82,13 +123,13 @@
 	inner
 ******************************/
 .inner5 {
-	padding: 5px;
+	padding: 5px!important;
 }
 .inner10 {
-	padding: 10px;
+	padding: 10px!important;
 }
 .inner15 {
-	padding: 15px;
+	padding: 15px!important;
 }
 
 /*****************************
@@ -105,6 +146,35 @@
 		font-weight: bold;
 	}
 }
+/*****************************
+	pager
+******************************/
+.page {
+	text-align: center;
+	overflow: hidden;
+	margin: 20px 0;
+	.page-numbers {
+		display: inline-block;
+		background: #ffffff;
+		border: 1px solid #f95797;
+		padding: 5px 10px;
+		color: #f95797;
+		text-decoration: none;
+		&.dots {
+			background: none;
+			border: none;
+		}
+		&.current {
+			background: #ffe0ee;
+		}
+		&.prev {
+			margin-right: 20px;
+		}
+		&.next {
+			margin-left: 20px;
+		}
+	}
+}
 
 /*****************************
 	module
@@ -113,7 +183,6 @@
 	margin-bottom: 20px;
 }
 .module-head {
-	@include clearfix;
 	position: relative;
 	.right {
 		position: absolute;
