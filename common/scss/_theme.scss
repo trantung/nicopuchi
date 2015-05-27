@@ -120,6 +120,7 @@
 				min-height: auto;
 			}
 			a {
+				padding-bottom: 5px;
 				span {
 					&.blog-ttl {
 						padding: 5px 5px 0;
@@ -238,8 +239,8 @@
 		.item {
 			width: 258px;
 			margin: 5px;
+			background-color: #ffffff;
 			a {
-				background-color: #ffffff;
 				border: 6px solid #ffffff;
 				display: block;
 				text-decoration: none;
@@ -298,6 +299,11 @@
 						color: #000000;
 						line-height: 1.4;
 					}
+					&.name {
+						text-align: center;
+						margin: 10px 0 0;
+						color: #000000;
+					}
 				}
 				&:hover {
 					span {
@@ -339,11 +345,11 @@
 
 /*welovepuchi*/
 #welovepuchi {
-	padding: 13px;
+	padding: 12px;
 	li {
 		margin: 2px;
+		background-color: #ffffff;
 		a {
-			background-color: #ffffff;
 			display: block;
 			text-decoration: none;
 			.name {
@@ -382,7 +388,7 @@
 			}
 		}
 	}
-	&#puchinew10 {
+	&.fl {
 		li {
 			border-top: 1px dotted #cccccc;
 			&:first-child { border-top: none;}
@@ -404,7 +410,6 @@
 							color: #ffffff;
 							padding: 5px;
 							text-decoration: none;
-							color: #ffffff;
 							font-size: 77%;
 						}
 					}
@@ -416,12 +421,23 @@
 							margin-bottom: 5px;
 							font-weight: bold;
 						}
-						.category {
-							border: 1px solid #fa5798;
-							color: #fa5798;
-							padding: 2px 4px;
-							font-size: 77%;
-							line-height: 1;
+						span {
+							margin-right: 5px;
+							&.date {
+								background-color: #000000;
+								color: #ffffff;
+								padding: 3px 5px;
+								text-decoration: none;
+								font-size: 77%;
+								line-height: 1;
+							}
+							&.category {
+								border: 1px solid #fa5798;
+								color: #fa5798;
+								padding: 2px 4px;
+								font-size: 77%;
+								line-height: 1;
+							}
 						}
 					}
 				}
@@ -699,6 +715,35 @@
 		}
 	}
 }
+.blog-name {
+	background: url(../../common/img/pc/04/bg_comment.png) no-repeat 120px top;
+	margin: 0 72px;
+	display: table;
+	width: 100%;
+	dt,dd { display: table-cell;}
+	dt {
+		width: 120px;
+	}
+	dd {
+		padding: 10px 0 0 53px;
+		span {
+			&.name {
+				background-color: #f6ed80;
+				font-size: 197%;
+				font-weight: bold;
+			}
+			&.name2 {
+				font-size: 138.5%;
+				vertical-align: bottom;
+				span { vertical-align: bottom;}
+				img {
+					vertical-align: bottom;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
 .blog-area {
 	background: url(../../common/img/pc/04/bg_type01.png) repeat-y center top;
 	padding: 0 72px;
@@ -841,6 +886,93 @@
 						}
 					}
 				}
+			}
+		}
+	}
+}
+
+/*05*/
+.profile-area {
+	background-color: #ffffff;
+	margin: -15px 15px 15px;
+	padding: 15px;
+	.profile-table {
+		@include clearfix;
+		margin-bottom: 40px;
+		.profile-image {
+			display: inline-block;
+			float: left;
+		}
+		.profile-data {
+			display: inline-block;
+			float: right;
+			width: 330px;
+			.ttl {
+				font-size: 182%;
+				color: #fa5798;
+				margin-bottom: 20px;
+			}
+			.data {
+				display: table;
+				width: 100%;
+				font-size: 93%;
+				dt,dd {
+					display: table-cell;
+					padding-bottom: 15px;
+				}
+				dt {
+					width: 30%;
+					color: #b3b3b3;
+				}
+				dd {
+					width: 70%;
+				}
+			}
+			.address {
+				line-height: 1.8;
+			}
+		}
+	}
+	.profile-faq {
+		margin-bottom: 10px;
+		dt {
+			@include border-radius(3px);
+			background-color: #fbeef4;
+			padding: 5px 5px 2px;
+			span {
+				color: #ea6ea4;
+				&:before {
+					content: "Q.";
+					padding-right: 5px;
+					font-weight: bold;
+				}
+			}
+		}
+		dd {
+			@include clearfix;
+			padding: 10px 5px;
+			img {
+				float: left;
+			}
+			p {
+				font-size: 93%;
+			}
+		}
+	}
+}
+
+/*08,09*/
+.about-area,
+.privacy-area {
+	background: #ffffff;
+	.desc {
+		margin-bottom: 15px;
+		p {
+			line-height: 1.6;
+			font-size: 93%;
+			margin-bottom: 15px;
+			a {
+				color: #fa5798;
 			}
 		}
 	}
