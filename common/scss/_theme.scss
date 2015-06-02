@@ -943,6 +943,24 @@
 		letter-spacing: 6px;
 	}
 }
+#og-list {
+	.og-desc {
+		margin-bottom: 5px;
+		.og-icon {
+			background-color: #fff362;
+			color: #ef8200;
+			padding: 5px 5px 3px;
+		}
+		.og-name {
+			font-size: 123.1%;
+		}
+	}
+	.blog-link {
+		color: #f95797;
+		font-size: 123.1%;
+		font-weight: bold;
+	}
+}
 
 /*04*/
 .select-month {
@@ -1481,4 +1499,12 @@
 			}
 		}
 	}
+}
+
+/*10*/
+#inquiry {
+	background-color: #ffffff;
+	margin: 0 54px;
+	padding: 15px;
+
 }
