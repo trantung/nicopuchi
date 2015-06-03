@@ -132,11 +132,8 @@
 		li {
 			width: 140px!important;
 			display: inline-block;
-			margin: 0 3px;
+			margin: 3px;
 			position: relative;
-			&:nth-child(n+7) {
-				margin: 6px 3px 0;
-			}
 			a,.nolink {
 				min-height: auto;
 			}
@@ -906,11 +903,12 @@
 			position: absolute;
 			z-index: 999;
 		}
-		.easy-select-box  .esb-item{
+		.easy-select-box .esb-item{
 			padding:3px;
 			background:#fffdf4;
 			color:#0c2245;
 			cursor:default;
+			text-align: left;
 		}
 		.easy-select-box .esb-item:hover{
 			background:#d2ba85;
