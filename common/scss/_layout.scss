@@ -96,25 +96,23 @@ body {
 	background-color: #fcf960;
 	.footer-inner {
 		@extend %wrap;
-		display: table;
 		padding: 28px 0;
-		dl {
-			display: table-cell;
+		.foot-link {
+			display: table;
 			vertical-align: top;
-			&.left { width: 732px;}
-			&.right { width: 418px;}
-			dt {}
-			dd {
-				ul {
-					@include clearfix;
-					max-width: 666px;
-					li {
-						display: inline-block;
-						float: left;
-						margin-top: 15px;
-						margin-left: 24px;
-						&:nth-child(4n+1) { margin-left: 0;}
-					}
+			.left,
+			.right { display: table-cell;}
+			.left { width: 732px;}
+			.right { width: 418px;}
+			ul {
+				@include clearfix;
+				max-width: 666px;
+				li {
+					display: inline-block;
+					float: left;
+					margin-top: 15px;
+					margin-left: 24px;
+					&:nth-child(4n+1) { margin-left: 0;}
 				}
 			}
 		}

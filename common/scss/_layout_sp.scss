@@ -120,6 +120,12 @@ body {
 					background-size: 7px 11px;
 					display: block;
 				}
+				&.blank {
+					a {
+						background-image: url(../img/sp/icn_blank.png);
+						background-size: 14px 14px;
+					}
+				}
 			}
 		}
 	}

@@ -2541,8 +2541,13 @@ body {
   background-size: 7px 11px;
   display: block;
 }
+/* line 124, ../scss/_layout_sp.scss */
+#footer .footer-inner ul li.blank a {
+  background-image: url(../img/sp/icn_blank.png);
+  background-size: 14px 14px;
+}
 
-/* line 127, ../scss/_layout_sp.scss */
+/* line 133, ../scss/_layout_sp.scss */
 .copyright {
   background-color: #ffffff;
   color: #fa5798;
@@ -2552,14 +2557,14 @@ body {
   padding: 20px 0;
 }
 
-/* line 135, ../scss/_layout_sp.scss */
+/* line 141, ../scss/_layout_sp.scss */
 .pagetop {
   position: fixed;
   right: 10px;
   bottom: 60px;
   overflow: hidden;
 }
-/* line 140, ../scss/_layout_sp.scss */
+/* line 146, ../scss/_layout_sp.scss */
 .pagetop a {
   display: block;
   width: 44px;
