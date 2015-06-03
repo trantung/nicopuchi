@@ -937,7 +937,7 @@
 	.pageview-score {
 		position: absolute;
 		bottom: 26px;
-		left: 71px;
+		left: 90px;
 		font-weight: bold;
 		font-size: 163%;
 		letter-spacing: 6px;
@@ -1029,14 +1029,20 @@
 .blog-name {
 	background: url(../../common/img/pc/04/bg_comment.png) no-repeat 120px top;
 	margin: 0 72px;
-	display: table;
-	width: 100%;
-	dt,dd { display: table-cell;}
+	@include clearfix;
+	position: relative;
 	dt {
 		width: 120px;
+		display: inline-block;
+		float: left;
 	}
 	dd {
-		padding: 10px 0 0 53px;
+		background: url(../../common/img/pc/04/bg_comment_r.png) no-repeat right top;
+		padding: 50px 50px 50px 68px;
+		position: absolute;
+		top: 0;
+		left: 120px;
+		display: inline;
 		span {
 			&.name {
 				background-color: #f6ed80;
@@ -1097,6 +1103,7 @@
 				margin: 30px 0;
 			}
 			p {
+				font-size: 108%;
 				line-height: 1.6;
 				text-align: left;
 			}
@@ -1237,6 +1244,9 @@
 				}
 				dd {
 					width: 70%;
+					a {
+						color: #fa5798;
+					}
 				}
 			}
 			.address {
