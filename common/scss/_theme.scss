@@ -325,6 +325,33 @@
 						font-size: 77%;
 					}
 				}
+				.info {
+					background-color: #000000;
+					display: table;
+					width: 100%;
+					margin-bottom: 10px;
+					span {
+						display: table-cell;
+						vertical-align: middle;
+						text-align: left;
+						&.model-icon {
+							width: 42px;
+							padding: 0 1em 0 0;
+						}
+						&.model-name {
+							color: #d7a7da;
+							padding: 0 1em 0 0;
+							width: 72px;
+							white-space: nowrap;
+						}
+						&.update {
+							text-align: left;
+							color: #ffffff;
+							font-size: 85%;
+							padding: 0;
+						}
+					}
+				}
 				span {
 					display: block;
 					padding: 0 10px;
@@ -1215,9 +1242,21 @@
 	.profile-table {
 		@include clearfix;
 		margin-bottom: 40px;
+		position: relative;
 		.profile-image {
 			display: inline-block;
 			float: left;
+		}
+		.stnumver {
+			background: url(../img/pc/05/bg_heart.png);
+			position: absolute;
+			top: 355px;
+			left: 345px;
+			width: 34px;
+			height: 26px;
+			padding-top: 8px;
+			font-weight: bold;
+			text-align: center;
 		}
 		.profile-data {
 			display: inline-block;
