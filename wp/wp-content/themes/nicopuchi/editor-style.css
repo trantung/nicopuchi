@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/*
+管理画面、tinymceエディター用
+*/
+
+body {
+    background: #ffffff;
+    color: #221814;
+    font-size: 16px;
+    line-height: 1.8;
+}
+body, button, input, select, textarea {
+    font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    line-height: 0;
+}
+input, select, textarea {
+    font-size: 12px;
+    vertical-align: middle;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+a {
+    color: #764932;
+    text-decoration: none;
+    outline: none;
+}
+h1 {
+    margin: 0 0 18px 0;
+    font-size: 24px;
+    color: #9a765e;
+    line-height: 1.2;
+}
+h2 {
+    margin: 40px 0 16px 0;
+    color: #754931;
+    font-size: 20px;
+    line-height: 1.2;
+}
+.alignleft {
+    float: left;
+    margin: 3px 16px 10px 0;
+}
+.aligncenter {
+    display: block;
+    clear: both;
+    margin: 3px auto 10px auto;
+}
+.alignright {
+    float: right;
+    margin: 3px 0 10px 16px;
+}
+
+
