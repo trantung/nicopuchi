@@ -871,12 +871,21 @@
 		height: 31px;
 		.select-box-left {
 			display: table-cell;
-			padding: 0 20px;
+			padding: 0 3px 0 20px;
 			text-align: left;
+			.st-displayer {
+				min-width: 72px;
+			}
 		}
 		.select-box-right {
 			display: table-cell;
 			text-align: right;
+			.st-dropdown {
+				width: 261px;
+			}
+			.st-displayer {
+				width: 245px;
+			}
 		}
 		span {
 			display: inline;
@@ -893,34 +902,40 @@
 				text-align: center;
 			}
 		}
+		.st-select-box,
 		.easy-select-box{
 			background: url(../../common/img/pc/icn_delta01.png) no-repeat right 2px;
-			padding-right: 25px;
 			display: inline-block;
 			font-size: 93%;
 			color: #ffffff;
 		}
+		.st-select-box .st-displayer,
 		.easy-select-box .esb-displayer{
 			color: #ffffff;
 			cursor: default;
 			height: 30px;
 			line-height:30px;
-			padding:0 3px;
-			text-indent: 5px;
-			text-align: right;
+			padding:0 12px 0 0;
+			text-align: left;
+			letter-spacing: -0.02em;
 		}
+		.st-select-box .st-displayer:hover,
 		.easy-select-box .esb-displayer:hover {
 			filter: alpha(opacity=80);
 			-ms-filter: 'alpha(opacity=80)';
 			opacity: .8;
 		}
+		.st-select-box:hover .st-displayer,
 		.easy-select-box:hover .esb-displayer{
 			text-decoration:none;
 		}
+		.st-select-box.disabled .st-displayer,
+		.st-select-box:hover.disabled .st-displayer,
 		.easy-select-box.disabled .esb-displayer,
 		.easy-select-box:hover.disabled .esb-displayer{
 			background-position: 0 -36px;
 		}
+		.st-select-box .st-dropdown,
 		.easy-select-box .esb-dropdown{
 			background: #fff;
 			border: 1px solid #ccc;
@@ -930,6 +945,7 @@
 			position: absolute;
 			z-index: 999;
 		}
+		.st-select-box li,
 		.easy-select-box .esb-item{
 			padding:3px;
 			background:#fffdf4;
@@ -937,6 +953,7 @@
 			cursor:default;
 			text-align: left;
 		}
+		.st-select-box li:hover,
 		.easy-select-box .esb-item:hover{
 			background:#d2ba85;
 			color:#FFFFFF;
@@ -950,7 +967,7 @@
 	height: 112px;
 	position: absolute;
 	top: -105px;
-	left: 10px;
+	left: -13px;
 	.pageview-month {
 		color: #fa5798;
 		font-size: 250%;

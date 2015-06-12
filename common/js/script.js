@@ -156,5 +156,25 @@
 		return unescape(str);
 	}
 
+	//擬似プルダウン
+	$('.st-select-box').each(function(){
+		var _this     = $(this);
+		var _name     = _this.find(".st-displayer");
+		var _nameText = _name.text();
+		var _list     = _this.find(".st-dropdown");
+		_name.on('click', function(){
+			if(_list.css("display") == "block") {
+				_list.hide();
+			} else {
+				_list.slideDown('fast');
+			}
+		});
+		_list.find("li").on("click", function(){
+			_acname = $(this).text();
+			_list.hide();
+			_name.text(_acname);
+		});
+	});
+
 })(jQuery);
 
