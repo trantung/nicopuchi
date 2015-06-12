@@ -24,10 +24,10 @@
     <meta property="og:description" content="****">
     <meta name="viewport" content="width=1150">
     <title><?php wp_title('｜', true, 'right'); ?></title>
-    <link rel="stylesheet" href="<?php home(); ?>/common/css/style.css">
-    <link rel="stylesheet" href="<?php home(); ?>/common/css/ie.css">
-    <link rel="stylesheet" href="<?php home(); ?>/common/css/slick.css">
-    <link rel="stylesheet" media="print" href="<?php home(); ?>/common/css/print.css">
+    <link rel="stylesheet" href="../common/css/style.css">
+    <link rel="stylesheet" href="../common/css/ie.css">
+    <link rel="stylesheet" href="../common/css/slick.css">
+    <link rel="stylesheet" media="print" href="../common/css/print.css">
 </head>
 <body class="<?php my_body_class(); ?>">
 
@@ -44,15 +44,15 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 <div id="header">
     <div class="header-inner">
-        <h1><a href="/"><img src="/common/img/pc/img_logo.png" alt="ニコ☆プチ" width="213" height="64"></a></h1>
+        <h1><a href="/"><img src="../common/img/pc/img_logo.png" alt="ニコ☆プチ" width="213" height="64"></a></h1>
         <ul id="gnav">
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
-            <li><a href="<?php home(); ?>/puchinew/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav02.png" alt="プチニュー10" width="130" height="28"></a></li>
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
-            <li><a href="<?php home(); ?>/nico_cover/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav04.png" alt="ニコプチ表紙" width="129" height="28"></a></li>
-            <li><a href="<?php home(); ?>/nico_profile/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav05.png" alt="プチモ一覧" width="130" height="28"></a></li>
-            <li><a href="<?php home(); ?>/blog/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav06.png" alt="プチモブログ" width="130" height="28"></a></li>
-            <li><a href="<?php home(); ?>/puchisna/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav07.png" alt="プチ撮影日記" width="129" height="28"></a></li>
+            <li><a href="" class="fdb"><img src="../common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
+            <li><a href="../puchinew/" class="fdb"><img src="../common/img/pc/gnav02.png" alt="プチニュー10" width="130" height="28"></a></li>
+            <li><a href="" class="fdb"><img src="../common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
+            <li><a href="../nico_cover/" class="fdb"><img src="../common/img/pc/gnav04.png" alt="ニコプチ表紙" width="129" height="28"></a></li>
+            <li><a href="../nico_profile/" class="fdb"><img src="../common/img/pc/gnav05.png" alt="プチモ一覧" width="130" height="28"></a></li>
+            <li><a href="../blog/" class="fdb"><img src="../common/img/pc/gnav06.png" alt="プチモブログ" width="130" height="28"></a></li>
+            <li><a href="../puchisna/" class="fdb"><img src="../common/img/pc/gnav07.png" alt="プチ撮影日記" width="129" height="28"></a></li>
         <!--/#gnav--></ul>
     </div>
 <!--/#header--></div>
