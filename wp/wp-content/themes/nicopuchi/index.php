@@ -2,11 +2,13 @@
 /**
  * トップページ
  */
+
+$jsonData = getJsonData();
+// print_r($jsonData);
+// die;
+
 ?>
 <?php get_header(); ?>
-
-
-
     <div id="contents">
         <div id="main">
             <div id="mainvisual">
@@ -109,150 +111,23 @@
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <li class="item">
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample02a.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog01.png" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りま</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れ</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample02b.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog02.png" alt="ス-パー読モブログ" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample02d.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog03.png" alt="プチ撮影日記" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02d.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog03.png" alt="プチ撮影日記" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02e.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog04.png" alt="ニコ☆プチ編集部ブログ" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02a.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog01.png" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02e.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog04.png" alt="ニコ☆プチ編集部ブログ" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02b.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog02.png" alt="ス-パー読モブログ" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02d.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog03.png" alt="プチ撮影日記" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02d.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog03.png" alt="プチ撮影日記" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02a.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog01.png" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
-                            <li class="item">
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample02e.png" alt="" width="246" height="164">
-                                    <dl class="update">
-                                        <dt><img src="/common/img/pc/ttl_blog04.png" alt="ニコ☆プチ編集部ブログ" width="123" height="28"></dt>
-                                        <dd>2014.08.14 PM8:00</dd>
-                                    </dl>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れてます。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                </a>
-                            </li>
+                            <?php foreach ($jsonData as $key => $value) {?>
+                                <li class="item">
+                                    <a href="<?=$value['title_link']?>" class="new">
+                                        <img src="<?=get_stylesheet_directory_uri().$value['image'] ?>" alt="" width="246" height="164">
+                                        <dl class="update">
+                                            <dt><img src="/common/img/pc/<?=$value['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?=date('Y m d | g:i a', $value['date'])?></dd>
+                                        </dl>
+                                        <span class="blog-ttl"><?=$value['title']?></span>
+                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$value['desc']?></span>
+                                        <?php if($value['date'] == strtotime(date('Y-m-d'))){ ?>
+                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                        <?}?>
+                                    </a>
+                                </li>
+
+                            <?php } ?>
                         </ul>
                         <a href="" class="btn-more fdb">
                             <span><img src="/common/img/pc/btn_more.png" alt="もっと見る"></span>
@@ -848,46 +723,46 @@
             </ul>
             <!--/#side--></div>
         <!--/#contents--></div>
-        <script type="text/javascript" src="/common/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/common/js/selectivizr-min.js"></script>
-<script type="text/javascript" src="/common/js/script.js"></script>
-<script type="text/javascript" src="/common/js/slick.js"></script>
-<script>
-$("document").ready(function(){
-    $('#mainvisual ul').slick({
-        infinite: true,
-        autoplay:true,
-        dots:true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    });
-    $('.slider-type01').slick({
-        infinite: true,
-        autoplay:true,
-        dots:true,
-        slidesToShow: 4,
-        slidesToScroll: 1
-    });
-    $('.slider-type02').slick({
-        infinite: true,
-        autoplay:true,
-        dots:true,
-        slidesToShow: 5,
-        slidesToScroll: 1
-    });
-});
-</script>
-<script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
-<script>
-    $(function(){
-        $('.masonry-inner').masonry();
-    })
-</script>
-<script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
-<script>
-    $("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
-    $("#puchiblog li a").heightLine(1);
-</script>
+    <script type="text/javascript" src="/common/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/common/js/selectivizr-min.js"></script>
+    <script type="text/javascript" src="/common/js/script.js"></script>
+    <script type="text/javascript" src="/common/js/slick.js"></script>
+    <script>
+        $("document").ready(function(){
+            $('#mainvisual ul').slick({
+                infinite: true,
+                autoplay:true,
+                dots:true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+            $('.slider-type01').slick({
+                infinite: true,
+                autoplay:true,
+                dots:true,
+                slidesToShow: 4,
+                slidesToScroll: 1
+            });
+            $('.slider-type02').slick({
+                infinite: true,
+                autoplay:true,
+                dots:true,
+                slidesToShow: 5,
+                slidesToScroll: 1
+            });
+        });
+    </script>
+    <script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
+    <script>
+        $(function(){
+            $('.masonry-inner').masonry();
+        })
+    </script>
+    <script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
+    <script>
+        $("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
+        $("#puchiblog li a").heightLine(1);
+    </script>
 
 
 <?php get_footer(); ?>

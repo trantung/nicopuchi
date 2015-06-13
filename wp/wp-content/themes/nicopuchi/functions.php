@@ -473,4 +473,10 @@ function remove_more_jump_link($link)
     return $link;
 }
 
+function getJsonData(){
+    $str = file_get_contents(get_stylesheet_directory_uri().'/data/data.json');
+    $jsonData = json_decode($str, true);
+
+    return $jsonData;
+}
 

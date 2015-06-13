@@ -80,7 +80,8 @@ define('AUTOSAVE_INTERVAL', 999999);
 // メディアのアップロード先
 define('UPLOADS', 'uploads');
 
-
+// number object of page
+define('ITEM_PER_PAGE', 36);
 
 /* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
 
