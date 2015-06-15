@@ -140,6 +140,7 @@ function home()
 
 // ログイン画面のロゴを変更する
 add_action('login_enqueue_scripts', 'custom_login_logo');
+/*
 function custom_login_logo()
 {
     ?>
@@ -153,6 +154,7 @@ function custom_login_logo()
     </style>
 <?php
 }
+*/
 
 
 
@@ -545,8 +547,8 @@ function my_pager($pages = '', $range = 2)
         }
     }
 
-    if (1 != $pages)
-    {
+    //if (1 != $pages)
+    //{
         $html = '<div class="pagination">' . $eol;
         $html .= '<ul>' . $eol;
 
@@ -578,7 +580,7 @@ function my_pager($pages = '', $range = 2)
         $html .= '</ul>' . $eol;
         $html .= '</div>' . $eol;
         echo $html;
-    }
+    //}
 }
 
 
