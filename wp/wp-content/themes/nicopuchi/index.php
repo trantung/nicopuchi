@@ -35,17 +35,19 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <?php foreach ($disp_time_line as $key => $value) {?>
+                            <?php foreach ($disp_time_line as $key => $value)
+                            { ?>
                                 <li class="item">
-                                    <a href="<?=$value['title_link']?>" class="new">
-                                        <img src="<?=get_stylesheet_directory_uri().$value['image'] ?>" alt="" width="246" height="164">
+                                    <a href="<?= $value['title_link'] ?>" class="new">
+                                        <img src="<?= get_stylesheet_directory_uri() . $value['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
-                                            <dt><img src="/common/img/pc/<?=$value['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?=date('Y m d | g:i a', $value['date'])?></dd>
+                                            <dt><img src="/common/img/pc/<?= $value['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?= date('Y m d | g:i a', $value['date']) ?></dd>
                                         </dl>
-                                        <span class="blog-ttl"><?=$value['title']?></span>
-                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$value['desc']?></span>
-                                        <?php if($value['date'] == strtotime(date('Y-m-d'))){ ?>
+                                        <span class="blog-ttl"><?= $value['title'] ?></span>
+                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $value['desc'] ?></span>
+                                        <?php if ($value['date'] == strtotime(date('Y-m-d')))
+                                        { ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
                                     </a>
@@ -236,115 +238,32 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 
             <div class="module-type01">
                 <div class="module-head">
-                    <h2 class="icn type05"><img src="/common/img/pc/index/ttl05.png" alt="We&hearts;プチモ" width="130" height="32"></h2>
-                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <h2 class="icn type05"><img src="<?php home(); ?>/common/img/pc/index/ttl05.png" alt="We&hearts;プチモ" width="130" height="32"></h2>
+                    <a href="<?php home(); ?>/nico_profile/" class="right fdb"><img src="<?php home(); ?>/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type05">
-                    <ul id="welovepuchi" class="list-type-center"><!--
-   						-->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05a.png" alt="黒坂莉那" width="110" height="73">
-                                <span class="name">黒坂 莉那 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05b.png" alt="岩崎春果" width="110" height="73">
-                                <span class="name">岩崎 春果 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05c.png" alt="伊藤小春" width="110" height="73">
-                                <span class="name">伊藤 小春 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05d.png" alt="西川茉佑" width="110" height="73">
-                                <span class="name">西川 茉佑 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05e.png" alt="岡香鈴" width="110" height="73">
-                                <span class="name">岡 香鈴 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05f.png" alt="山田碧海" width="110" height="73">
-                                <span class="name">山田 碧海 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05g.png" alt="鈴木伶奈" width="110" height="73">
-                                <span class="name">鈴木 伶奈 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05h.png" alt="大野みさき" width="110" height="73">
-                                <span class="name">大野 みさき &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05i.png" alt="千葉泉恋" width="110" height="73">
-                                <span class="name">千葉 泉恋 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05j.png" alt="乃亜" width="110" height="73">
-                                <span class="name">乃亜 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05k.png" alt="夏目璃乃" width="110" height="73">
-                                <span class="name">夏目 璃乃 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05l.png" alt="涼凪" width="110" height="73">
-                                <span class="name">涼凪 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05m.png" alt="松田 望愛" width="110" height="73">
-                                <span class="name">松田 望愛 &copy;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <?php
+                    $args = array(
+                        'post_type' => 'nico_profile',
+                        'post_per_page' => 13,
+                        'orderby' => 'rand', //■■■普通に最新取得したほうが良いかも（要確認）
+                    );
+                    $the_query = new WP_Query($args);
+                    ?>
+                    <?php if ($the_query->have_posts()) : ?>
+                        <ul id="welovepuchi" class="list-type-center"><!--
+                            <?php while ($the_query->have_posts()) : ?>
+                                <?php $the_query->the_post(); ?>
+                            --><li>
+                                <a href="" class="fdb">
+                                    <img src="/common/img/pc/index/img_sample05a.png" alt="黒坂莉那" width="110" height="73">
+                                    <span class="name">黒坂 莉那 &copy;</span>
+                                </a>
+                            </li><!--
+                            <?php endwhile; ?>
+                    --></ul>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
                 </div>
                 <!--/.module-type01--></div>
             <!--/#main--></div>
@@ -652,25 +571,25 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
     <script type="text/javascript" src="/common/js/script.js"></script>
     <script type="text/javascript" src="/common/js/slick.js"></script>
     <script>
-        $("document").ready(function(){
+        $("document").ready(function() {
             $('#mainvisual ul').slick({
                 infinite: true,
-                autoplay:true,
-                dots:true,
+                autoplay: true,
+                dots: true,
                 slidesToShow: 1,
                 slidesToScroll: 1
             });
             $('.slider-type01').slick({
                 infinite: true,
-                autoplay:true,
-                dots:true,
+                autoplay: true,
+                dots: true,
                 slidesToShow: 4,
                 slidesToScroll: 1
             });
             $('.slider-type02').slick({
                 infinite: true,
-                autoplay:true,
-                dots:true,
+                autoplay: true,
+                dots: true,
                 slidesToShow: 5,
                 slidesToScroll: 1
             });
@@ -678,7 +597,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
     </script>
     <script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
     <script>
-        $(function(){
+        $(function() {
             $('.masonry-inner').masonry();
         })
     </script>
