@@ -42,9 +42,9 @@ function bl_deactivate() {
 }
 
 function crawData(){
-    ///common/img/
     include_once(ABSPATH . WPINC . '/feed.php');
     $group1  = array(
+
         'http://feedblog.ameba.jp/rss/ameblo/sayaka1627/rss20.xml',
         // 'http://feedblog.ameba.jp/rss/ameblo/yurika-love-kiss/rss20.xml',
         'http://feedblog.ameba.jp/rss/ameblo/rin7282002/rss20.xml',
@@ -58,15 +58,16 @@ function crawData(){
     $group3 = array(
         'http://feedblog.ameba.jp/rss/ameblo/nicopuchi-staff/rss20.xml',
     );
-    $arrItem = returnArrayData($group1, 1);
-    array_merge($arrItem, returnArrayData($group2, 2));
-    array_merge($arrItem, returnArrayData($group3, 3));
+    $item_group1 = returnArrayData($group1, 1);
+    $item_group2 = returnArrayData($group1, 2);
+    $item_group3 = returnArrayData($group1, 3);
+    $items = array_merge($item_group1, $item_group2, $item_group3);
+
     $dataJsonFolder= get_stylesheet_directory()."/data";
-    
     if (! file_exists($dataJsonFolder)) {
         mkdir($dataJsonFolder, 0766);
     }
-    file_put_contents($dataJsonFolder."/data.json",json_encode($arrItem));
+    file_put_contents($dataJsonFolder."/data.json",json_encode($items));
 }
 
 function returnImage ($text) {
@@ -82,8 +83,6 @@ function returnImage ($text) {
 }
 
 function returnText($text){
-    // var_dump($text);
-    // die;
     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
     $text = preg_replace('<img\s+src="[\d\w:\/\.]+.(?:png|jpg)"\s+(?:width="\d+")?\s+(?:height="\d+")?\s*>', '', $text);
     return $text;
