@@ -53,21 +53,21 @@ $blogsData = $blogsObj->getData($page);
             <div class="module-body">
                 <div id="timeline" class="masonry">
                     <ul class="masonry-inner mt10">
-                        <?php
-                            foreach($blogsData as $key => $blogData) {
-                        ?>
+                        <?php foreach ($blogsData as $key => $blogData) {?>
                         <li class="item">
-                            <a href="<?php echo $blogData->title_link ?>" class="new">
-                                <img src="<?=$blogData->image ?>" alt="" width="246" height="164">
+                            <a href="<?=$blogData['title_link']?>" class="new">
+                                <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
                                 <dl class="update">
-                                    <dt><img src="/common/img/pc/ttl_blog01.png" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                    <dd><?php echo $blogData->date ?></dd>
+                                    <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                    <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
                                 </dl>
-                                <span class="blog-ttl"><?php echo $blogData->title ?></span>
-                                <span class="blog-ttl"><?php echo $blogData->desc ?></span>
-                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?php echo $blogData->desc ?></div>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                <span class="blog-ttl"><?=$blogData['title']?></span>
+                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$blogData['desc']?></div>
+                                <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                <?php } ?>
                             </a>
+                        </li>
                         <?php } ?>
                     </ul>
                     <?php echo $blogsObj->createLinks($page) ?>
