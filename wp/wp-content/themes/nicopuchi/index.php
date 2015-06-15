@@ -2,9 +2,7 @@
 /**
  * トップページ
  */
-
 $blogsData = getJsonData();
-
 ?>
 <?php get_header(); ?>
     <div id="contents">
@@ -21,7 +19,6 @@ $blogsData = getJsonData();
                     <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
                 </ul>
                 <!--/#mainvisual--></div>
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type01"><img src="/common/img/pc/index/ttl01.png" alt="ニコ☆プチ読者ブログサポーター" width="300" height="32"></h2>
@@ -99,8 +96,6 @@ $blogsData = getJsonData();
                         <!--/#blogSupporter--></div>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
@@ -157,8 +152,6 @@ $blogsData = getJsonData();
                         <!--/#timeline--></div>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type03"><img src="/common/img/pc/index/ttl03.png" alt="プチモ☆ブログ" width="160" height="32"></h2>
@@ -241,11 +234,8 @@ $blogsData = getJsonData();
                             </li>
                         </ul>
                         <!--/#puchiblog--></div>
-
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type04"><img src="/common/img/pc/index/ttl04.png" alt="ニコプチ☆編集部ブログ" width="224" height="32"></h2>
@@ -330,8 +320,6 @@ $blogsData = getJsonData();
                         <!--/#staffblog--></div>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type05"><img src="/common/img/pc/index/ttl05.png" alt="We&hearts;プチモ" width="130" height="32"></h2>
@@ -339,7 +327,7 @@ $blogsData = getJsonData();
                 </div>
                 <div class="module-body bg-type05">
                     <ul id="welovepuchi" class="list-type-center"><!--
-   						-->
+                        -->
                         <li>
                             <a href="" class="fdb">
                                 <img src="/common/img/pc/index/img_sample05a.png" alt="黒坂莉那" width="110" height="73">
@@ -447,15 +435,12 @@ $blogsData = getJsonData();
                 <!--/.module-type01--></div>
             <!--/#main--></div>
         <div id="side" class="mt0">
-
             <ul class="bnr-area">
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h250.png" alt="" width="300" height="250"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
             </ul>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type06"><img src="/common/img/pc/index/ttl06.png" alt="プチニュー10" width="128" height="32"></h2>
@@ -625,9 +610,6 @@ $blogsData = getJsonData();
                     </ul>
                 </div>
                 <!--/.module-type01--></div>
-
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type03"><img src="/common/img/pc/index/ttl07.png" alt="スーパー読モブログ" width="194" height="32"></h2>
@@ -691,8 +673,6 @@ $blogsData = getJsonData();
                         <!--/#readersblog--></ul>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2><img src="/common/img/pc/index/ttl08.png" alt="女子小学生のファッション誌" width="300" height="80"></h2>
@@ -717,8 +697,6 @@ $blogsData = getJsonData();
                     </ul>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type07"><img src="/common/img/pc/index/ttl09.png" alt="ニコ☆プチステッカー" width="198" height="32"></h2>
@@ -739,7 +717,6 @@ $blogsData = getJsonData();
                     </ul>
                 </div>
                 <!--/.module-type01--></div>
-
             <ul class="bnr-area">
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/bnr_nicolanet.png" alt="" width="300" height="144"></a></li>
             </ul>
@@ -791,7 +768,7 @@ $blogsData = getJsonData();
             });
             $('.btn-timeline').click(function(e){
                 e.preventDefault();
-                var url = 'timeline/#25';
+                var url = 'timeline/#24';
                 $(location).attr('href',url);
             });
 
@@ -802,6 +779,4 @@ $blogsData = getJsonData();
         $("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
         $("#puchiblog li a").heightLine(1);
     </script>
-
-
 <?php get_footer(); ?>
