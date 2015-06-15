@@ -19,3 +19,8 @@ define('SPECIAL_SEGMENT_PAGE', 4);
 
 define('DISABLE_WP_CRON', true);
 
+//タイムラインでの1回ごとの表示最大数
+define('ITEM_PER_TIMELINE', 12);
+
+//もっと見るの最大回数（デフォルト表示は1回目とみなす）
+define('MORE_COUNT_PER_TIMELINE', 2);
