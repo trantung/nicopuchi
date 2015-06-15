@@ -135,7 +135,7 @@ function returnArrayData($arrUrl,$group) {
                     $tmp['blog_image'] = 'ttl_blog02.png';
                     break;
                 case 2:
-                    $tmp['blog_image'] = 'ttl_blog02.png'; //unknown
+                    $tmp['blog_image'] = 'ttl_blog05.png';
                     break;
                 case 3:
                     $tmp['blog_image'] = 'ttl_blog04.png';
