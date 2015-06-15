@@ -61,7 +61,12 @@ function crawData(){
     $arrItem = returnArrayData($group1, 1);
     array_merge($arrItem, returnArrayData($group2, 2));
     array_merge($arrItem, returnArrayData($group3, 3));
-    file_put_contents(get_stylesheet_directory()."/data/data.json",json_encode($arrItem));
+    $dataJsonFolder= get_stylesheet_directory()."/data";
+    
+    if (! file_exists($dataJsonFolder)) {
+        mkdir($dataJsonFolder, 0766);
+    }
+    file_put_contents($dataJsonFolder."/data.json",json_encode($arrItem));
 }
 
 function returnImage ($text) {
@@ -90,7 +95,11 @@ function returnArrayData($arrUrl,$group) {
         $folder = $urlexplode[5];
         $feed = fetch_feed($url);
         $items = $feed->get_items();
-        $imgSavePath = get_stylesheet_directory().'/images/'.$folder;
+        $imagesFolder = get_stylesheet_directory()."/images";
+        if (! file_exists($imagesFolder)) {
+            mkdir($imagesFolder, 0766);
+        }
+        $imgSavePath = $imagesFolder.'/'.$folder;
         foreach ($items as $key => $item) {
             $image = returnImage($item->get_content());
             $tmp['title']  = $item->get_title();
