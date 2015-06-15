@@ -27,17 +27,23 @@
 	                <ul class="timeline-inner">
                         <?php while (have_posts()) : the_post(); ?>
 	                        <li class="item">
-                                <a href="<?php the_permalink(); ?>" class="new">
-                                    <img class="full" src="/common/img/sp/04/sample03.jpg" alt="">
+								<?php
+								$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+								$new_flag = ($date_diff <= 4) ? true : false;
+								?>
+                                <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+									<?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                    <img class="full" src="<?php echo $eyecatch[0]; ?>" alt="">
 		                            <dl class="update">
                                         <dd class="puchimoblog">
-                                            <img src="/common/img/sp/04/sample_thum01.jpg" alt="" class="thum">
-                                            <span class="name">モデル名</span>2014.08.14
+											<?php $avatar = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar01'), 'thumbnail'); ?>
+                                            <img src="<?php echo $avatar[0]; ?>" alt="" class="thum">
+                                            <span class="name"><?php the_author_meta('nickname'); ?></span><?php echo get_the_date('Y.m.d'); ?>
                                         </dd>
                                     </dl>
-                                    <span class="blog-ttl">タイトルが入ります</span>
+                                    <span class="blog-ttl"><?php the_title(); ?></span>
                                     <span class="icn-new">
-                                        <img class="full" src="/common/img/sp/icn_new.png" alt="NEW">
+                                        <img class="full" src="<?php home(); ?>/common/img/sp/icn_new.png" alt="NEW">
                                     </span>
                                 </a>
                             </li>
