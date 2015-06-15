@@ -80,7 +80,7 @@ define('WP_POST_REVISIONS', false);
 define('AUTOSAVE_INTERVAL', 999999);
 
 // メディアのアップロード先
-define('UPLOADS', 'uploads');
+//define('UPLOADS', 'uploads');
 
 
 /* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
