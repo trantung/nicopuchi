@@ -3,10 +3,10 @@
  * トップページ
  */
 
-$jsonData = getJsonData();
 
-$disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
+//$disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
 
+$blogsData = getJsonData();
 ?>
 <?php get_header(); ?>
     <div id="contents">
@@ -24,45 +24,140 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 </ul>
                 <!--/#mainvisual--></div>
 
-            <?php require_once('common/inc/pc/blogsupporter.php'); ?>
-
-
+            <div class="module-type01">
+                <div class="module-head">
+                    <h2 class="icn type01"><img src="/common/img/pc/index/ttl01.png" alt="ニコ☆プチ読者ブログサポーター" width="300" height="32"></h2>
+                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                </div>
+                <div class="module-body bg-type01">
+                    <div id="blogsupporter" class="slider-area">
+                        <span class="ttl"><img src="/common/img/pc/index/ttl01b.png" alt="" width="140" height="152"></span>
+                        <ul class="slider-type01 index-list">
+                            <li>
+                                <a href="" class="new">
+                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" class="new">
+                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
+                                    <span class="update">2014.08.14</span>
+                                    <span class="model-name">モデル名が入ります。</span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                        </ul>
+                        <!--/#blogSupporter--></div>
+                </div>
+                <!--/.module-type01--></div>
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
-                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <a href="timeline" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <?php foreach ($disp_time_line as $key => $value)
-                            { ?>
+                            <?php foreach ($blogsData as $key => $blogData) {?>
+                                <?php if($key<12){?>
                                 <li class="item">
-                                    <a href="<?= $value['title_link'] ?>" class="new">
-                                        <img src="<?= get_stylesheet_directory_uri() . $value['image'] ?>" alt="" width="246" height="164">
+                                    <a href="<?=$blogData['title_link']?>" class="new">
+                                        <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
-                                            <dt><img src="/common/img/pc/<?= $value['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?= date('Y m d | g:i a', $value['date']) ?></dd>
+                                            <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
                                         </dl>
-                                        <span class="blog-ttl"><?= $value['title'] ?></span>
-                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $value['desc'] ?></span>
-                                        <?php if ($value['date'] == strtotime(date('Y-m-d')))
-                                        { ?>
+                                        <span class="blog-ttl"><?=$blogData['title']?></span>
+                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$blogData['desc']?></div>
+                                        <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
                                     </a>
                                 </li>
+
+                                <?php } elseif($key>11 && $key<24){ ?>
+
+                                <li class="item more-item" style="display:none">
+                                    <a href="<?=$blogData['title_link']?>" class="new">
+                                        <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
+                                        <dl class="update">
+                                            <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
+                                        </dl>
+                                        <span class="blog-ttl"><?=$blogData['title']?></span>
+                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$blogData['desc']?></span>
+                                        <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
+                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                        <?php } ?>
+                                    </a>
+                                </li>
+
+                                <?php }else {?>
+                                <?php break;}?>
 
                             <?php } ?>
                         </ul>
                         <a href="" class="btn-more fdb">
                             <span><img src="/common/img/pc/btn_more.png" alt="もっと見る"></span>
                         </a>
+
+                        <a href="" class="btn-timeline fdb" style="display:none">
+                            <span><img src="/common/img/pc/viewlist.png" alt="一覧を見る"></span>
+                        </a>
                         <!--/#timeline--></div>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type03"><img src="/common/img/pc/index/ttl03.png" alt="プチモ☆ブログ" width="160" height="32"></h2>
@@ -148,8 +243,6 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type04"><img src="/common/img/pc/index/ttl04.png" alt="ニコプチ☆編集部ブログ" width="224" height="32"></h2>
@@ -235,11 +328,10 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 </div>
                 <!--/.module-type01--></div>
 
-
             <div class="module-type01">
                 <div class="module-head">
-                    <h2 class="icn type05"><img src="<?php home(); ?>/common/img/pc/index/ttl05.png" alt="We&hearts;プチモ" width="130" height="32"></h2>
-                    <a href="<?php home(); ?>/nico_profile/" class="right fdb"><img src="<?php home(); ?>/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <h2 class="icn type05"><img src="/common/img/pc/index/ttl05.png" alt="We&hearts;プチモ" width="130" height="32"></h2>
+                    <a href="/nico_profile/" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type05">
                     <?php
@@ -265,6 +357,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                     --></ul>
                     <?php endif; ?>
                     <?php wp_reset_postdata(); ?>
+
                 </div>
                 <!--/.module-type01--></div>
             <!--/#main--></div>
@@ -276,7 +369,6 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
             </ul>
-
 
             <div class="module-type01">
                 <div class="module-head">
@@ -447,9 +539,6 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                     </ul>
                 </div>
                 <!--/.module-type01--></div>
-
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type03"><img src="/common/img/pc/index/ttl07.png" alt="スーパー読モブログ" width="194" height="32"></h2>
@@ -514,7 +603,6 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 </div>
                 <!--/.module-type01--></div>
 
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2><img src="/common/img/pc/index/ttl08.png" alt="女子小学生のファッション誌" width="300" height="80"></h2>
@@ -539,8 +627,6 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                     </ul>
                 </div>
                 <!--/.module-type01--></div>
-
-
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type07"><img src="/common/img/pc/index/ttl09.png" alt="ニコ☆プチステッカー" width="198" height="32"></h2>
@@ -561,7 +647,6 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                     </ul>
                 </div>
                 <!--/.module-type01--></div>
-
             <ul class="bnr-area">
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/bnr_nicolanet.png" alt="" width="300" height="144"></a></li>
             </ul>
@@ -572,18 +657,20 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
     <script type="text/javascript" src="/common/js/script.js"></script>
     <script type="text/javascript" src="/common/js/slick.js"></script>
     <script>
-        $("document").ready(function() {
+
+        $("document").ready(function(){
             $('#mainvisual ul').slick({
                 infinite: true,
-                autoplay: true,
-                dots: true,
+                autoplay:true,
+                dots:true,
                 slidesToShow: 1,
                 slidesToScroll: 1
             });
             $('.slider-type01').slick({
                 infinite: true,
-                autoplay: true,
-                dots: true,
+
+                autoplay:true,
+                dots:true,
                 slidesToShow: 4,
                 slidesToScroll: 1
             });
@@ -591,6 +678,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 infinite: true,
                 autoplay: true,
                 dots: true,
+
                 slidesToShow: 5,
                 slidesToScroll: 1
             });
@@ -598,8 +686,22 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
     </script>
     <script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
     <script>
-        $(function() {
+
+        $(function(){
             $('.masonry-inner').masonry();
+            $('.btn-more').click(function(e) {
+                e.preventDefault();
+                $(this).hide();
+                $('.more-item').show();
+                $('.btn-timeline').show();
+                $('.masonry-inner').masonry();
+            });
+            $('.btn-timeline').click(function(e){
+                e.preventDefault();
+                var url = 'timeline/#24';
+                $(location).attr('href',url);
+            });
+
         })
     </script>
     <script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
@@ -607,6 +709,5 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
         $("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
         $("#puchiblog li a").heightLine(1);
     </script>
-
 
 <?php get_footer(); ?>

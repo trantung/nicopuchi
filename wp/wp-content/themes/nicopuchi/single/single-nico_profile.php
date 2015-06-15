@@ -4,8 +4,6 @@
  */
 ?>
 
-
-
 <div id="contents">
     <div id="main">
         <?php my_breadcrumbs(); ?>

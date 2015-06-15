@@ -95,30 +95,35 @@ remove_action('wp_head', 'wp_generator', 10);
 
 // ループの「偶数、奇数、最初、最後、余剰」を取得する
 function is_loop_first()
+
 {
     global $wp_query;
     return ($wp_query->current_post === 0);
 }
 
 function is_loop_last()
+
 {
     global $wp_query;
     return ($wp_query->current_post + 1 === $wp_query->post_count);
 }
 
 function is_loop_odd()
+
 {
     global $wp_query;
     return ((($wp_query->current_post + 1) % 2) === 1);
 }
 
 function is_loop_even()
+
 {
     global $wp_query;
     return ((($wp_query->current_post + 1) % 2) === 0);
 }
 
 function is_loop_residue($base, $current)
+
 {
     global $wp_query;
     return ((($wp_query->current_post + 1) % $base) === $current);
@@ -140,6 +145,7 @@ function home()
 
 // ログイン画面のロゴを変更する
 /*
+
 add_action('login_enqueue_scripts', 'custom_login_logo');
 function custom_login_logo()
 {
@@ -155,7 +161,6 @@ function custom_login_logo()
 <?php
 }
 */
-
 
 
 
@@ -550,6 +555,7 @@ function my_pager($pages = '', $range = 2)
 
     //if (1 != $pages)
     //{
+
         $html = '<div class="pagination">' . $eol;
         $html .= '<ul>' . $eol;
 
@@ -582,6 +588,7 @@ function my_pager($pages = '', $range = 2)
         $html .= '</div>' . $eol;
         echo $html;
     //}
+
 }
 
 
@@ -602,19 +609,10 @@ function remove_more_jump_link($link)
     return $link;
 }
 
-
 function getJsonData(){
-//    $str = file_get_contents(get_stylesheet_directory_uri().'/data/data.json');
-
-    $str = file_get_contents('/var/www/src/public_html/wp/wp-content/themes/nicopuchi/data/data.json');
-
-    $jsonData = json_decode($str, true);
-
-    if ($jsonData === null) {
-    	$json_decode = [];
-    }
-
-    return $jsonData;
+   $source = file_get_contents(get_stylesheet_directory().'/data/data.json');
+   $jsonData = json_decode($source, true);
+   return $jsonData;
 }
 
 

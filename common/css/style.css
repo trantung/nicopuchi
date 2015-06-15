@@ -3119,7 +3119,7 @@ body {
   border: 6px solid #ffcece;
 }
 /* line 449, ../scss/_theme.scss */
-.masonry .btn-more {
+.masonry .btn-more, .btn-timeline{
   background-color: #fa5798;
   display: table;
   text-align: center;
@@ -3127,7 +3127,7 @@ body {
   margin-bottom: 10px;
 }
 /* line 455, ../scss/_theme.scss */
-.masonry .btn-more span {
+.masonry .btn-more span, .btn-timeline span  {
   display: table-cell;
   height: 38px;
   line-height: 1;
