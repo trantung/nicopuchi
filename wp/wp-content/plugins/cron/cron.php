@@ -68,8 +68,8 @@ function crawData(){
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
     $item_group4 = returnArrayData($group4, 4);
-    $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog03.png');
-    $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog03.png');
+    $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog05.png');
+    $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog06.png');
     $items = array_merge($item_group1, $item_group2, $item_group3, $item_group4, $item_group5, $item_group6);
 
     $dataJsonFolder= get_stylesheet_directory()."/data";
@@ -135,7 +135,7 @@ function returnArrayData($arrUrl,$group) {
                     $tmp['blog_image'] = 'ttl_blog02.png';
                     break;
                 case 2:
-                    $tmp['blog_image'] = 'ttl_blog02.png'; //unknown
+                    $tmp['blog_image'] = 'ttl_blog06.png';
                     break;
                 case 3:
                     $tmp['blog_image'] = 'ttl_blog04.png';
@@ -169,7 +169,7 @@ function getXMLData($url, $username, $password, $domain, $bg_image){
         $tmp['date']=$child->datetime.'';
         $tmp['desc']=$child->body.'';
         $tmp['image']=$domain.$child->img.'';
-        $tmp['blog_image'] = $bg_image; //unknown
+        $tmp['blog_image'] = $bg_image; 
         $item[] = $tmp;
       }
     return $item;
