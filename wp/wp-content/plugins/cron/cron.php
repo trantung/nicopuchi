@@ -42,6 +42,7 @@ function bl_deactivate() {
 }
 
 function crawData(){
+    // getXMLData();
     include_once(ABSPATH . WPINC . '/feed.php');
     $group1  = array(
         'http://feedblog.ameba.jp/rss/ameblo/sayaka1627/rss20.xml',
@@ -60,7 +61,8 @@ function crawData(){
     $item_group1 = returnArrayData($group1, 1);
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
-    $items = array_merge($item_group1, $item_group2, $item_group3);
+    $item_group4 = getXMLData();
+    $items = array_merge($item_group1, $item_group2, $item_group3, $item_group4);
 
     $dataJsonFolder= get_stylesheet_directory()."/data";
     if (! file_exists($dataJsonFolder)) {
@@ -112,14 +114,14 @@ function returnArrayData($arrUrl,$group) {
                 $imgName = $imgSavePath.'/img'.$key.'.png';
                 file_put_contents($imgName, $contentImage);
                 $name = 'img'.$key.'.png';
-                $tmp['image'] = "/images/".$folder.'/'.$name;
+                $tmp['image'] = get_stylesheet_directory_uri()."/images/".$folder.'/'.$name;
             }
             switch ($group) {
                 case 1:
                     $tmp['blog_image'] = 'ttl_blog02.png';
                     break;
                 case 2:
-                    $tmp['blog_image'] = 'ttl_blog04.png';
+                    $tmp['blog_image'] = 'ttl_blog04.png'; //chua biet
                     break;
                 case 3:
                     $tmp['blog_image'] = 'ttl_blog04.png';
@@ -131,7 +133,58 @@ function returnArrayData($arrUrl,$group) {
             $arrItem[]=$tmp;
         }
     }
-
     return $arrItem;
 }
 
+function getXMLData(){
+  $note=<<<XML
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<data>
+    <article>
+        <title><![CDATA[記事タイトル1]]></title>
+        <datetime><![CDATA[記事投稿日時1]]></datetime>
+        <img><![CDATA[画像URL1]]></img>
+        <name><![CDATA[投稿者の名前1]]></name>
+        <body><![CDATA[記事本文1]]></body>
+        <link><![CDATA[リンク先URL1]]></link>
+    </article>
+    <article>
+        <title><![CDATA[記事タイトル2]]></title>
+        <datetime><![CDATA[記事投稿日時2]]></datetime>
+        <img><![CDATA[画像URL2]]></img>
+        <name><![CDATA[投稿者の名前2]]></name>
+        <body><![CDATA[記事本文2]]></body>
+        <link><![CDATA[リンク先URL2]]></link>
+    </article>
+    <article>
+        <title><![CDATA[記事タイトル3]]></title>
+        <datetime><![CDATA[記事投稿日時3]]></datetime>
+        <img><![CDATA[画像URL3]]></img>
+        <name><![CDATA[投稿者の名前3]]></name>
+        <body><![CDATA[記事本文3]]></body>
+        <link><![CDATA[リンク先URL3]]></link>
+    </article>
+    <article>
+        <title><![CDATA[記事タイトル4]]></title>
+        <datetime><![CDATA[記事投稿日時4]]></datetime>
+        <img><![CDATA[画像URL4]]></img>
+        <name><![CDATA[投稿者の名前4]]></name>
+        <body><![CDATA[記事本文4]]></body>
+        <link><![CDATA[リンク先URL4]]></link>
+    </article>
+</data>
+XML;
+
+$xml=simplexml_load_string($note);
+$item = array();
+    foreach($xml->children() as $child) {
+        $tmp['title']=$child->title.'';
+        $tmp['title_link']=$child->link.'';
+        $tmp['date']=$child->datetime.'';
+        $tmp['desc']=$child->body.'';
+        $tmp['image']=$child->img.'';
+        $tmp['blog_image'] = 'ttl_blog03.png'; //chua biet
+        $item[] = $tmp;
+      }
+    return $item;
+}

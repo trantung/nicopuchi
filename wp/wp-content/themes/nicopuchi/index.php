@@ -4,6 +4,8 @@
  */
 
 $jsonData = getJsonData();
+// var_dump($jsonData);
+// die;
 
 $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
 
@@ -111,10 +113,10 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <?php foreach ($disp_time_line as $key => $value) {?>
+                            <?php foreach ($jsonData as $key => $value) {?>
                                 <li class="item">
                                     <a href="<?=$value['title_link']?>" class="new">
-                                        <img src="<?=get_stylesheet_directory_uri().$value['image'] ?>" alt="" width="246" height="164">
+                                        <img src="<?=$value['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
                                             <dt><img src="/common/img/pc/<?=$value['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
                                             <dd><?=date('Y m d | g:i a', $value['date'])?></dd>
