@@ -92,6 +92,7 @@ function returnImage ($text) {
 function returnText($text){
     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
     $text = preg_replace('/<img[^>]+src="[^"]+\.(?:png|jpg|jpeg)"[^>]+>/', "", $text);
+    $text = preg_replace('/CANDYからの投稿/', "", $text);
     return $text;
 }
 function cmp($a, $b)
