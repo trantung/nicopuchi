@@ -12,13 +12,9 @@ get_header();
 
 
 
-if (stristr($cat_list_str, '|interview|'))
+if (is_category('blog'))
 {
-    include(TEMPLATEPATH . '/category/category-interview.php');
-}
-else
-{
-    include(TEMPLATEPATH . '/category/category-info.php');
+    include(TEMPLATEPATH . '/category/category-blog.php');
 }
 
 

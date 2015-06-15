@@ -228,7 +228,7 @@ function register_cpt_puchinew()
             'author',
             'revisions',
             'editor',
-            //thumbnail
+            'thumbnail',
             //excerpt
             //comments
             //trackbacks
@@ -255,16 +255,142 @@ function register_cpt_puchinew()
 
 
 
+// カスタム投稿タイプ登録（プチモプロフィール）
+add_action('init', 'register_cpt_nico_profile');
+function register_cpt_nico_profile()
+{
+    $labels = array(
+        'name' => 'プチモプロフィール',
+        'singular_name' => 'プチモプロフィール',
+        'add_new' => '新規追加',
+        'add_new_item' => '新規追加',
+        'edit_item' => '編集する',
+        'new_item' => '新規',
+        'all_items' => '一覧',
+        'view_item' => '投稿を表示',
+        'search_items' => '検索する',
+        'not_found' => '投稿が見つかりませんでした。',
+        'not_found_in_trash' => 'ゴミ箱内に投稿が見つかりませんでした。',
+        'menu_name' => 'プチモプロフィール',
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => false,
+        'description' => '',
+        'supports' => array(
+            'title',
+            'author',
+            'revisions',
+            'editor',
+            'thumbnail',
+            //excerpt
+            //comments
+            //trackbacks
+            //custom-fields
+            //revisions
+            //page-attributes ：属性（「hierarchical」を「true」に設定している場合のみ指定）
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 6,
+        //'menu_icon' => '',
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type('nico_profile', $args);
+}
+
+
+
+// カスタム投稿タイプ登録（表紙コレクション）
+add_action('init', 'register_cpt_nico_cover');
+function register_cpt_nico_cover()
+{
+    $labels = array(
+        'name' => '表紙コレクション',
+        'singular_name' => '表紙コレクション',
+        'add_new' => '新規追加',
+        'add_new_item' => '新規追加',
+        'edit_item' => '編集する',
+        'new_item' => '新規',
+        'all_items' => '一覧',
+        'view_item' => '投稿を表示',
+        'search_items' => '検索する',
+        'not_found' => '投稿が見つかりませんでした。',
+        'not_found_in_trash' => 'ゴミ箱内に投稿が見つかりませんでした。',
+        'menu_name' => '表紙コレクション',
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => false,
+        'description' => '',
+        'supports' => array(
+            'title',
+            'author',
+            'revisions',
+            'editor',
+            'thumbnail',
+            //excerpt
+            //comments
+            //trackbacks
+            //custom-fields
+            //revisions
+            //page-attributes ：属性（「hierarchical」を「true」に設定している場合のみ指定）
+        ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 6,
+        //'menu_icon' => '',
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type('nico_cover', $args);
+}
+
+
+
 
 
 // editor-style.cssの設定
 add_editor_style('editor-style.css');
 
 
+add_theme_support('post-thumbnails');
 
 
 
+// ■■■フィードを独自のものに差し替え
+remove_filter('do_feed_rss2', 'do_feed_rss2', 10);
+add_action('do_feed_rss2', 'custom_feed_rss2', 10);
+function custom_feed_rss2()
+{
+    $template_file = '/feed/feed-rss2.php';
+    load_template(get_template_directory() . $template_file);
+}
 
+
+
+// tinymceのクリーンアップ無効化
+add_filter('tiny_mce_before_init', 'tinymce_init');
+function tinymce_init($init)
+{
+    $init['verify_html'] = false;
+    return $init;
+}
 
 
 
@@ -473,10 +599,4 @@ function remove_more_jump_link($link)
     return $link;
 }
 
-function getJsonData(){
-    $str = file_get_contents(get_stylesheet_directory_uri().'/data/data.json');
-    $jsonData = json_decode($str, true);
-
-    return $jsonData;
-}
 

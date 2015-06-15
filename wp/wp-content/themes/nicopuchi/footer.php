@@ -108,10 +108,10 @@
 
 
 
-<script type="text/javascript" src="/common/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/common/js/selectivizr-min.js"></script>
-<script type="text/javascript" src="/common/js/script.js"></script>
-<script type="text/javascript" src="/common/js/slick.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/selectivizr-min.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/script.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/slick.js"></script>
 <script>
 $("document").ready(function(){
 	$('#mainvisual ul').slick({
@@ -130,19 +130,19 @@ $("document").ready(function(){
 	});
 });
 </script>
-<script type="text/javascript" src="/common/js/easyselectbox.min.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/easyselectbox.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$('.design-select-box').easySelectBox();
 	})
 </script>
-<script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/masonry.pkgd.min.js"></script>
 <script>
 	$(function(){
 		$('.masonry-inner').masonry();
 	})
 </script>
-<script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
+<script type="text/javascript" src="<?php home(); ?>/common/js/jquery.heightLine.js"></script>
 <script>
 	$("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
 	$("#puchiblog li a").heightLine(1);

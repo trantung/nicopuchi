@@ -4,8 +4,8 @@
  */
 
 $jsonData = getJsonData();
-// print_r($jsonData);
-// die;
+
+$disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
 
 ?>
 <?php get_header(); ?>
@@ -111,7 +111,7 @@ $jsonData = getJsonData();
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <?php foreach ($jsonData as $key => $value) {?>
+                            <?php foreach ($disp_time_line as $key => $value) {?>
                                 <li class="item">
                                     <a href="<?=$value['title_link']?>" class="new">
                                         <img src="<?=get_stylesheet_directory_uri().$value['image'] ?>" alt="" width="246" height="164">
@@ -123,7 +123,7 @@ $jsonData = getJsonData();
                                         <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$value['desc']?></span>
                                         <?php if($value['date'] == strtotime(date('Y-m-d'))){ ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                        <?}?>
+                                        <?php } ?>
                                     </a>
                                 </li>
 
