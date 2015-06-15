@@ -19,15 +19,13 @@
                         <?php while (have_posts()) : the_post(); ?>
                             <li>
                                 <?php
-                                //$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
-                                //if () {
-                                //
-                                //}
+                                $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                $new_flag = ($date_diff <= 4) ? true : false;
                                 ?>
                                 <?php if (get_the_content()) : ?>
-                                    <a href="<?php the_permalink(); ?>" class="new">
+                                    <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                 <?php elseif (get_field('link')) : ?>
-                                    <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
+                                    <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                 <?php endif; ?>
                                     <dl>
                                         <dt>

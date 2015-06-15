@@ -32,7 +32,11 @@
                         <ul class="masonry-inner">
                             <?php while (have_posts()) : the_post(); ?>
                                 <li class="item">
-                                    <a href="<?php the_permalink(); ?>" class="new">
+                                    <?php
+                                    $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                    $new_flag = ($date_diff <= 4) ? true : false;
+                                    ?>
+                                    <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                         <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
                                         <img src="<?php echo $eyecatch[0]; ?>" alt="" width="246">
                                         <div class="info">
