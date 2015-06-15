@@ -761,10 +761,6 @@ $blogsData = getJsonData();
                 $('.more-item').show();
                 $('.btn-timeline').show();
                 $('.masonry-inner').masonry();
-                // $('img', $(this)).attr('src', '/common/img/pc/btn_more.png').attr('alt', '一覧を見る');
-                // $(this).removeClass('btn-more').addClass('btn-timeline');
-                // $(this).removeClass('btn-more').addClass('btn-timeline');
-                // $('.more-item').show();
             });
             $('.btn-timeline').click(function(e){
                 e.preventDefault();
