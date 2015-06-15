@@ -58,13 +58,14 @@ $blogsData = $blogsObj->getData($page);
                         ?>
                         <li class="item">
                             <a href="<?php echo $blogData->title_link ?>" class="new">
-                                <img src="<?php echo get_stylesheet_directory_uri() . $blogData->image ?>" alt="" width="246" height="164">
+                                <img src="<?=$blogData->image ?>" alt="" width="246" height="164">
                                 <dl class="update">
                                     <dt><img src="/common/img/pc/ttl_blog01.png" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
                                     <dd><?php echo $blogData->date ?></dd>
                                 </dl>
                                 <span class="blog-ttl"><?php echo $blogData->title ?></span>
                                 <span class="blog-ttl"><?php echo $blogData->desc ?></span>
+                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?php echo $blogData->desc ?></div>
                                 <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                             </a>
                         <?php } ?>
