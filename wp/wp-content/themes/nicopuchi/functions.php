@@ -600,3 +600,18 @@ function remove_more_jump_link($link)
 }
 
 
+function getJsonData(){
+//    $str = file_get_contents(get_stylesheet_directory_uri().'/data/data.json');
+
+    $str = file_get_contents('/var/www/src/public_html/wp/wp-content/themes/nicopuchi/data/data.json');
+
+    $jsonData = json_decode($str, true);
+
+    if ($jsonData === null) {
+    	$json_decode = [];
+    }
+
+    return $jsonData;
+}
+
+
