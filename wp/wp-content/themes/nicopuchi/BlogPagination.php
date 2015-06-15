@@ -3,7 +3,7 @@ class BlogPagination {
 
     private $_data;
     private $_limit;
-    private $_page;
+    private $_totalPage;
     private $_total;
 
     public function __construct()
@@ -11,7 +11,7 @@ class BlogPagination {
         $this->_data = json_decode(file_get_contents(get_stylesheet_directory() . '/data/data.json'));
         $this->_limit = ITEM_PER_PAGE;
         $this->_total = count($this->_data);
-        $this->_page = ceil($this->_total / $this->_limit);
+        $this->_totalPage = ceil($this->_total / $this->_limit);
     }
 
     public function getData($page = 1)
@@ -32,26 +32,28 @@ class BlogPagination {
 
     public function getDot()
     {
-        return '<span class="page-numbers dots">…</span>';
+        return $this->_totalPage < MAX_PAGE_LINK ? null : '<span class="page-numbers dots">…</span>';
     }
 
     public function getLinkNextPage($page)
     {
-        return $this->getLinkPage($page + 1);
+        return $page == $this->_totalPage ? '' : $this->getLinkPage($page + JUMP_PAGE, '&gt;');
     }
 
-    public function getLinkPage($page)
-    {
-        return '<a class="page-numbers" href="'. site_url('timeline') .'?page='. $page .'">' . $page . '</a>';
-    }
     public function getLinkPrevPage($page)
     {
-        return $this->getLinkPage($page -1);
+        return $page == FIRST_PAGE ? '' : $this->getLinkPage($page -JUMP_PAGE, '&lt;');
+    }
+
+    public function getLinkPage($page, $navigate = null)
+    {
+        $navigate = $navigate ? $navigate : $page;
+        return '<a class="page-numbers" href="'. site_url('timeline') .'/?page='. $page .'">' . $navigate . '</a>';
     }
 
     public function getLinkLastPage()
     {
-        return $this->getLinkPage($this->_total);
+        return $this->getLinkPage($this->_totalPage);
     }
 
     public function getLinkFirstPage()
@@ -59,50 +61,46 @@ class BlogPagination {
         return $this->getLinkPage(1);
     }
 
-    public function getLinkBody($page)
+    public function createLinks($page)
     {
-
-        if ($page < $this->_total - 6) {
-            return $this->getLinkCurrentPage($page)
-            . $this->getLinkPage($page + 1)
-            . $this->getLinkPage($page + 2)
-            . $this->getLinkPage($page + 3)
-            . $this->getLinkPage($page + 4)
-            . $this->getLinkPage($page + 5);
-        } else {
-            return  $this->getLinkPage($page - 5)
-            . $this->getLinkPage($page - 4)
-            . $this->getLinkPage($page - 3)
-            . $this->getLinkPage($page - 2)
-            . $this->getLinkPage($page - 1)
-            . $this->getLinkCurrentPage($page);
-        }
-
-
-    }
-    public function createLinks( $page ) {
-
         $html       = '<p class="page mb40">';
-
-        if ($page == 1 || $page == 2) {
-            $html .= $this->getLinkBody($page)
-                . $this->getDot()
-                . $this->getLinkLastPage()
-                . $this->getLinkNextPage($page);
-        }else if ($page == $this->_total || $page == $this->_total - 1) {
-            $html = $this->getLinkPrevPage($page)
-                . $this->getLinkFirstPage()
-                . $this->getDot()
-                . $this->getLinkBody($page);
+        $firstPageLink = '';
+        $lastPageLink = '';
+        $firstDot = '';
+        $lastDot = '';
+        if ($this->_totalPage <= MAX_PAGE_LINK) {
+            $firstBodyLink = FIRST_PAGE;
+            $lastBodyLink = $this->_totalPage;
         } else {
-            $html = $this->getLinkPrevPage($page)
-                . $this->getLinkFirstPage()
-                . $this->getDot()
-                . $this->getLinkBody($page)
-                . $this->getDot()
-                . $this->getLinkLastPage()
-                . $this->getLinkPage($page);
+            if ($page <= SPECIAL_SEGMENT_PAGE) {
+                $firstBodyLink = FIRST_PAGE;
+                $lastBodyLink = MAX_PAGE_LINK;
+                if ($this->_totalPage > MAX_PAGE_LINK + JUMP_PAGE) {
+                    $lastDot = $this->getDot();
+                    $lastPageLink = $this->getLinkLastPage();
+                }
+            } else if ($page >= $this->_totalPage - SPECIAL_SEGMENT_PAGE){
+                $lastBodyLink = $this->_totalPage;
+                $firstBodyLink = $this->_totalPage - (MAX_PAGE_LINK - JUMP_PAGE);
+                if ($this->_totalPage > MAX_PAGE_LINK + JUMP_PAGE) {
+                    $firstDot = $this->getDot();
+                    $firstPageLink = $this->getLinkFirstPage();
+                }
+            } else {
+                $firstBodyLink = $page - BEFORE_CURRENT_PAGE;
+                $lastBodyLink = $page + AFTER_CURRENT_PAGE;
+                $firstPageLink = $this->getLinkFirstPage();
+                $lastPageLink = $this->getLinkLastPage();
+                $firstDot = $lastDot = $this->getDot();
+            }
         }
+        $html .= $this->getLinkPrevPage($page) . $firstPageLink . $firstDot;
+
+        for($i = $firstBodyLink; $i <= $lastBodyLink; $i++){
+            $html .= $i == $page ? $this->getLinkCurrentPage($i) : $this->getLinkPage($i);
+        }
+
+        $html .= $lastDot . $lastPageLink . $this->getLinkNextPage($page);
         $html       .= '</p>';
         return $html;
     }

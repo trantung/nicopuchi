@@ -148,7 +148,7 @@ function getXMLData(){
 <data>
     <article>
         <title><![CDATA[記事タイトル1]]></title>
-        <datetime><![CDATA[記事投稿日時1]]></datetime>
+        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
         <img><![CDATA[画像URL1]]></img>
         <name><![CDATA[投稿者の名前1]]></name>
         <body><![CDATA[記事本文1]]></body>
@@ -156,7 +156,7 @@ function getXMLData(){
     </article>
     <article>
         <title><![CDATA[記事タイトル2]]></title>
-        <datetime><![CDATA[記事投稿日時2]]></datetime>
+        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
         <img><![CDATA[画像URL2]]></img>
         <name><![CDATA[投稿者の名前2]]></name>
         <body><![CDATA[記事本文2]]></body>
@@ -164,7 +164,7 @@ function getXMLData(){
     </article>
     <article>
         <title><![CDATA[記事タイトル3]]></title>
-        <datetime><![CDATA[記事投稿日時3]]></datetime>
+        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
         <img><![CDATA[画像URL3]]></img>
         <name><![CDATA[投稿者の名前3]]></name>
         <body><![CDATA[記事本文3]]></body>
@@ -172,7 +172,7 @@ function getXMLData(){
     </article>
     <article>
         <title><![CDATA[記事タイトル4]]></title>
-        <datetime><![CDATA[記事投稿日時4]]></datetime>
+        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
         <img><![CDATA[画像URL4]]></img>
         <name><![CDATA[投稿者の名前4]]></name>
         <body><![CDATA[記事本文4]]></body>
