@@ -86,7 +86,10 @@ function returnText($text){
     $text = preg_replace('/<img[^>]+src="[^"]+\.(?:png|jpg|jpeg)"[^>]+>/', "", $text);
     return $text;
 }
-
+function cmp($a, $b)
+{
+    return $a['sort'] == $b['sort'] ? 0 : ( $a['sort'] < $b['sort'] ) ? 1 : -1;
+}
 function returnArrayData($arrUrl,$group) {
     foreach ($arrUrl as $key => $url) {
         $urlexplode = explode("/", $url);
@@ -104,6 +107,7 @@ function returnArrayData($arrUrl,$group) {
             $tmp['title_link'] = $item->get_link();
             $tmp['date'] = strtotime($item->get_date());
             $tmp['desc'] = returnText($item->get_description());
+            $tmp['sort'] = strtotime($item->get_date('Y-m-d'));
             if(!empty($image[0])){
                 $contentImage = file_get_contents($image[0]);
                 if (! file_exists($imgSavePath)) {
@@ -131,7 +135,7 @@ function returnArrayData($arrUrl,$group) {
             $arrItem[]=$tmp;
         }
     }
-
+    usort($arrItem, "cmp");
     return $arrItem;
 }
 
