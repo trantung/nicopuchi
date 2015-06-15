@@ -107,78 +107,31 @@
                 <h2><img src="/common/img/pc/04/ttl_comment.png" alt="最近のコメント" width="270" height="50"></h2>
             </div>
             <div class="module-body">
+                <?php
+                $comments = get_comments(array('status' => 'approve', 'number' => 10));
+                ?>
                 <ul class="index-list-type03">
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
+                    <?php foreach ($comments as $comment) : ?>
+                        <?php $post = get_post($comment->comment_post_ID); ?>
+                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>へのコメント
+                            (<?php comment_author_link(); ?>より[<?php comment_date('m/d'); ?>])
+                            <?php comment_text(); ?></li>
+
+                        <li>
+                            <a href="">
+                                <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
+                                <span class="name">つきみ &copy;</span>
+                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                            </a>
+                        </li>
+
+
+                    <?php endforeach; ?>
                     <!--/#readersblog--></ul>
+
+
+
+
             </div>
             <!--/.module-type01--></div>
         <!--/#side--></div>

@@ -26,6 +26,8 @@
                                     <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                 <?php elseif (get_field('link')) : ?>
                                     <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                <?php else : ?>
+                                        <a href="#"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                 <?php endif; ?>
                                     <dl>
                                         <dt>
