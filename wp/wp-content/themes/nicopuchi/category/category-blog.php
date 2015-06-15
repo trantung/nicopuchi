@@ -33,15 +33,16 @@
                             <?php while (have_posts()) : the_post(); ?>
                                 <li class="item">
                                     <a href="<?php the_permalink(); ?>" class="new">
-                                        <img src="/common/img/pc/index/img_sample02a.png" alt="" width="246" height="164">
+                                        <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                        <img src="<?php echo $eyecatch[0]; ?>" alt="" width="246">
                                         <div class="info">
                                             <span class="model-icon"><img src="/common/img/pc/04/img_sample05.png" alt=""></span>
-                                            <span class="model-name">モデル名@</span>
-                                            <span class="update">2014.08.14</span>
+                                            <span class="model-name"><?php the_author_meta('nickname'); ?></span>
+                                            <span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
                                         </div>
-                                        <span class="blog-ttl">タイトルが入りますタイトルが入りま</span>
-                                        <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れ</span>
-                                        <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                        <span class="blog-ttl"><?php the_title(); ?></span>
+                                        <span class="blog-desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags(get_the_content())), 0, 50); ?></span>
+                                        <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                     </a>
                                 </li>
                             <?php endwhile; ?>
