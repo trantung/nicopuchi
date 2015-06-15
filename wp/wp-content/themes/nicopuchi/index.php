@@ -109,7 +109,7 @@ $jsonData = getJsonData();
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
-                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <a href="timeline" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
@@ -123,7 +123,7 @@ $jsonData = getJsonData();
                                             <dd><?=date('Y m d | g:i a', $value['date'])?></dd>
                                         </dl>
                                         <span class="blog-ttl"><?=$value['title']?></span>
-                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$value['desc']?></span>
+                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$value['desc']?></div>
                                         <?php if($value['date'] == strtotime(date('Y-m-d'))){ ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
