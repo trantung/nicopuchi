@@ -115,6 +115,7 @@ $jsonData = getJsonData();
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
                             <?php foreach ($jsonData as $key => $value) {?>
+                                <?php if($key<12){?>
                                 <li class="item">
                                     <a href="<?=$value['title_link']?>" class="new">
                                         <img src="<?=$value['image'] ?>" alt="" width="246" height="164">
@@ -129,6 +130,26 @@ $jsonData = getJsonData();
                                         <?php } ?>
                                     </a>
                                 </li>
+
+                                <?php } elseif($key>11 && $key<24){ ?>
+
+                                <li class="item" style="display:none">
+                                    <a href="<?=$value['title_link']?>" class="new">
+                                        <img src="<?=$value['image'] ?>" alt="" width="246" height="164">
+                                        <dl class="update">
+                                            <dt><img src="/common/img/pc/<?=$value['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?=date('Y m d | g:i a', $value['date'])?></dd>
+                                        </dl>
+                                        <span class="blog-ttl"><?=$value['title']?></span>
+                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$value['desc']?></span>
+                                        <?php if($value['date'] == strtotime(date('Y-m-d'))){ ?>
+                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                        <?php } ?>
+                                    </a>
+                                </li>
+
+                                <?php }else {?>
+                                <?php break;}?>
 
                             <?php } ?>
                         </ul>
