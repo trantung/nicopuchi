@@ -63,27 +63,21 @@
 						<div class="select-area-inner">
 							<div class="select-box-left">
 								<span class="ttl01">過去ブログのテーマ</span>
-								<div class="st-select-box">
-									<div class="st-displayer">2014年12月</div>
-									<ul class="st-dropdown">
-										<li>2014年12月</li>
-										<li>2014年11月</li>
-										<li>2014年10月</li>
-										<li>2014年9月</li>
-									</ul>
-								</div>
+								<select class="design-select-box">
+									<option>2014年12月</option>
+									<option>2014年11月</option>
+									<option>2014年10月</option>
+									<option>2014年9月</option>
+								</select>
 							</div>
 							<div class="select-box-right">
 								<span class="ttl02 mr5">過去のテーマ</span>
-								<div class="st-select-box">
-									<div class="st-displayer">壱弐参四伍壱弐参四伍壱弐参四伍壱弐参四伍</div>
-									<ul class="st-dropdown">
-										<li>ニコ☆プチ６月号の感想を教えて♪</li>
-										<li>お気に入りの春夏アイテムを見せて♪</li>
-										<li>ごジマン通学コーデを見せて♪</li>
-										<li>新学年の目標を教えて♪</li>
-									</ul>
-								</div>
+								<select class="design-select-box">
+									<option>--------------------------------</option>
+									<option>2014年11月</option>
+									<option>2014年10月</option>
+									<option>2014年9月</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -525,6 +519,11 @@
 <script type="text/javascript" src="/common/js/selectivizr-min.js"></script>
 <script type="text/javascript" src="/common/js/script.js"></script>
 <script type="text/javascript" src="/common/js/easyselectbox.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.design-select-box').easySelectBox();
+	})
+</script>
 <script type="text/javascript" src="/common/js/slick.js"></script>
 <script>
 $("document").ready(function(){
