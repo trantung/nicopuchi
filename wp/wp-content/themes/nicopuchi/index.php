@@ -343,18 +343,33 @@ $blogsData = getJsonData();
                     $the_query = new WP_Query($args);
                     ?>
                     <?php if ($the_query->have_posts()) : ?>
-                        <ul id="welovepuchi" class="list-type-center"><!--
+                        <ul class="index-list-type02 fl">
                             <?php while ($the_query->have_posts()) : ?>
                                 <?php $the_query->the_post(); ?>
-                            --><li>
-                                <a href="<?php the_permalink(); ?>" class="fdb">
-                                    <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
-                                    <img src="<?php echo $eyecatch[0]; ?>" alt="<?php the_title(); ?>" width="110" height="73">
-                                    <span class="name"><?php the_title(); ?></span>
-                                </a>
-                            </li><!--
+                                <li>
+                                    <?php if (get_the_content()) : ?>
+                                    <a href="<?php the_permalink(); ?>" class="new">
+                                        <?php elseif (get_field('link')) : ?>
+                                        <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
+                                            <?php endif; ?>
+                                            <dl>
+                                                <dt>
+                                                    <?php the_post_thumbnail(array(88,0)); ?>
+                                                    <span class="date"><?php echo get_the_date('Y.m.d'); ?></span>
+                                                </dt>
+                                                <dd>
+                                                    <p class="desc">
+                                                        <?php the_title(); ?>
+                                                    </p>
+                                                </dd>
+                                            </dl>
+                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                            <?php if (get_the_content() || get_field('link')) : ?>
+                                        </a>
+                                    <?php endif; ?>
+                                </li>
                             <?php endwhile; ?>
-                    --></ul>
+                        </ul>
                     <?php endif; ?>
                     <?php wp_reset_postdata(); ?>
 

@@ -8,19 +8,19 @@
     <div id="main">
         <?php my_breadcrumbs(); ?>
         <div class="module-type01 bg-type03 pb60">
-            <div class="module-head">
-                <h2 class="inner15"><img src="<?php home(); ?>/common/img/pc/04/ttl01.png" alt="プチモ☆ブログ" width="794" height="162"></h2>
-                <dl class="blog-name">
-                    <?php // TODO: ■■■編集者の画像が複数あるのでWPのユーザーに複数画像が設定できないと厳しい？ ?>
-                    <dt><img src="<?php home(); ?>/common/img/pc/04/img_sample03.png" alt=""></dt>
-                    <dd>
-                        <span class="name">ゆう..&copy;</span>
-                        <span class="name2">の<span class="pink">ブログ_</span><img src="<?php home(); ?>/common/img/pc/icn03b.png" alt=""></span>
-                    </dd>
-                </dl>
-            </div>
             <?php if (have_posts()) : ?>
                 <?php the_post(); ?>
+                <div class="module-head">
+                    <h2 class="inner15"><img src="<?php home(); ?>/common/img/pc/04/ttl01.png" alt="プチモ☆ブログ" width="794" height="162"></h2>
+                    <dl class="blog-name">
+                        <?php $avatar02 = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar02'), 'thumbnail'); ?>
+                        <dt><img src="<?php echo $avatar02[0]; ?>" alt=""></dt>
+                        <dd>
+                            <span class="name"><?php the_author(); ?></span>
+                            <span class="name2">の<span class="pink">ブログ_</span><img src="<?php home(); ?>/common/img/pc/icn03b.png" alt=""></span>
+                        </dd>
+                    </dl>
+                </div>
                 <div class="module-body">
                     <div class="blog-area">
                         <div class="blog-inner">
@@ -28,8 +28,9 @@
                                 <span class="date"><?php echo get_the_date('Y.m.d Ag:i'); ?></span>
                                 <h3 class="ttl"><?php the_title(); ?></h3>
                                 <dl class="blogger">
-                                    <dt><img src="<?php home(); ?>/common/img/pc/index/img_sample01a.png" alt=""></dt>
-                                    <dd><?php the_author(); ?>..&copy;</dd>
+                                    <?php $avatar01 = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar01'), 'thumbnail'); ?>
+                                    <dt><img src="<?php echo $avatar01[0]; ?>" alt=""></dt>
+                                    <dd><?php the_author(); ?></dd>
                                 </dl>
                             </div>
                             <div class="blog-main">
