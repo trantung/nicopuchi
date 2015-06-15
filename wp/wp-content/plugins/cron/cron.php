@@ -68,6 +68,7 @@ function crawData(){
     if (! file_exists($dataJsonFolder)) {
         mkdir($dataJsonFolder, 0766);
     }
+    usort($items, "cmp");
     file_put_contents($dataJsonFolder."/data.json",json_encode($items));
 }
 
@@ -88,7 +89,10 @@ function returnText($text){
     $text = preg_replace('/<img[^>]+src="[^"]+\.(?:png|jpg|jpeg)"[^>]+>/', "", $text);
     return $text;
 }
-
+function cmp($a, $b)
+{
+    return $a['date'] == $b['date'] ? 0 : ( $a['date'] < $b['date'] ) ? 1 : -1;
+}
 function returnArrayData($arrUrl,$group) {
     foreach ($arrUrl as $key => $url) {
         $urlexplode = explode("/", $url);
@@ -104,7 +108,7 @@ function returnArrayData($arrUrl,$group) {
             $image = returnImage($item->get_content());
             $tmp['title']  = $item->get_title();
             $tmp['title_link'] = $item->get_link();
-            $tmp['date'] = strtotime($item->get_date());
+            $tmp['date'] = strtotime($item->get_date('Y-m-d H:i:s'));
             $tmp['desc'] = returnText($item->get_description());
             if(!empty($image[0])){
                 $contentImage = file_get_contents($image[0]);
@@ -133,6 +137,8 @@ function returnArrayData($arrUrl,$group) {
             $arrItem[]=$tmp;
         }
     }
+
+
     return $arrItem;
 }
 
