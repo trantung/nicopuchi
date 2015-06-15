@@ -58,16 +58,16 @@
         <div class="foot-link">
             <div class="left">
                 <ul>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="184" height="16"></a></li>
+                    <li><a href="<?php home(); ?>/support/" class="fdb"><img src="/common/img/pc/fnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="184" height="16"></a></li>
                     <li><a href="" class="fdb"><img src="/common/img/pc/fnav05.png" alt="ニコ☆プチタイムライン" width="85" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav03.png" alt="プチニュー10" width="99" height="16"></a></li>
+                    <li><a href="<?php home(); ?>/puchinew/" class="fdb"><img src="/common/img/pc/fnav03.png" alt="プチニュー10" width="99" height="16"></a></li>
                     <li><a href="" class="fdb"><img src="/common/img/pc/fnav04.png" alt="ニコ☆プチ編集部ブログ" width="158" height="16"></a></li>
                 </ul>
                 <ul>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav05.png" alt="プチモ一覧" width="85" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav06.png" alt="プチモブログ" width="101" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav07.png" alt="プチ撮影日記" width="93" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav08.png" alt="ニコプチ表紙" width="93" height="16"></a></li>
+                    <li><a href="<?php home(); ?>/nico_profile/" class="fdb"><img src="/common/img/pc/fnav05.png" alt="プチモ一覧" width="85" height="16"></a></li>
+                    <li><a href="<?php home(); ?>/blog/" class="fdb"><img src="/common/img/pc/fnav06.png" alt="プチモブログ" width="101" height="16"></a></li>
+                    <li><a href="<?php home(); ?>/puchisna/" class="fdb"><img src="/common/img/pc/fnav07.png" alt="プチ撮影日記" width="93" height="16"></a></li>
+                    <li><a href="<?php home(); ?>/nico_cover/" class="fdb"><img src="/common/img/pc/fnav08.png" alt="ニコプチ表紙" width="93" height="16"></a></li>
                 </ul>
             </div>
             <div class="right">

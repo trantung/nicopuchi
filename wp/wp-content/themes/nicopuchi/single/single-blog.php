@@ -13,6 +13,7 @@
             <div class="module-head">
                 <h2 class="inner15"><img src="<?php home(); ?>/common/img/pc/04/ttl01.png" alt="プチモ☆ブログ" width="794" height="162"></h2>
                 <dl class="blog-name">
+                    <?php // TODO: ■■■編集者の画像が複数あるのでWPのユーザーに複数画像が設定できないと厳しい？ ?>
                     <dt><img src="<?php home(); ?>/common/img/pc/04/img_sample03.png" alt=""></dt>
                     <dd>
                         <span class="name">ゆう..&copy;</span>
@@ -26,7 +27,7 @@
                     <div class="blog-area">
                         <div class="blog-inner">
                             <div class="blog-head">
-                                <span class="date"><?php echo get_the_date('Y.m.d'); ?>2014.08.14 PM8:00</span>
+                                <span class="date"><?php echo get_the_date('Y.m.d Ag:i'); ?></span>
                                 <h3 class="ttl"><?php the_title(); ?></h3>
                                 <dl class="blogger">
                                     <dt><img src="<?php home(); ?>/common/img/pc/index/img_sample01a.png" alt=""></dt>

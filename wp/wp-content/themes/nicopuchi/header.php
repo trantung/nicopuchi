@@ -23,7 +23,7 @@
     <meta property="og:title" content="****">
     <meta property="og:description" content="****">
     <meta name="viewport" content="width=1150">
-    <title><?php wp_title('｜', true, 'right'); ?></title>
+    <title><?php wp_title('｜', true, 'right'); ?>ニコ☆プチ</title>
     <link rel="stylesheet" href="<?php home(); ?>/common/css/style.css">
     <link rel="stylesheet" href="<?php home(); ?>/common/css/ie.css">
     <link rel="stylesheet" href="<?php home(); ?>/common/css/slick.css">
@@ -46,7 +46,7 @@
     <div class="header-inner">
         <h1><a href="/"><img src="/common/img/pc/img_logo.png" alt="ニコ☆プチ" width="213" height="64"></a></h1>
         <ul id="gnav">
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
+            <li><a href="<?php home(); ?>/support/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
             <li><a href="<?php home(); ?>/puchinew/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav02.png" alt="プチニュー10" width="130" height="28"></a></li>
             <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
             <li><a href="<?php home(); ?>/nico_cover/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav04.png" alt="ニコプチ表紙" width="129" height="28"></a></li>

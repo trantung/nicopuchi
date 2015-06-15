@@ -20,7 +20,7 @@
                             <?php while (have_posts()) : the_post(); ?>
                                 <li class="item">
                                     <a href="<?php the_permalink(); ?>">
-                                        <img src="/common/img/pc/index/img_sample05a.png" alt="<?php the_title(); ?>" width="246" height="165">
+                                        <?php the_post_thumbnail(); ?>
                                         <span class="name"><?php the_title(); ?></span>
                                         <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                                     </a>
