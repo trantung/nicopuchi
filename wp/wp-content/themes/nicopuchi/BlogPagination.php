@@ -8,7 +8,7 @@ class BlogPagination {
 
     public function __construct()
     {
-        $this->_data = json_decode(file_get_contents(get_stylesheet_directory() . '/data/data.json'));
+        $this->_data = json_decode(file_get_contents(get_stylesheet_directory() . '/data/data.json'), true);
         $this->_limit = ITEM_PER_PAGE;
         $this->_total = count($this->_data);
         $this->_totalPage = ceil($this->_total / $this->_limit);

@@ -53,16 +53,24 @@ function crawData(){
         'http://feedblog.ameba.jp/rss/ameblo/vanillanosora23/rss20.xml',
     );
     $group2 = array(
+        'http://feedblog.ameba.jp/rss/ameblo/kanon-sd/rss20.xml',
         'http://feedblog.ameba.jp/rss/ameblo/tsumori-nono/rss20.xml',
+        'http://www.diamondblog.jp/official/rion_seki/feed/',
+        'http://feedblog.ameba.jp/rss/ameblo/syuri-kawanabe/rss20.xml'
     );
     $group3 = array(
         'http://feedblog.ameba.jp/rss/ameblo/nicopuchi-staff/rss20.xml',
     );
+    $group4 = array(
+        'http://www.nicopuchi.jp/blog/?feed=rss2',
+        );
     $item_group1 = returnArrayData($group1, 1);
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
-    $item_group4 = getXMLData();
-    $items = array_merge($item_group1, $item_group2, $item_group3, $item_group4);
+    $item_group4 = returnArrayData($group4, 4);
+    $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog03.png');
+    $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog03.png');
+    $items = array_merge($item_group1, $item_group2, $item_group3, $item_group4, $item_group5, $item_group6);
 
     $dataJsonFolder= get_stylesheet_directory()."/data";
     if (! file_exists($dataJsonFolder)) {
@@ -97,6 +105,8 @@ function returnArrayData($arrUrl,$group) {
     foreach ($arrUrl as $key => $url) {
         $urlexplode = explode("/", $url);
         $folder = $urlexplode[5];
+        if($group == 4)
+                $folder = "wp";
         $feed = fetch_feed($url);
         $items = $feed->get_items();
         $imagesFolder = get_stylesheet_directory()."/images";
@@ -125,11 +135,13 @@ function returnArrayData($arrUrl,$group) {
                     $tmp['blog_image'] = 'ttl_blog02.png';
                     break;
                 case 2:
-                    $tmp['blog_image'] = 'ttl_blog04.png'; //chua biet
+                    $tmp['blog_image'] = 'ttl_blog02.png'; //unknown
                     break;
                 case 3:
                     $tmp['blog_image'] = 'ttl_blog04.png';
                     break;
+                case 4:
+                    $tmp['blog_image'] = 'ttl_blog01.png';
                 default:
                     # code...
                     break;
@@ -142,54 +154,22 @@ function returnArrayData($arrUrl,$group) {
     return $arrItem;
 }
 
-function getXMLData(){
-  $note=<<<XML
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<data>
-    <article>
-        <title><![CDATA[記事タイトル1]]></title>
-        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
-        <img><![CDATA[画像URL1]]></img>
-        <name><![CDATA[投稿者の名前1]]></name>
-        <body><![CDATA[記事本文1]]></body>
-        <link><![CDATA[リンク先URL1]]></link>
-    </article>
-    <article>
-        <title><![CDATA[記事タイトル2]]></title>
-        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
-        <img><![CDATA[画像URL2]]></img>
-        <name><![CDATA[投稿者の名前2]]></name>
-        <body><![CDATA[記事本文2]]></body>
-        <link><![CDATA[リンク先URL2]]></link>
-    </article>
-    <article>
-        <title><![CDATA[記事タイトル3]]></title>
-        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
-        <img><![CDATA[画像URL3]]></img>
-        <name><![CDATA[投稿者の名前3]]></name>
-        <body><![CDATA[記事本文3]]></body>
-        <link><![CDATA[リンク先URL3]]></link>
-    </article>
-    <article>
-        <title><![CDATA[記事タイトル4]]></title>
-        <datetime><![CDATA[2015-06-09 10:01:55]]></datetime>
-        <img><![CDATA[画像URL4]]></img>
-        <name><![CDATA[投稿者の名前4]]></name>
-        <body><![CDATA[記事本文4]]></body>
-        <link><![CDATA[リンク先URL4]]></link>
-    </article>
-</data>
-XML;
-
-$xml=simplexml_load_string($note);
-$item = array();
-    foreach($xml->children() as $child) {
+function getXMLData($url, $username, $password, $domain, $bg_image){
+    $context = stream_context_create(array(
+    'http' => array(
+        'header'  => "Authorization: Basic " . base64_encode("$username:$password")
+        )
+    ));
+    $data = file_get_contents($url, false, $context);
+    $xml=simplexml_load_string($data);
+    $item = array();
+  foreach($xml->children() as $child) {
         $tmp['title']=$child->title.'';
-        $tmp['title_link']=$child->link.'';
+        $tmp['title_link']=$domain.$child->link.'';
         $tmp['date']=$child->datetime.'';
         $tmp['desc']=$child->body.'';
-        $tmp['image']=$child->img.'';
-        $tmp['blog_image'] = 'ttl_blog03.png'; //chua biet
+        $tmp['image']=$domain.$child->img.'';
+        $tmp['blog_image'] = $bg_image; //unknown
         $item[] = $tmp;
       }
     return $item;

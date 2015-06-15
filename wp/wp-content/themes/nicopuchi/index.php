@@ -3,13 +3,8 @@
  * トップページ
  */
 
-$jsonData = getJsonData();
-// var_dump($jsonData);
-// die;
+$blogsData = getJsonData();
 
-// $jsonData = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
-// var_dump($jsonData);
-// die;
 ?>
 <?php get_header(); ?>
     <div id="contents">
@@ -114,17 +109,17 @@ $jsonData = getJsonData();
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <?php foreach ($jsonData as $key => $value) {?>
+                            <?php foreach ($blogsData as $key => $blogData) {?>
                                 <li class="item">
-                                    <a href="<?=$value['title_link']?>" class="new">
-                                        <img src="<?=$value['image'] ?>" alt="" width="246" height="164">
+                                    <a href="<?=$blogData['title_link']?>" class="new">
+                                        <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
-                                            <dt><img src="/common/img/pc/<?=$value['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?=date('Y m d | g:i a', $value['date'])?></dd>
+                                            <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
                                         </dl>
-                                        <span class="blog-ttl"><?=$value['title']?></span>
-                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$value['desc']?></div>
-                                        <?php if($value['date'] == strtotime(date('Y-m-d'))){ ?>
+                                        <span class="blog-ttl"><?=$blogData['title']?></span>
+                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$blogData['desc']?></div>
+                                        <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
                                     </a>
