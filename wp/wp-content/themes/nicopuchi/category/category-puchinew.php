@@ -18,13 +18,22 @@
                     <ul class="index-list-type02 fl">
                         <?php while (have_posts()) : the_post(); ?>
                             <li>
+                                <?php
+                                //$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                //if () {
+                                //
+                                //}
+                                ?>
                                 <?php if (get_the_content()) : ?>
                                     <a href="<?php the_permalink(); ?>" class="new">
                                 <?php elseif (get_field('link')) : ?>
                                     <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
                                 <?php endif; ?>
                                     <dl>
-                                        <dt><?php the_post_thumbnail(); ?></dt>
+                                        <dt>
+                                            <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                            <img src="<?php echo $eyecatch[0]; ?>" alt="">
+                                        </dt>
                                         <dd>
                                             <p class="desc"><?php the_title(); ?></p>
                                             <span class="date"><?php echo get_the_date('Y.m.d'); ?></span>

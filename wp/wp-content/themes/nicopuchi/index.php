@@ -255,9 +255,10 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             <?php while ($the_query->have_posts()) : ?>
                                 <?php $the_query->the_post(); ?>
                             --><li>
-                                <a href="" class="fdb">
-                                    <img src="/common/img/pc/index/img_sample05a.png" alt="黒坂莉那" width="110" height="73">
-                                    <span class="name">黒坂 莉那 &copy;</span>
+                                <a href="<?php the_permalink(); ?>" class="fdb">
+                                    <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                    <img src="<?php echo $eyecatch[0]; ?>" alt="<?php the_title(); ?>" width="110" height="73">
+                                    <span class="name"><?php the_title(); ?></span>
                                 </a>
                             </li><!--
                             <?php endwhile; ?>
