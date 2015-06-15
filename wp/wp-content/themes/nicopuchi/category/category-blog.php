@@ -40,7 +40,8 @@
                                         <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
                                         <img src="<?php echo $eyecatch[0]; ?>" alt="" width="246">
                                         <div class="info">
-                                            <span class="model-icon"><img src="/common/img/pc/04/img_sample05.png" alt=""></span>
+                                            <?php $avatar = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar01'), 'thumbnail'); ?>
+                                            <span class="model-icon"><img src="<?php echo $avatar[0]; ?>" alt="" width="42"></span>
                                             <span class="model-name"><?php the_author_meta('nickname'); ?></span>
                                             <span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
                                         </div>
