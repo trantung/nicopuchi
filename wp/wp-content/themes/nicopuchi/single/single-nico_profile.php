@@ -104,7 +104,8 @@
                             <?php $the_query->the_post(); ?>
                             <li>
                                 <a href="<?php the_permalink(); ?>" class="fdb">
-                                    <?php the_post_thumbnail(array(134,0)); ?>
+                                    <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                    <img src="<?php echo $eyecatch[0]; ?>" alt="" width="134">
                                     <span class="blog-ttl"><?php the_title(); ?></span>
                                     <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                                 </a>
