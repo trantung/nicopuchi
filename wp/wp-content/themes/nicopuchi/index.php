@@ -245,10 +245,10 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 						<?php while ($the_query->have_posts()) : ?>
 						<?php $the_query->the_post(); ?>
 						<li>
-							<?php if ($the_query->get_the_content()) : ?>
+							<?php if (get_the_content()) : ?>
 							<a href="<?php the_permalink(); ?>" class="new">
-							<?php elseif ($the_query->get_field('link')) : ?>
-							<a href="<?php $the_query->the_field('link'); ?>" target="_<?php $the_query->the_field('window'); ?>" class="new">
+							<?php elseif (get_field('link')) : ?>
+							<a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
 							<?php endif; ?>
 								<dl>
 									<dt>
@@ -262,7 +262,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 									</dd>
 								</dl>
 								<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-							<?php if ($the_query->get_the_content() || $the_query->get_field('link')) : ?>
+							<?php if (get_the_content() || get_field('link')) : ?>
 							</a>
 							<?php endif; ?>
 						</li>
