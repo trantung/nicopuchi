@@ -598,5 +598,10 @@ function remove_more_jump_link($link)
     }
     return $link;
 }
-
+function getJsonData(){
+   $source = file_get_contents(get_stylesheet_directory().'/data/data.json');
+   $jsonData = json_decode($source, true);
+   var_dump($jsonData);
+   die;
+}
 
