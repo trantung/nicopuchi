@@ -147,5 +147,29 @@ $("document").ready(function(){
 	$("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
 	$("#puchiblog li a").heightLine(1);
 </script>
+<script type="text/javascript" src="/common/js/jquery.magnific-popup.min.js"></script>
+<script>
+	$(function(){
+		$("#main .new-magazine").magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			gallery: {
+				enabled: true
+			}
+		});
+		$("#main #backNumber li").each(function(){
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				gallery: {
+					enabled: true
+				}
+			});
+		});
+		$(".new-magazine-left img.bd-pink").css("cursor","pointer").on("click", function(){
+			$('.new-magazine-left .btn-area a').click();
+		});
+	});
+</script>
 </body>
 </html>
