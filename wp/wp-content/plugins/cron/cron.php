@@ -88,7 +88,7 @@ function returnText($text){
 }
 function cmp($a, $b)
 {
-    return $a['sort'] == $b['sort'] ? 0 : ( $a['sort'] < $b['sort'] ) ? 1 : -1;
+    return $a['date'] == $b['date'] ? 0 : ( $a['date'] < $b['date'] ) ? 1 : -1;
 }
 function returnArrayData($arrUrl,$group) {
     foreach ($arrUrl as $key => $url) {
@@ -107,7 +107,6 @@ function returnArrayData($arrUrl,$group) {
             $tmp['title_link'] = $item->get_link();
             $tmp['date'] = strtotime($item->get_date());
             $tmp['desc'] = returnText($item->get_description());
-            $tmp['sort'] = strtotime($item->get_date('Y-m-d'));
             if(!empty($image[0])){
                 $contentImage = file_get_contents($image[0]);
                 if (! file_exists($imgSavePath)) {
