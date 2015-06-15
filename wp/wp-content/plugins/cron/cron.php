@@ -61,13 +61,10 @@ function crawData(){
     $group3 = array(
         'http://feedblog.ameba.jp/rss/ameblo/nicopuchi-staff/rss20.xml',
     );
-    $group4 = array(
-        'http://www.nicopuchi.jp/blog/?feed=rss2',
-        );
     $item_group1 = returnArrayData($group1, 1);
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
-    $item_group4 = returnArrayData($group4, 4);
+    $item_group4 = getXMLData("http://52.68.157.55/blog/?feed=rss2", "guest", "nadia", 'http://52.68.157.55','ttl_blog01.png');
     $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog05.png');
     $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog06.png');
     $items = array_merge($item_group1, $item_group2, $item_group3, $item_group4, $item_group5, $item_group6);
