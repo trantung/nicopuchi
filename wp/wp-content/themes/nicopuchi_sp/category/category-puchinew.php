@@ -18,14 +18,21 @@
             <ul id="puchinew10" class="index-list-type02">
                 <?php while (have_posts()): the_post(); ?>
                     <li>
+						<?php
+						$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+						$new_flag = ($date_diff <= 4) ? true : false;
+						?>
                         <?php if (get_the_content()): ?>
-                            <a href="<?php the_permalink(); ?>" class="new">
+                            <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                         <?php elseif (get_field('link')) : ?>
-                            <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
+                            <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+						<?php else: ?>
+							<a href="#"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                         <?php endif; ?>
                             <dl>
                                 <dt>
-                                    <img class="full thum" src="<?php home(); ?>/common/img/sp/03/img_sample01.jpg" alt="">
+									<?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                    <img class="full thum" src="<?php echo $eyecatch[0]; ?>" alt="">
                                 </dt>
                                 <dd>
                                     <p class="desc"><?php the_title(); ?></p>
