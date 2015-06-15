@@ -83,7 +83,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 									<?php $the_query->the_post(); ?>
 									<li>
 										<a href="<?php the_permalink(); ?>" class="new">
-											<?php the_post_thumbnail(array(140,0)); ?>
+											<?php the_post_thumbnail(array(140,94)); ?>
 											<span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
 											<span class="blog-ttl"><?php the_title(); ?></span>
 											<span class="model-name type02"><?php the_author(); ?></span>
@@ -245,7 +245,11 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 						<?php while ($the_query->have_posts()) : ?>
 						<?php $the_query->the_post(); ?>
 						<li>
+							<?php if ($the_query->get_the_content()) : ?>
 							<a href="<?php the_permalink(); ?>" class="new">
+							<?php elseif ($the_query->get_field('link')) : ?>
+							<a href="<?php $the_query->the_field('link'); ?>" target="_<?php $the_query->the_field('window'); ?>" class="new">
+							<?php endif; ?>
 								<dl>
 									<dt>
 										<?php the_post_thumbnail(array(88,0)); ?>
@@ -258,7 +262,9 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 									</dd>
 								</dl>
 								<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+							<?php if ($the_query->get_the_content() || $the_query->get_field('link')) : ?>
 							</a>
+							<?php endif; ?>
 						</li>
 						<?php endwhile; ?>
 					</ul>
