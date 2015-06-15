@@ -56,7 +56,7 @@ $blogsData = $blogsObj->getData($page);
                         <?php
                             foreach($blogsData as $key => $blogData) {
                         ?>
-                        <li class="item">
+                        <li class="item"  id ="<?php echo $key ?>">
                             <a href="<?php echo $blogData->title_link ?>" class="new">
                                 <img src="<?=$blogData->image ?>" alt="" width="246" height="164">
                                 <dl class="update">
@@ -64,8 +64,9 @@ $blogsData = $blogsObj->getData($page);
                                     <dd><?php echo $blogData->date ?></dd>
                                 </dl>
                                 <span class="blog-ttl"><?php echo $blogData->title ?></span>
-                                <span class="blog-ttl"><?php echo $blogData->desc ?></span>
-                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?php echo $blogData->desc ?></div>
+                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;">
+                                <?=$blogData->desc?>
+                                </div>
                                 <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                             </a>
                         <?php } ?>
@@ -261,6 +262,8 @@ $blogsData = $blogsObj->getData($page);
 <script>
     $(function(){
         $('.masonry-inner').masonry();
+        console.log(1212);
+        $( "#25" ).focus();
     })
 </script>
 <script>

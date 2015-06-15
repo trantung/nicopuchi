@@ -133,7 +133,7 @@ $jsonData = getJsonData();
 
                                 <?php } elseif($key>11 && $key<24){ ?>
 
-                                <li class="item" style="display:none">
+                                <li class="item more-item" style="display:none">
                                     <a href="<?=$value['title_link']?>" class="new">
                                         <img src="<?=$value['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
@@ -155,6 +155,9 @@ $jsonData = getJsonData();
                         </ul>
                         <a href="" class="btn-more fdb">
                             <span><img src="/common/img/pc/btn_more.png" alt="もっと見る"></span>
+                        </a>
+                        <a href="" class="btn-timeline fdb" style="display:none">
+                            <span><img src="" alt="一覧を見る"></span>
                         </a>
                         <!--/#timeline--></div>
                 </div>
@@ -780,6 +783,23 @@ $jsonData = getJsonData();
     <script>
         $(function(){
             $('.masonry-inner').masonry();
+            $('.btn-more').click(function(e) {
+                e.preventDefault();
+                $(this).hide();
+                $('.more-item').show();
+                $('.btn-timeline').show();
+                $('.masonry-inner').masonry();
+                // $('img', $(this)).attr('src', '/common/img/pc/btn_more.png').attr('alt', '一覧を見る');
+                // $(this).removeClass('btn-more').addClass('btn-timeline');
+                // $(this).removeClass('btn-more').addClass('btn-timeline');
+                // $('.more-item').show();
+            });
+            $('.btn-timeline').click(function(e){
+                e.preventDefault();
+                var url = 'http://nicopuchi/wp/timeline/#12';
+                $(location).attr('href',url);
+            });
+
         })
     </script>
     <script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
