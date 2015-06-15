@@ -24,9 +24,7 @@
                                     <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
                                 <?php endif; ?>
                                     <dl>
-                                        <dt>
-                                            <img src="<?php home(); ?>/common/img/pc/03/img_sample01.png" alt="">
-                                        </dt>
+                                        <dt><?php the_post_thumbnail(); ?></dt>
                                         <dd>
                                             <p class="desc"><?php the_title(); ?></p>
                                             <span class="date"><?php echo get_the_date('Y.m.d'); ?></span>

@@ -48,7 +48,7 @@
         <ul id="gnav">
             <li><a href="<?php home(); ?>/support/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
             <li><a href="<?php home(); ?>/puchinew/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav02.png" alt="プチニュー10" width="130" height="28"></a></li>
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
+            <li><a href="http://ameblo.jp/nicopuchi-staff/" class="fdb" target="_blank"><img src="<?php home(); ?>/common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
             <li><a href="<?php home(); ?>/nico_cover/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav04.png" alt="ニコプチ表紙" width="129" height="28"></a></li>
             <li><a href="<?php home(); ?>/nico_profile/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav05.png" alt="プチモ一覧" width="130" height="28"></a></li>
             <li><a href="<?php home(); ?>/blog/" class="fdb"><img src="<?php home(); ?>/common/img/pc/gnav06.png" alt="プチモブログ" width="130" height="28"></a></li>

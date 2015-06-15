@@ -40,12 +40,12 @@
                             <div class="blog-foot">
                                 <ul class="pagenav">
                                     <li><a href=""><span>前の記事</span></a></li>
-                                    <li><a href=""><span>記事一覧</span></a></li>
+                                    <li><a href="<?php home(); ?>">/blog/<span>記事一覧</span></a></li>
                                     <li><a href=""><span>次の記事</span></a></li>
                                 </ul>
                             </div>
                             <div class="blog-comment">
-                                <h3><img src="/common/img/pc/04/ttl_comment2.png" alt="コメント ニコ☆プチに会員登録すると、コメント投稿できるよ"></h3>
+                                <h3><img src="<?php home(); ?>/common/img/pc/04/ttl_comment2.png" alt="コメント ニコ☆プチに会員登録すると、コメント投稿できるよ"></h3>
                                 <ul class="btn-list">
                                     <li><a href=""><span>会員登録</span></a></li>
                                     <li><a href=""><span>ログイン</span></a></li>
@@ -347,6 +347,7 @@
         <div class="module-type01 bg-type03 inner15">
             <div class="module-head">
                 <h2><img src="/common/img/pc/04/ttl_calendar.png" alt="カレンダー" width="270" height="50"></h2>
+                <?php get_calendar(); ?>
             </div>
             <div class="module-body">
                 <img src="/common/img/pc/04/img_calendar.png" alt="">

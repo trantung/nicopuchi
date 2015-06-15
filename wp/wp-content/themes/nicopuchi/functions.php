@@ -94,31 +94,31 @@ remove_action('wp_head', 'wp_generator', 10);
  */
 
 // ループの「偶数、奇数、最初、最後、余剰」を取得する
-function is_roop_first()
+function is_loop_first()
 {
     global $wp_query;
     return ($wp_query->current_post === 0);
 }
 
-function is_roop_last()
+function is_loop_last()
 {
     global $wp_query;
     return ($wp_query->current_post + 1 === $wp_query->post_count);
 }
 
-function is_roop_odd()
+function is_loop_odd()
 {
     global $wp_query;
     return ((($wp_query->current_post + 1) % 2) === 1);
 }
 
-function is_roop_even()
+function is_loop_even()
 {
     global $wp_query;
     return ((($wp_query->current_post + 1) % 2) === 0);
 }
 
-function is_roop_residue($base, $current)
+function is_loop_residue($base, $current)
 {
     global $wp_query;
     return ((($wp_query->current_post + 1) % $base) === $current);
@@ -139,8 +139,8 @@ function home()
  */
 
 // ログイン画面のロゴを変更する
-add_action('login_enqueue_scripts', 'custom_login_logo');
 /*
+add_action('login_enqueue_scripts', 'custom_login_logo');
 function custom_login_logo()
 {
     ?>
@@ -155,6 +155,7 @@ function custom_login_logo()
 <?php
 }
 */
+
 
 
 
@@ -337,8 +338,8 @@ function register_cpt_nico_cover()
             'title',
             'author',
             'revisions',
-            'editor',
             'thumbnail',
+            //'editor',
             //excerpt
             //comments
             //trackbacks
