@@ -36,9 +36,21 @@
 							<?php the_content(); ?>
 						</div>
 						<ul class="pageNav01">
-							<li class="fl_l"><a href="#"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a></li>
+							<?php
+							$prev_post = get_previous_post();
+							if ($prev_post)
+							{
+								echo '<li class="fl_l"><a href="' . get_permalink($prev_post->ID) . '"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a></li>';
+							}
+							?>
 							<li><a href="#"><?php the_author(); ?>の記事一覧</a></li>
-							<li class="fl_r"><a href="#"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a></li>
+							<?php
+							$next_post = get_next_post();
+							if ($next_post)
+							{
+								echo '<li class="fl_r"><a href="' . get_permalink($next_post->ID) . '"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a></li>';
+							}
+							?>
 						</ul>
 						<a href="<?php home(); ?>/blog/" class="btn type02 tx_c mt10 mb20"><span class="tx12"><img src="<?php home(); ?>/common/img/sp/04/icn_arrow.jpg" width="32" height="22">プチモブログ一覧</span></a>
 						<p class="comment_ttl">コメント</p>

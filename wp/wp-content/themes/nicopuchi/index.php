@@ -2,8 +2,6 @@
 /**
  * トップページ
  */
-crawData();
-die('1');
 $jsonData = getJsonData();
 
 $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
