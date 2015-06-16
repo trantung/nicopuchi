@@ -44,18 +44,22 @@
                                 <ul class="pagenav">
                                     <?php
                                     $prev_post = get_previous_post();
+                                    echo '<li>';
                                     if ($prev_post)
                                     {
-                                        echo '<li><a href="' . get_permalink($prev_post->ID) . '"><span>前の記事</span></a></li>';
+                                        echo '<a href="' . get_permalink($prev_post->ID) . '"><span>前の記事</span></a>';
                                     }
+                                    echo '</li>';
                                     ?>
                                     <li><a href="/blog/"><span>記事一覧</span></a></li>
                                     <?php
                                     $next_post = get_next_post();
+                                    echo '<li>';
                                     if ($next_post)
                                     {
-                                        echo '<li><a href="' . get_permalink($next_post->ID) . '"><span>次の記事</span></a></li>';
+                                        echo '<a href="' . get_permalink($next_post->ID) . '"><span>次の記事</span></a>';
                                     }
+                                    echo '</li>';
                                     ?>
                                 </ul>
                             </div>
@@ -134,6 +138,7 @@
                 $args = array(
                     'category_name' => 'blog',
                     'posts_per_page' => 4,
+                    'author' => $author_id,
                 );
                 $the_query = new WP_Query($args);
                 ?>
@@ -279,7 +284,7 @@
                         <li>
                             <a href="<?php the_permalink(); ?>">
                                 <span class="desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($comment->comment_content)), 0, 50); ?></span>
-                                <span class="name"><?php comment_author(); ?></span>
+                                <span class="name"><?php the_author_meta('nickname', $comment->user_id); ?></span>
                                 <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                             </a>
                         </li>

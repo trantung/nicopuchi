@@ -86,9 +86,93 @@
                 <ul id="readersblog" class="index-list type-side01">
                     <li>
                         <a href="">
-                            <img src="<?php home(); ?>/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
                             <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
+                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
+                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <span class="blog-ttl pd10">ゆう..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <span class="blog-ttl pd10">ゆう..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
+                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
+                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <span class="blog-ttl pd10">ゆう..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <span class="blog-ttl pd10">ゆう..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
+                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
+                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <span class="blog-ttl pd10">ゆう..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
+                            <span class="blog-ttl pd10">ゆう..&copy;</span>
+                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                         </a>
                     </li>
                     <!--/#readersblog--></ul>
@@ -112,16 +196,12 @@
                         <li>
                             <a href="<?php the_permalink(); ?>">
                                 <span class="desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($comment->comment_content)), 0, 50); ?></span>
-                                <span class="name"><?php comment_author(); ?></span>
+                                <span class="name"><?php the_author_meta('nickname', $comment->user_id); ?></span>
                                 <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                             </a>
                         </li>
                     <?php endforeach; ?>
                     <!--/#readersblog--></ul>
-
-
-
-
             </div>
             <!--/.module-type01--></div>
         <!--/#side--></div>
