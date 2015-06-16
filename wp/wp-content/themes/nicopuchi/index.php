@@ -26,7 +26,8 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 
 			<?php require_once('common/inc/pc/blogsupporter.php'); ?>
 
-			<div class="module-type01">
+			<?php /* Comment for VN, Maker please check!
+            <div class="module-type01">
 				<div class="module-head">
 					<h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
 					<a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
@@ -59,8 +60,9 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 						<!--/#timeline--></div>
 				</div>
 				<!--/.module-type01--></div>
-
+            
 			<?php if (0): // 一時的に処理停止 ?>
+            */ ?>
 			<div class="module-type01">
 				<div class="module-head">
 					<h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
@@ -69,7 +71,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 				<div class="module-body bg-type02">
 					<div id="timeline" class="masonry">
 						<ul class="masonry-inner mt10">
-							<?php foreach ($blogsData as $key => $blogData) {?>
+							<?php foreach ($jsonData as $key => $blogData) {?>
 								<?php if($key<12){?>
 									<li class="item">
 										<a href="<?=$blogData['title_link']?>" class="new">
@@ -118,7 +120,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 						<!--/#timeline--></div>
 				</div>
 				<!--/.module-type01--></div>
-			<?php endif; ?>
+			<?php //endif; ?>
 			
 			<div class="module-type01">
 				<div class="module-head">
