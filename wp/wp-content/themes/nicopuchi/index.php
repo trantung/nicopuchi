@@ -281,7 +281,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                     $args = array(
                         'post_type' => 'nico_profile',
                         'post_per_page' => 13,
-                        'orderby' => 'rand', //■■■普通に最新取得したほうが良いかも（要確認）
+                        'orderby' => 'rand',
                     );
                     $the_query = new WP_Query($args);
                     ?>
