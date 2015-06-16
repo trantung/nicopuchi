@@ -121,6 +121,7 @@
 		<div class="module-body bg-type03">
 			<?php
 			$blog_id = get_current_blog_id();
+			global $wpdb;
 			$args = array(
 				'meta_query' => array(
 					'relation' => 'OR',
