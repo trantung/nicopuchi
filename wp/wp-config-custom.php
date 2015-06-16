@@ -31,3 +31,17 @@ define('MORE_COUNT_PER_TIMELINE', 2);
 define('ROOT_URL', 'http://52.68.157.55');
 define('USER_AUTH', 'guest');
 define('PASSWORD_AUTH', 'nadia');
+
+define('BLOG_TYPE_PETIT_MO',			'1');	//プチモブログ
+define('BLOG_TYPE_SUPER_DOKUMO',		'2');	//スーパー読モブログ
+define('BLOG_TYPE_PETIT_MO_OFFICIAL',	'3');	//プチモオフィシャルブログ
+define('BLOG_TYPE_NICOPETIT_ED',		'4');	//ニコプチ編集部ブログ
+
+//BLOGのデフォルトキャラクタセット
+define('BLOG_CHAR_SET', 'UTF-8');
+
+//概要の丸め文字数
+define('BLOG_DESCRIPTION_ROUND_LENGTH', 210);
+
+//概要の丸め後追加文字
+define('BLOG_DESCRIPTION_ROUND_CHAR', '&#8230;');
