@@ -537,7 +537,7 @@ function my_breadcrumbs_sp()
 	if (! is_home())
 	{
 		$val .= '<ul class="dir-path cFix">' . $eol;
-		$val .= '<li><a href="' . home_url() . '/">TOP</a></li>' . $eol;
+		$val .= '<li><a href="' . home_url() . '/">TOP</a>&gt;</li>' . $eol;
 
 		if (is_search())
 		{
@@ -559,7 +559,7 @@ function my_breadcrumbs_sp()
 				array_pop($cat_list_link);
 				foreach ($cat_list_link as $item)
 				{
-					$val .= '<li>' . $item . '</li>' . $eol;
+					$val .= '<li>' . $item . '&gt;</li>' . $eol;
 				}
 			}
 			$val .= '<li>' . $cat_info->name . '</li>' . $eol;
@@ -581,7 +581,7 @@ function my_breadcrumbs_sp()
 				array_pop($cat_list_link);
 				foreach ($cat_list_link as $item)
 				{
-					$val .= '<li>' . $item . '</li>' . $eol;
+					$val .= '<li>' . $item . '&gt;</li>' . $eol;
 				}
 			}
 			else
