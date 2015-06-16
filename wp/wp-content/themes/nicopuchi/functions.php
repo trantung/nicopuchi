@@ -764,12 +764,11 @@ function my_comlist($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment; ?>
     <li>
-        <?php FB::info($comment); ?>
         <div class="comment-desc">
             <?php comment_text(); ?>
         </div>
         <div class="comment-foot">
-            <?php comment_author(); ?> | <?php comment_date('Y年m月d日'); ?>
+            <?php the_author_meta('nickname', $comment->user_id); ?> | <?php comment_date('Y年m月d日'); ?>
         </div>
     </li>
 <?php
@@ -786,6 +785,7 @@ function getJsonData()
 {
     $source = file_get_contents(get_stylesheet_directory() . '/data/data.json');
     $jsonData = json_decode($source, true);
+    $jsonData !== null ?: $jsonData = [];
     return $jsonData;
 }
 
