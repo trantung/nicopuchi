@@ -38,18 +38,23 @@
 						<ul class="pageNav01">
 							<?php
 							$prev_post = get_previous_post();
+							echo '<li class="fl_l">';
 							if ($prev_post)
 							{
-								echo '<li class="fl_l"><a href="' . get_permalink($prev_post->ID) . '"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a></li>';
+								echo '<a href="' . get_permalink($prev_post->ID) . '"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a>';
 							}
+							echo '</li>';
 							?>
+
 							<li><a href="#"><?php the_author(); ?>の記事一覧</a></li>
 							<?php
 							$next_post = get_next_post();
+							echo '<li class="fl_r">';
 							if ($next_post)
 							{
-								echo '<li class="fl_r"><a href="' . get_permalink($next_post->ID) . '"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a></li>';
+								echo '<a href="' . get_permalink($next_post->ID) . '"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a>';
 							}
+							echo '</li>';
 							?>
 						</ul>
 						<a href="<?php home(); ?>/blog/" class="btn type02 tx_c mt10 mb20"><span class="tx12"><img src="<?php home(); ?>/common/img/sp/04/icn_arrow.jpg" width="32" height="22">プチモブログ一覧</span></a>
@@ -60,7 +65,9 @@
 						<a href="" class="btn type03 tx_c fl_l"><span class="tx12">会員登録</span></a> <a href="" class="btn type03 tx_c fl_r"><span class="tx12">ログイン</span></a>
 						<!--/entry--></div>
 					<div class="comment">
-						<div class="comment_head"><img src="../common/img/sp/04/icn_comment.gif" width="25" height="20">コメント（6）</div>
+						<div class="comment_head">
+							<img src="../common/img/sp/04/icn_comment.gif" width="25" height="20">コメント（6）
+						</div>
 						<p>メルちゃん。</p>
 						<p>ご卒業おめでとうございます＊</p>
 						<p>&nbsp;</p>

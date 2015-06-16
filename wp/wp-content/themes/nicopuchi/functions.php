@@ -774,7 +774,15 @@ function my_comlist($comment, $args, $depth)
 <?php
 }
 
-
+// コメント SP
+function my_comlist_sp($comment, $args, $depth)
+{
+	$GLOBALS['comment'] = $comment; ?>
+	<?php comment_text(); ?>
+	<p class="comment_credit"><?php the_author_meta('nickname', $comment->user_id); ?> 　|　 <?php comment_date('Y年m月d日'); ?></p>
+	<hr class="line">
+<?php
+}
 
 
 
