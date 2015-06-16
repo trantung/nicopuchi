@@ -11,8 +11,9 @@ body {
     line-height: 1.8;
 }
 body, button, input, select, textarea {
-    font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    font-family: Meiryo, sans-serif;
 }
+/*
 img {
     max-width: 100%;
     vertical-align: bottom;
@@ -42,6 +43,7 @@ h2 {
     font-size: 20px;
     line-height: 1.2;
 }
+*/
 .alignleft {
     float: left;
     margin: 3px 16px 10px 0;
