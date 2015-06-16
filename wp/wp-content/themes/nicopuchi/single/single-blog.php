@@ -39,7 +39,7 @@
                             <div class="blog-foot">
                                 <ul class="pagenav">
                                     <li><a href=""><span>前の記事</span></a></li>
-                                    <li><a href="<?php home(); ?>/blog/"><span>記事一覧</span></a></li>
+                                    <li><a href="/blog/"><span>記事一覧</span></a></li>
                                     <li><a href=""><span>次の記事</span></a></li>
                                 </ul>
                             </div>
@@ -48,8 +48,8 @@
                             <div class="blog-comment">
                                 <h3><img src="<?php home(); ?>/common/img/pc/04/ttl_comment2.png" alt="コメント ニコ☆プチに会員登録すると、コメント投稿できるよ"></h3>
                                 <ul class="btn-list">
-                                    <li><a href=""><span>会員登録</span></a></li>
-                                    <li><a href=""><span>ログイン</span></a></li>
+                                    <li><a href="/mypage/"><span>会員登録</span></a></li>
+                                    <li><a href="/mypage/"><span>ログイン</span></a></li>
                                 </ul>
                                 <?php comments_template(); ?>
                             </div>
