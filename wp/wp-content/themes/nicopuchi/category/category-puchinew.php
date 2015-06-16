@@ -14,44 +14,48 @@
                 <h2><img src="<?php home(); ?>/common/img/pc/03/ttl01.png" alt="プチメニュー10" width="794" height="162"></h2>
             </div>
             <div class="module-body inner15 bg-white">
+                <?php
+                $args = array(
+                    'post_type' => 'puchinew',
+                    'posts_per_page' => 10,
+                );
+                query_posts($args);
+                ?>
                 <?php if (have_posts()) : ?>
                     <ul class="index-list-type02 fl">
                         <?php while (have_posts()) : the_post(); ?>
                             <li>
+                                <?php
+                                $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                $new_flag = ($date_diff <= 4) ? true : false;
+                                ?>
                                 <?php if (get_the_content()) : ?>
-                                    <a href="<?php the_permalink(); ?>" class="new">
-                                <?php elseif (get_field('link')) : ?>
-                                    <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
-                                <?php endif; ?>
-                                    <dl>
-                                        <dt>
-                                            <img src="<?php home(); ?>/common/img/pc/03/img_sample01.png" alt="">
-                                        </dt>
-                                        <dd>
-                                            <p class="desc"><?php the_title(); ?></p>
-                                            <span class="date"><?php echo get_the_date('Y.m.d'); ?></span>
-                                        </dd>
-                                    </dl>
-                                    <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36" title="NEW">
-                                <?php if (get_the_content() || get_field('link')) : ?>
-                                    </a>
-                                <?php endif; ?>
+                                <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                    <?php elseif (get_field('link')) : ?>
+                                    <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                        <?php else : ?>
+                                        <a href="#"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                            <?php endif; ?>
+                                            <dl>
+                                                <dt>
+                                                    <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                                    <img src="<?php echo $eyecatch[0]; ?>" alt="">
+                                                </dt>
+                                                <dd>
+                                                    <p class="desc"><?php the_title(); ?></p>
+                                                    <span class="date"><?php echo get_the_date('Y.m.d'); ?></span>
+                                                </dd>
+                                            </dl>
+                                            <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36" title="NEW">
+                                            <?php if (get_the_content() || get_field('link')) : ?>
+                                        </a>
+                                    <?php endif; ?>
                             </li>
                         <?php endwhile; ?>
                     </ul>
                 <?php endif; ?>
             </div>
-            <p class="page mb40">
-                <span class="page-numbers current">1</span>
-                <a class="page-numbers" href="">2</a>
-                <a class="page-numbers" href="">3</a>
-                <a class="page-numbers" href="">4</a>
-                <a class="page-numbers" href="">5</a>
-                <a class="page-numbers" href="">6</a>
-                <span class="page-numbers dots">…</span>
-                <a class="page-numbers" href="">16</a>
-                <a class="next page-numbers" href="">&gt;</a>
-            </p>
+            <?php my_pager($additional_loop->max_num_pages); ?>
             <!--/.module-type01--></div>
         <!--/#main--></div>
     <div id="side">

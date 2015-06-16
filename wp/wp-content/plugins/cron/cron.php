@@ -42,6 +42,7 @@ function bl_deactivate() {
 }
 
 function crawData(){
+
     // getXMLData();
     include_once(ABSPATH . WPINC . '/feed.php');
     $group1  = array(
@@ -61,6 +62,7 @@ function crawData(){
     $group3 = array(
         'http://feedblog.ameba.jp/rss/ameblo/nicopuchi-staff/rss20.xml',
     );
+
     $item_group1 = returnArrayData($group1, 1);
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
@@ -90,6 +92,7 @@ function returnImage ($text) {
 }
 
 function returnText($text){
+
     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
     $text = preg_replace('/<img[^>]+src="[^"]+\.(?:png|jpg|jpeg)"[^>]+>/', "", $text);
     $text = preg_replace('/CANDYからの投稿/', "", $text);
@@ -103,6 +106,7 @@ function returnArrayData($arrUrl,$group) {
     foreach ($arrUrl as $key => $url) {
         $urlexplode = explode("/", $url);
         $folder = $urlexplode[5];
+
         if($group == 4)
                 $folder = "wp";
         $feed = fetch_feed($url);
@@ -116,6 +120,7 @@ function returnArrayData($arrUrl,$group) {
             $image = returnImage($item->get_content());
             $tmp['title']  = $item->get_title();
             $tmp['title_link'] = $item->get_link();
+
             $tmp['date'] = strtotime($item->get_date('Y-m-d H:i:s'));
             $tmp['desc'] = returnText($item->get_description());
             if(!empty($image[0])){
@@ -126,6 +131,7 @@ function returnArrayData($arrUrl,$group) {
                 $imgName = $imgSavePath.'/img'.$key.'.png';
                 file_put_contents($imgName, $contentImage);
                 $name = 'img'.$key.'.png';
+
                 $tmp['image'] = get_stylesheet_directory_uri()."/images/".$folder.'/'.$name;
             }
             switch ($group) {
@@ -147,7 +153,6 @@ function returnArrayData($arrUrl,$group) {
             $arrItem[]=$tmp;
         }
     }
-
 
     return $arrItem;
 }

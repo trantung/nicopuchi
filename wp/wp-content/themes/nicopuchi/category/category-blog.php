@@ -28,36 +28,40 @@
             </div>
             <div class="module-body">
                 <div class="masonry">
+                    <?php
+                    $args = array(
+                        'category_name' => $cat_info->slug,
+                        'posts_per_page' => 10,
+                        'paged' => get_query_var('paged')
+                    );
+                    query_posts($args);
+                    ?>
                     <?php if (have_posts()) : ?>
                         <ul class="masonry-inner">
                             <?php while (have_posts()) : the_post(); ?>
                                 <li class="item">
-                                    <a href="<?php the_permalink(); ?>" class="new">
-                                        <img src="/common/img/pc/index/img_sample02a.png" alt="" width="246" height="164">
+                                    <?php
+                                    $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                    $new_flag = ($date_diff <= 4) ? true : false;
+                                    ?>
+                                    <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                        <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                        <img src="<?php echo $eyecatch[0]; ?>" alt="" width="246">
                                         <div class="info">
-                                            <span class="model-icon"><img src="/common/img/pc/04/img_sample05.png" alt=""></span>
-                                            <span class="model-name">モデル名@</span>
-                                            <span class="update">2014.08.14</span>
+                                            <?php $avatar = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar01'), 'thumbnail'); ?>
+                                            <span class="model-icon"><img src="<?php echo $avatar[0]; ?>" alt="" width="42"></span>
+                                            <span class="model-name"><?php the_author_meta('nickname'); ?></span>
+                                            <span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
                                         </div>
-                                        <span class="blog-ttl">タイトルが入りますタイトルが入りま</span>
-                                        <span class="blog-desc">この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れ</span>
-                                        <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                        <span class="blog-ttl"><?php the_title(); ?></span>
+                                        <span class="blog-desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags(get_the_content())), 0, 34); ?></span>
+                                        <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                     </a>
                                 </li>
                             <?php endwhile; ?>
                         </ul>
                     <?php endif; ?>
-                    <p class="page">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="">2</a>
-                        <a class="page-numbers" href="">3</a>
-                        <a class="page-numbers" href="">4</a>
-                        <a class="page-numbers" href="">5</a>
-                        <a class="page-numbers" href="">6</a>
-                        <span class="page-numbers dots">…</span>
-                        <a class="page-numbers" href="">35</a>
-                        <a class="next page-numbers" href="">&gt;</a>
-                    </p>
+                    <?php my_pager($additional_loop->max_num_pages); ?>
                     <!--/.masonry--></div>
             </div>
             <!--/.module-type01--></div>
@@ -101,78 +105,23 @@
                 <h2><img src="/common/img/pc/04/ttl_comment.png" alt="最近のコメント" width="270" height="50"></h2>
             </div>
             <div class="module-body">
+                <?php $comments = get_comments(array('status' => 'approve', 'number' => 10)); ?>
                 <ul class="index-list-type03">
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
+                    <?php foreach ($comments as $comment) : ?>
+                        <?php $post = get_post($comment->comment_post_ID); ?>
+                        <li>
+                            <a href="<?php the_permalink(); ?>">
+                                <span class="desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($comment->comment_content)), 0, 50); ?></span>
+                                <span class="name"><?php comment_author(); ?></span>
+                                <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                     <!--/#readersblog--></ul>
+
+
+
+
             </div>
             <!--/.module-type01--></div>
         <!--/#side--></div>

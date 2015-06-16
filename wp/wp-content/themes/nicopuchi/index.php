@@ -2,7 +2,12 @@
 /**
  * トップページ
  */
-$blogsData = getJsonData();
+crawData();
+die('1');
+$jsonData = getJsonData();
+
+$disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
+
 ?>
 <?php get_header(); ?>
     <div id="contents">
@@ -19,83 +24,46 @@ $blogsData = getJsonData();
                     <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
                 </ul>
                 <!--/#mainvisual--></div>
+
+            <?php require_once('common/inc/pc/blogsupporter.php'); ?>
+
+            <?php /* Comment for VN, Maker please check!
             <div class="module-type01">
-                <div class="module-head">
-                    <h2 class="icn type01"><img src="/common/img/pc/index/ttl01.png" alt="ニコ☆プチ読者ブログサポーター" width="300" height="32"></h2>
-                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
-                </div>
-                <div class="module-body bg-type01">
-                    <div id="blogsupporter" class="slider-area">
-                        <span class="ttl"><img src="/common/img/pc/index/ttl01b.png" alt="" width="140" height="152"></span>
-                        <ul class="slider-type01 index-list">
-                            <li>
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample01a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample01b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="model-name">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                        </ul>
-                        <!--/#blogSupporter--></div>
-                </div>
-                <!--/.module-type01--></div>
+				<div class="module-head">
+					<h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
+					<a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+				</div>
+				<div class="module-body bg-type02">
+					<div id="timeline" class="masonry">
+						<ul class="masonry-inner mt10">
+							<?php foreach ($disp_time_line as $key => $value)
+							{ ?>
+								<li class="item">
+									<a href="<?= $value['title_link'] ?>" class="new">
+										<img src="<?= get_stylesheet_directory_uri() . $value['image'] ?>" alt="" width="246" height="164">
+										<dl class="update">
+											<dt><img src="/common/img/pc/<?= $value['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+											<dd><?= date('Y m d | g:i a', $value['date']) ?></dd>
+										</dl>
+										<span class="blog-ttl"><?= $value['title'] ?></span>
+										<span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $value['desc'] ?></span>
+										<?php if ($value['date'] == strtotime(date('Y-m-d')))
+										{ ?>
+											<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+										<?php } ?>
+									</a>
+								</li>
+							<?php } ?>
+						</ul>
+						<a href="" class="btn-more fdb">
+							<span><img src="/common/img/pc/btn_more.png" alt="もっと見る"></span>
+						</a>
+						<!--/#timeline--></div>
+				</div>
+				<!--/.module-type01--></div>
+            
+			<?php if (0): // 一時的に処理停止 ?>
+            */ ?>
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
@@ -104,136 +72,103 @@ $blogsData = getJsonData();
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
                         <ul class="masonry-inner mt10">
-                            <?php foreach ($blogsData as $key => $blogData) {?>
-                                <?php if($key<12){?>
+                            <?php foreach ($jsonData as $key => $blogData)
+                            { ?>
+                                <?php if ($key < 12)
+                            { ?>
                                 <li class="item">
-                                    <a href="<?=$blogData['title_link']?>" class="new">
-                                        <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
+                                    <a href="<?= $blogData['title_link'] ?>" class="new">
+                                        <img src="<?= $blogData['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
-                                            <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
+                                            <dt><img src="/common/img/pc/<?= $blogData['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?= date('Y m d | g:i a', $blogData['date']) ?></dd>
                                         </dl>
-                                        <span class="blog-ttl"><?=$blogData['title']?></span>
-                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$blogData['desc']?></div>
-                                        <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
+                                        <span class="blog-ttl"><?= $blogData['title'] ?></span>
+                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?= $blogData['desc'] ?></div>
+                                        <?php if ($blogData['date'] == strtotime(date('Y-m-d')))
+                                        { ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
                                     </a>
                                 </li>
 
-                                <?php } elseif($key>11 && $key<24){ ?>
+                            <?php }
+                            elseif ($key > 11 && $key < 24)
+                            { ?>
 
                                 <li class="item more-item" style="display:none">
-                                    <a href="<?=$blogData['title_link']?>" class="new">
-                                        <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
+                                    <a href="<?= $blogData['title_link'] ?>" class="new">
+                                        <img src="<?= $blogData['image'] ?>" alt="" width="246" height="164">
                                         <dl class="update">
-                                            <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
+                                            <dt><img src="/common/img/pc/<?= $blogData['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?= date('Y m d | g:i a', $blogData['date']) ?></dd>
                                         </dl>
-                                        <span class="blog-ttl"><?=$blogData['title']?></span>
-                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?=$blogData['desc']?></span>
-                                        <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
+                                        <span class="blog-ttl"><?= $blogData['title'] ?></span>
+                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $blogData['desc'] ?></span>
+                                        <?php if ($blogData['date'] == strtotime(date('Y-m-d')))
+                                        { ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
                                     </a>
                                 </li>
 
-                                <?php }else {?>
-                                <?php break;}?>
+                            <?php }
+                            else
+                            { ?>
+                                <?php break;
+                            } ?>
 
                             <?php } ?>
                         </ul>
                         <a href="" class="btn-more fdb">
                             <span><img src="/common/img/pc/btn_more.png" alt="もっと見る"></span>
                         </a>
+
                         <a href="" class="btn-timeline fdb" style="display:none">
                             <span><img src="/common/img/pc/viewlist.png" alt="一覧を見る"></span>
                         </a>
                         <!--/#timeline--></div>
                 </div>
                 <!--/.module-type01--></div>
+            <?php //endif; ?>
+
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type03"><img src="/common/img/pc/index/ttl03.png" alt="プチモ☆ブログ" width="160" height="32"></h2>
-                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <a href="/blog/" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type03">
                     <div id="puchiblog" class="slider-area">
-                        <ul class="slider-type02 index-list">
-                            <li>
-                                <a href="" class="new">
-                                    <img class="thumbsnail" src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">モデル名が入ります。</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="model-name type02">モデル名が入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                        </ul>
+                        <?php
+                        $args = array(
+                            'category_name' => 'blog',
+                            'post_per_page' => 8,
+                        );
+                        $the_query = new WP_Query($args);
+                        ?>
+                        <?php if ($the_query->have_posts()) : ?>
+                            <ul class="slider-type02 index-list">
+                                <?php while ($the_query->have_posts()) : ?>
+                                    <?php $the_query->the_post(); ?>
+                                    <li>
+                                        <?php
+                                        $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                        $new_flag = ($date_diff <= 4) ? true : false;
+                                        ?>
+                                        <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                            <?php the_post_thumbnail(array(140, 94)); ?>
+                                            <span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
+                                            <span class="blog-ttl"><?php the_title(); ?></span>
+                                            <span class="model-name type02"><?php the_author(); ?></span>
+                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                        </a>
+                                    </li>
+                                <?php endwhile; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php wp_reset_postdata(); ?>
                         <!--/#puchiblog--></div>
+
                 </div>
                 <!--/.module-type01--></div>
             <div class="module-type01">
@@ -320,294 +255,94 @@ $blogsData = getJsonData();
                         <!--/#staffblog--></div>
                 </div>
                 <!--/.module-type01--></div>
+
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type05"><img src="/common/img/pc/index/ttl05.png" alt="We&hearts;プチモ" width="130" height="32"></h2>
-                    <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <a href="/nico_profile/" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type05">
-                    <ul id="welovepuchi" class="list-type-center"><!--
-                        -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05a.png" alt="黒坂莉那" width="110" height="73">
-                                <span class="name">黒坂 莉那 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05b.png" alt="岩崎春果" width="110" height="73">
-                                <span class="name">岩崎 春果 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05c.png" alt="伊藤小春" width="110" height="73">
-                                <span class="name">伊藤 小春 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05d.png" alt="西川茉佑" width="110" height="73">
-                                <span class="name">西川 茉佑 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05e.png" alt="岡香鈴" width="110" height="73">
-                                <span class="name">岡 香鈴 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05f.png" alt="山田碧海" width="110" height="73">
-                                <span class="name">山田 碧海 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05g.png" alt="鈴木伶奈" width="110" height="73">
-                                <span class="name">鈴木 伶奈 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05h.png" alt="大野みさき" width="110" height="73">
-                                <span class="name">大野 みさき &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05i.png" alt="千葉泉恋" width="110" height="73">
-                                <span class="name">千葉 泉恋 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05j.png" alt="乃亜" width="110" height="73">
-                                <span class="name">乃亜 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05k.png" alt="夏目璃乃" width="110" height="73">
-                                <span class="name">夏目 璃乃 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05l.png" alt="涼凪" width="110" height="73">
-                                <span class="name">涼凪 &copy;</span>
-                            </a>
-                        </li>
-                        <!--
-                                                   -->
-                        <li>
-                            <a href="" class="fdb">
-                                <img src="/common/img/pc/index/img_sample05m.png" alt="松田 望愛" width="110" height="73">
-                                <span class="name">松田 望愛 &copy;</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <?php
+                    $args = array(
+                        'post_type' => 'nico_profile',
+                        'post_per_page' => 13,
+                        'orderby' => 'rand', //■■■普通に最新取得したほうが良いかも（要確認）
+                    );
+                    $the_query = new WP_Query($args);
+                    ?>
+                    <?php if ($the_query->have_posts()) : ?>
+                        <ul id="welovepuchi" class="list-type-center"><!--
+                            <?php while ($the_query->have_posts()) : ?>
+                                <?php $the_query->the_post(); ?>
+                                        --><li>
+                                <a href="<?php the_permalink(); ?>" class="fdb">
+                                    <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                    <img src="<?php echo $eyecatch[0]; ?>" alt="<?php the_title(); ?>" width="110" height="73">
+                                    <span class="name"><?php the_title(); ?></span>
+                                </a>
+                            </li><!--
+                            <?php endwhile; ?>
+                        --></ul>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
                 </div>
                 <!--/.module-type01--></div>
             <!--/#main--></div>
         <div id="side" class="mt0">
+
             <ul class="bnr-area">
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h250.png" alt="" width="300" height="250"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
             </ul>
+
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type06"><img src="/common/img/pc/index/ttl06.png" alt="プチニュー10" width="128" height="32"></h2>
                 </div>
                 <div class="module-body bg-type06 inner15">
-                    <ul class="index-list-type02 fl">
-                        <li>
-                            <a href="" class="new">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06a.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="new">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06b.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06c.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06a.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06b.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06c.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06a.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06b.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06c.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample06c.png" alt="">
-                                        <span class="date">2015.00.00</span>
-                                    </dt>
-                                    <dd>
-                                        <p class="desc">
-                                            テキストがはいりますテキストがはいりますテキストがはいります
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                    </ul>
+                    <?php
+                    $args = array(
+                        'post_type' => 'puchinew',
+                        'post_per_page' => 8,
+                    );
+                    $the_query = new WP_Query($args);
+                    ?>
+                    <?php if ($the_query->have_posts()) : ?>
+                        <ul class="index-list-type02 fl">
+                            <?php while ($the_query->have_posts()) : ?>
+                                <?php $the_query->the_post(); ?>
+                                <li>
+                                    <?php
+                                    $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                    $new_flag = ($date_diff <= 4) ? true : false;
+                                    ?>
+                                    <?php if (get_the_content()) : ?>
+                                    <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                        <?php elseif (get_field('link')) : ?>
+                                        <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                            <?php else : ?>
+                                            <a href="#"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                                <?php endif; ?>
+                                                <dl>
+                                                    <dt>
+                                                        <?php the_post_thumbnail(array(88, 0)); ?>
+                                                        <span class="date"><?php echo get_the_date('Y.m.d'); ?></span>
+                                                    </dt>
+                                                    <dd>
+                                                        <p class="desc">
+                                                            <?php the_title(); ?>
+                                                        </p>
+                                                    </dd>
+                                                </dl>
+                                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                            </a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
                 </div>
                 <!--/.module-type01--></div>
             <div class="module-type01">
@@ -673,6 +408,7 @@ $blogsData = getJsonData();
                         <!--/#readersblog--></ul>
                 </div>
                 <!--/.module-type01--></div>
+
             <div class="module-type01">
                 <div class="module-head">
                     <h2><img src="/common/img/pc/index/ttl08.png" alt="女子小学生のファッション誌" width="300" height="80"></h2>
@@ -727,25 +463,28 @@ $blogsData = getJsonData();
     <script type="text/javascript" src="/common/js/script.js"></script>
     <script type="text/javascript" src="/common/js/slick.js"></script>
     <script>
-        $("document").ready(function(){
+
+        $("document").ready(function() {
             $('#mainvisual ul').slick({
                 infinite: true,
-                autoplay:true,
-                dots:true,
+                autoplay: true,
+                dots: true,
                 slidesToShow: 1,
                 slidesToScroll: 1
             });
             $('.slider-type01').slick({
                 infinite: true,
-                autoplay:true,
-                dots:true,
+
+                autoplay: true,
+                dots: true,
                 slidesToShow: 4,
                 slidesToScroll: 1
             });
             $('.slider-type02').slick({
                 infinite: true,
-                autoplay:true,
-                dots:true,
+                autoplay: true,
+                dots: true,
+
                 slidesToShow: 5,
                 slidesToScroll: 1
             });
@@ -753,7 +492,8 @@ $blogsData = getJsonData();
     </script>
     <script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
     <script>
-        $(function(){
+
+        $(function() {
             $('.masonry-inner').masonry();
             $('.btn-more').click(function(e) {
                 e.preventDefault();
@@ -762,10 +502,10 @@ $blogsData = getJsonData();
                 $('.btn-timeline').show();
                 $('.masonry-inner').masonry();
             });
-            $('.btn-timeline').click(function(e){
+            $('.btn-timeline').click(function(e) {
                 e.preventDefault();
                 var url = 'timeline/#24';
-                $(location).attr('href',url);
+                $(location).attr('href', url);
             });
 
         })
@@ -775,4 +515,5 @@ $blogsData = getJsonData();
         $("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
         $("#puchiblog li a").heightLine(1);
     </script>
+
 <?php get_footer(); ?>

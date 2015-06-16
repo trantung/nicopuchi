@@ -19,21 +19,13 @@
 // (http://wpdocs.sourceforge.jp/Codex:%E8%AB%87%E8%A9%B1%E5%AE%A4 参照)
 // を使用し、必ず UTF-8 の BOM なし (UTF-8N) で保存してください。
 
-// ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
 include('wp-config-custom.php');
-define('DB_NAME', 'nicopuchi_db');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
-define('DB_HOST', 'localhost');
-
-
 
 // ** MySQL 設定 - この情報はホスティング先から入手してください。 ** //
-// define('DB_NAME', 'nicopuchi_db');
-// define('DB_USER', 'nicopuchi');
-// define('DB_PASSWORD', 'QRUsKAi6EXgn');
-// define('DB_HOST', 'nicopuchidb.cziau29pqrkr.ap-northeast-1.rds.amazonaws.com');
-
+define('DB_NAME', 'nicopuchi_db');
+define('DB_USER', 'nicopuchi');
+define('DB_PASSWORD', 'QRUsKAi6EXgn');
+define('DB_HOST', 'nicopuchidb.cziau29pqrkr.ap-northeast-1.rds.amazonaws.com');
 
 /** データベースのテーブルを作成する際のデータベースの文字セット */
 define('DB_CHARSET', 'utf8');
@@ -88,10 +80,9 @@ define('WP_POST_REVISIONS', false);
 define('AUTOSAVE_INTERVAL', 999999);
 
 // メディアのアップロード先
-define('UPLOADS', 'uploads');
+//define('UPLOADS', 'uploads');
 
-// number object of page
-define('ITEM_PER_PAGE', 36);
+
 
 /* 編集が必要なのはここまでです ! WordPress でブログをお楽しみください。 */
 

@@ -15,12 +15,20 @@
             </div>
             <div class="module-body">
                 <div class="masonry">
+                    <?php
+                    $args = array(
+                        'post_type' => 'nico_profile',
+                        'posts_per_page' => 10,
+                    );
+                    query_posts($args);
+                    ?>
                     <?php if (have_posts()) : ?>
                         <ul class="masonry-inner">
                             <?php while (have_posts()) : the_post(); ?>
                                 <li class="item">
                                     <a href="<?php the_permalink(); ?>">
-                                        <img src="/common/img/pc/index/img_sample05a.png" alt="<?php the_title(); ?>" width="246" height="165">
+                                        <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                        <img src="<?php echo $eyecatch[0]; ?>" alt="" width="246">
                                         <span class="name"><?php the_title(); ?></span>
                                         <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                                     </a>
@@ -28,17 +36,7 @@
                             <?php endwhile; ?>
                         </ul>
                     <?php endif; ?>
-                    <p class="page">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="">2</a>
-                        <a class="page-numbers" href="">3</a>
-                        <a class="page-numbers" href="">4</a>
-                        <a class="page-numbers" href="">5</a>
-                        <a class="page-numbers" href="">6</a>
-                        <span class="page-numbers dots">…</span>
-                        <a class="page-numbers" href="">35</a>
-                        <a class="next page-numbers" href="">&gt;</a>
-                    </p>
+                    <?php my_pager($additional_loop->max_num_pages); ?>
                     <!--/.masonry--></div>
             </div>
             <!--/.module-type01--></div>

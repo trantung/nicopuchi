@@ -58,16 +58,16 @@
         <div class="foot-link">
             <div class="left">
                 <ul>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="184" height="16"></a></li>
+                    <li><a href="/support/" class="fdb"><img src="/common/img/pc/fnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="184" height="16"></a></li>
                     <li><a href="" class="fdb"><img src="/common/img/pc/fnav05.png" alt="ニコ☆プチタイムライン" width="85" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav03.png" alt="プチニュー10" width="99" height="16"></a></li>
+                    <li><a href="/puchinew/" class="fdb"><img src="/common/img/pc/fnav03.png" alt="プチニュー10" width="99" height="16"></a></li>
                     <li><a href="" class="fdb"><img src="/common/img/pc/fnav04.png" alt="ニコ☆プチ編集部ブログ" width="158" height="16"></a></li>
                 </ul>
                 <ul>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav05.png" alt="プチモ一覧" width="85" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav06.png" alt="プチモブログ" width="101" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav07.png" alt="プチ撮影日記" width="93" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav08.png" alt="ニコプチ表紙" width="93" height="16"></a></li>
+                    <li><a href="/nico_profile/" class="fdb"><img src="/common/img/pc/fnav05.png" alt="プチモ一覧" width="85" height="16"></a></li>
+                    <li><a href="/blog/" class="fdb"><img src="/common/img/pc/fnav06.png" alt="プチモブログ" width="101" height="16"></a></li>
+                    <li><a href="/puchisna/" class="fdb"><img src="/common/img/pc/fnav07.png" alt="プチ撮影日記" width="93" height="16"></a></li>
+                    <li><a href="/nico_cover/" class="fdb"><img src="/common/img/pc/fnav08.png" alt="ニコプチ表紙" width="93" height="16"></a></li>
                 </ul>
             </div>
             <div class="right">
@@ -108,10 +108,10 @@
 
 
 
-<script type="text/javascript" src="<?php home(); ?>/common/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="<?php home(); ?>/common/js/selectivizr-min.js"></script>
-<script type="text/javascript" src="<?php home(); ?>/common/js/script.js"></script>
-<script type="text/javascript" src="<?php home(); ?>/common/js/slick.js"></script>
+<script type="text/javascript" src="/common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/common/js/selectivizr-min.js"></script>
+<script type="text/javascript" src="/common/js/script.js"></script>
+<script type="text/javascript" src="/common/js/slick.js"></script>
 <script>
 $("document").ready(function(){
 	$('#mainvisual ul').slick({
@@ -130,22 +130,46 @@ $("document").ready(function(){
 	});
 });
 </script>
-<script type="text/javascript" src="<?php home(); ?>/common/js/easyselectbox.min.js"></script>
+<script type="text/javascript" src="/common/js/easyselectbox.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$('.design-select-box').easySelectBox();
 	})
 </script>
-<script type="text/javascript" src="<?php home(); ?>/common/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/common/js/masonry.pkgd.min.js"></script>
 <script>
 	$(function(){
 		$('.masonry-inner').masonry();
 	})
 </script>
-<script type="text/javascript" src="<?php home(); ?>/common/js/jquery.heightLine.js"></script>
+<script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
 <script>
 	$("#blogsupporter li a,#blogsupporter li .no-link").heightLine(0);
 	$("#puchiblog li a").heightLine(1);
+</script>
+<script type="text/javascript" src="/common/js/jquery.magnific-popup.min.js"></script>
+<script>
+	$(function(){
+		$("#main .new-magazine").magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			gallery: {
+				enabled: true
+			}
+		});
+		$("#main #backNumber li").each(function(){
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				gallery: {
+					enabled: true
+				}
+			});
+		});
+		$(".new-magazine-left img.bd-pink").css("cursor","pointer").on("click", function(){
+			$('.new-magazine-left .btn-area a').click();
+		});
+	});
 </script>
 </body>
 </html>

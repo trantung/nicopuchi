@@ -23,10 +23,11 @@
     <meta property="og:title" content="****">
     <meta property="og:description" content="****">
     <meta name="viewport" content="width=1150">
-    <title><?php wp_title('｜', true, 'right'); ?></title>
+    <title><?php wp_title('｜', true, 'right'); ?>ニコ☆プチ</title>
     <link rel="stylesheet" href="/common/css/style.css">
     <link rel="stylesheet" href="/common/css/ie.css">
     <link rel="stylesheet" href="/common/css/slick.css">
+    <link rel="stylesheet" href="/common/css/magnific-popup.css">
     <link rel="stylesheet" media="print" href="/common/css/print.css">
 </head>
 <body class="<?php my_body_class(); ?>">
@@ -46,9 +47,9 @@
     <div class="header-inner">
         <h1><a href="/"><img src="/common/img/pc/img_logo.png" alt="ニコ☆プチ" width="213" height="64"></a></h1>
         <ul id="gnav">
-            <li><a href="" class="fdb"><img src="/common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
+            <li><a href="/support/" class="fdb"><img src="/common/img/pc/gnav01.png" alt="ニコ☆プチ読者ブログサポーター" width="151" height="28"></a></li>
             <li><a href="/puchinew/" class="fdb"><img src="/common/img/pc/gnav02.png" alt="プチニュー10" width="130" height="28"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
+            <li><a href="http://ameblo.jp/nicopuchi-staff/" class="fdb" target="_blank"><img src="/common/img/pc/gnav03.png" alt="ニコ☆プチ編集部ブログ" width="130" height="28"></a></li>
             <li><a href="/nico_cover/" class="fdb"><img src="/common/img/pc/gnav04.png" alt="ニコプチ表紙" width="129" height="28"></a></li>
             <li><a href="/nico_profile/" class="fdb"><img src="/common/img/pc/gnav05.png" alt="プチモ一覧" width="130" height="28"></a></li>
             <li><a href="/blog/" class="fdb"><img src="/common/img/pc/gnav06.png" alt="プチモブログ" width="130" height="28"></a></li>
