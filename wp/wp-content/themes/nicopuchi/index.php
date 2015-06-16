@@ -11,16 +11,33 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
     <div id="contents">
         <div id="main">
             <div id="mainvisual">
-                <ul>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/index/img_mv0001.png" alt="" width="824" height="342"></a></li>
-                </ul>
+                <?php
+                $args = array(
+                    'post_type' => 'top_mainimage',
+                    'posts_per_page' => 1,
+                );
+                $the_query = new WP_Query($args);
+                ?>
+                <?php if ($the_query->have_posts()) : ?>
+                    <?php $the_query->the_post(); ?>
+                    <?php if (have_rows('mainimage')) : ?>
+                        <ul>
+                            <?php while (have_rows('mainimage')) : the_row(); ?>
+                                <li>
+                                    <?php if (get_sub_field('link')) : ?>
+                                        <a href="<?php the_sub_field('link'); ?>" class="fdb" target="_<?php the_sub_field('window'); ?>">
+                                    <?php endif; ?>
+                                        <?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'full'); ?>
+                                        <img src="<?php echo $image[0]; ?>" alt="<?php the_sub_field('alt'); ?>" width="824" height="342">
+                                    <?php if (get_sub_field('link')) : ?>
+                                        </a>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
                 <!--/#mainvisual--></div>
 
             <?php require_once('common/inc/pc/blogsupporter.php'); ?>
