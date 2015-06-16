@@ -169,7 +169,7 @@ function getXMLData($url, $username, $password, $domain, $bg_image){
   foreach($xml->children() as $child) {
         $tmp['title']=$child->title.'';
         $tmp['title_link']=$domain.$child->link.'';
-        $tmp['date']=$child->datetime.'';
+        $tmp['date'] = str_replace(".","-",$child->datetime.'');
         $tmp['desc']=$child->body.'';
         $tmp['image']=$domain.$child->img.'';
         $tmp['blog_image'] = $bg_image; 
