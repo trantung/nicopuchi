@@ -417,73 +417,30 @@ get_header();
         </div>
         <div class="module-body bg-type03">
             <div id="puchiblog" class="slider-area">
+				<?php
+				$args = array(
+					'category_name' => 'blog',
+					'post_per_page' => 8,
+				);
+				$the_query = new WP_Query($args);
+				?>
+				<?php if ($the_query->have_posts()) : ?>
                 <ul class="slider-type02 index-list">
+					<?php while ($the_query->have_posts()) : ?>
+					<?php $the_query->the_post(); ?>
                     <li>
-                        <a href="" class="new">
-                            <img class="full" src="/common/img/pc/index/img_sample03a.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
+                        <a href="<?php the_permalink(); ?>" class="new">
+							<?php the_post_thumbnail(array(140,94)); ?>
+                            <span class="update"><?php echo get_the_date('Y.m.d'); ?><span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
+                            <span class="blog-ttl"><?php the_title(); ?></span>
+                            <span class="model-name type02"><?php the_author(); ?></span>
                         </a>
                     </li>
-                    <li>
-                        <a href="" class="new">
-                            <img class="full" src="/common/img/pc/index/img_sample03b.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="full" src="/common/img/pc/index/img_sample03a.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="full" src="/common/img/pc/index/img_sample03b.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="full" src="/common/img/pc/index/img_sample03a.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="full" src="/common/img/pc/index/img_sample03b.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="full" src="/common/img/pc/index/img_sample03a.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">モデル名が入ります。</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img class="full" src="/common/img/pc/index/img_sample03b.png" alt="">
-                            <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
-                            <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                            <span class="model-name type02">モデル名が入ります。</span>
-                        </a>
-                    </li>
+					<?php endwhile; ?>
                 </ul>
-                <a href="" class="btn type01 tx_c mt10"><span class="tx12">一覧</span></a>
+				<?php endif; ?>
+				<?php wp_reset_postdata(); ?>
+                <a href="<?php home(); ?>/blog" class="btn type01 tx_c mt10"><span class="tx12">一覧</span></a>
             <!--/#puchiblog--></div>
         </div>
     <!--/.module-type01--></div>
