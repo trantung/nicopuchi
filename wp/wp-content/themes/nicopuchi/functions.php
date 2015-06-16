@@ -588,7 +588,7 @@ function my_breadcrumbs_sp()
 			{
 				global $post_type;
 				$post_type_info = get_post_type_object($post_type);
-				$val .= '<li><a href="' . get_post_type_archive_link($post_type) . '">' . $post_type_info->label . '</a></li>' . $eol;
+				$val .= '<li><a href="' . get_post_type_archive_link($post_type) . '">' . $post_type_info->label . '</a>&gt;</li>' . $eol;
 			}
 			$val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
 		}
