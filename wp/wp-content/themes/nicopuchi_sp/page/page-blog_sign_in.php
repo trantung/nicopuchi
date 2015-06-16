@@ -1,6 +1,6 @@
 <?php
 /**
- * プチモブログマイページ
+ * プチモブログログイン
  */
 ?>
 <article id="main">
@@ -16,7 +16,7 @@
 				<?php the_content(); ?>
 			<?php endif; ?>
 		</div>
-	<!--/#main--></div>
+		<!--/#main--></div>
 </article><!--/#main-->
 
 
