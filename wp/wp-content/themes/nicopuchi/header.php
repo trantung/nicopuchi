@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/common/css/style.css">
     <link rel="stylesheet" href="/common/css/ie.css">
     <link rel="stylesheet" href="/common/css/slick.css">
+    <link rel="stylesheet" href="/common/css/magnific-popup.css">
     <link rel="stylesheet" media="print" href="/common/css/print.css">
 </head>
 <body class="<?php my_body_class(); ?>">

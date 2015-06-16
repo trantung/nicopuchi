@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+
+.list-type03 {
+	padding-top: 10px;
+}
+.list-type03 li {
+	background-image: url(../img/sp/04/icn_star.png);
+	background-repeat: no-repeat;
+	background-position: left 0px;
+	background-size: 13px 13px;
+	padding-left: 1.3em;
+	padding-bottom: 10px;
+	text-align: left;
+	line-height: 155%;
+}
+
+#puchinew10-detail .date,#puchimoblog-rule .date      {
+	background-color: #000000;
+	display: inline-block;
+	color: #ffffff;
+	padding: 5px;
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 10px;
+	margin-bottom: 20px;
+}
+#puchinew10-detail .ttl,#puchimoblog-rule .ttl {
+	font-size: 20px;
+	font-weight: bold;
+	padding-bottom: 20px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FA5798;
+	margin-bottom: 30px;
+}
+#puchinew10-detail h4,#puchimoblog-rule h4 {
+	font-weight: bold;
+	font-size: 16px;
+	color: #FA5798;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	text-align: left;
+}
+
+#puchinew10-detail .desc,#puchimoblog-rule .desc {
+  margin-bottom: 30px;
+  text-align: center;
+}
+#puchinew10-detail .desc p,#puchimoblog-rule .desc p {
+  line-height: 1.6;
+  font-size: 93%;
+  margin-bottom: 15px;
+  text-align: left;
+}
+#puchinew10-detail .desc p a,#puchimoblog-rule .desc p a {
+  color: #fa5798;
+}
+#puchinew10-detail strong,#puchimoblog-rule strong {
+	font-weight: normal;
+	color: #000;
+	background-color: #f6ed80;
+}
