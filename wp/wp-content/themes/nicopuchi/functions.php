@@ -764,6 +764,7 @@ function my_comlist($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment; ?>
     <li>
+        <?php FB::info($comment); ?>
         <div class="comment-desc">
             <?php comment_text(); ?>
         </div>
