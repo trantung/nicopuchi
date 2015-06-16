@@ -8,9 +8,21 @@
 
 
 <?php
-if (is_page('blog_mypage'))
+if (is_page('blog_sign_up'))
 {
-	include(TEMPLATEPATH . '/page/page-blog_mypage.php');
+	include(STYLESHEETPATH . '/page/page-blog_sign_up.php');
+}
+elseif (is_page('blog_sign_in'))
+{
+	include(STYLESHEETPATH . '/page/page-blog_sign_in.php');
+}
+elseif (is_page('blog_mypage'))
+{
+	include(STYLESHEETPATH . '/page/page-blog_mypage.php');
+}
+else
+{
+	include(STYLESHEETPATH . '/page/page-base.php');
 }
 ?>
 
