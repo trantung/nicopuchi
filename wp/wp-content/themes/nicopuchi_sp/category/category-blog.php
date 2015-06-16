@@ -66,22 +66,10 @@
 		</div>
 		<div class="module-body bg-type03">
 			<?php
-			$blog_id = get_current_blog_id();
-			global $wpdb;
 			$args = array(
-				'meta_query' => array(
-					'relation' => 'OR',
-					array(
-						'key' => $wpdb->get_blog_prefix( $blog_id ) . 'capabilities',
-						'value' => 'author',
-						'compare' => 'like'
-					),
-					array(
-						'key' => $wpdb->get_blog_prefix( $blog_id ) . 'capabilities',
-						'value' => 'editor',
-						'compare' => 'like'
-					)
-				)
+				'orderby'	=> 'ID',
+				'order'		=> 'ASC',
+				'role'		=> 'author',
 			);
 			$users = get_users($args);
 			?>
