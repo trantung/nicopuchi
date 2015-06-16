@@ -2,8 +2,6 @@
 /**
  * トップページ
  */
-crawData();
-die('1');
 $jsonData = getJsonData();
 
 $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
@@ -67,7 +65,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
-                    <a href="timeline" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <a href="<?=home_url('timeline');?>" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type02">
                     <div id="timeline" class="masonry">
@@ -104,7 +102,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                                             <dd><?= date('Y m d | g:i a', $blogData['date']) ?></dd>
                                         </dl>
                                         <span class="blog-ttl"><?= $blogData['title'] ?></span>
-                                        <span class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $blogData['desc'] ?></span>
+                                        <div class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $blogData['desc'] ?></div>
                                         <?php if ($blogData['date'] == strtotime(date('Y-m-d')))
                                         { ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
@@ -142,7 +140,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                         <?php
                         $args = array(
                             'category_name' => 'blog',
-                            'post_per_page' => 8,
+                            'posts_per_page' => 8,
                         );
                         $the_query = new WP_Query($args);
                         ?>
@@ -504,7 +502,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
             });
             $('.btn-timeline').click(function(e) {
                 e.preventDefault();
-                var url = 'timeline/#24';
+                var url = "<?=home_url('timeline');?>" + "/#24";
                 $(location).attr('href', url);
             });
 

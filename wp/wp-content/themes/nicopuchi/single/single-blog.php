@@ -10,6 +10,10 @@
         <div class="module-type01 bg-type03 pb60">
             <?php if (have_posts()) : ?>
                 <?php the_post(); ?>
+                <?php
+                // サイドバー「このユーザー最近の記事」で使用
+                $author_id = $post->post_author;
+                ?>
                 <div class="module-head">
                     <h2 class="inner15"><img src="<?php home(); ?>/common/img/pc/04/ttl01.png" alt="プチモ☆ブログ" width="794" height="162"></h2>
                     <dl class="blog-name">
@@ -40,18 +44,22 @@
                                 <ul class="pagenav">
                                     <?php
                                     $prev_post = get_previous_post();
+                                    echo '<li>';
                                     if ($prev_post)
                                     {
-                                        echo '<li><a href="' . get_permalink($prev_post->ID) . '"><span>前の記事</span></a></li>';
+                                        echo '<a href="' . get_permalink($prev_post->ID) . '"><span>前の記事</span></a>';
                                     }
+                                    echo '</li>';
                                     ?>
                                     <li><a href="/blog/"><span>記事一覧</span></a></li>
                                     <?php
                                     $next_post = get_next_post();
+                                    echo '<li>';
                                     if ($next_post)
                                     {
-                                        echo '<li><a href="' . get_permalink($next_post->ID) . '"><span>次の記事</span></a></li>';
+                                        echo '<a href="' . get_permalink($next_post->ID) . '"><span>次の記事</span></a>';
                                     }
+                                    echo '</li>';
                                     ?>
                                 </ul>
                             </div>
@@ -123,43 +131,34 @@
 
         <div class="module-type01">
             <div class="module-head">
-                <h2 class="icn type03"><span class="ttl-txt">ゆう..&copy;</span><img src="/common/img/pc/04/ttl_update.png" alt="最近の記事" width="103" height="32"></h2>
+                <h2 class="icn type03"><span class="ttl-txt"><?php the_author_meta('nickname', $author_id); ?></span><img src="/common/img/pc/04/ttl_update.png" alt="最近の記事" width="103" height="32"></h2>
             </div>
             <div class="module-body bg-type03 inner15">
-                <ul class="index-list type-side01">
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="update">2015.00.00</span>
-                            <span class="blog-ttl">タイトルが入ります</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="update">2015.00.00</span>
-                            <span class="blog-ttl">タイトルが入ります</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="update">2015.00.00</span>
-                            <span class="blog-ttl">タイトルが入ります</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="update">2015.00.00</span>
-                            <span class="blog-ttl">タイトルが入ります</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <!--/#readersblog--></ul>
+                <?php
+                $args = array(
+                    'category_name' => 'blog',
+                    'posts_per_page' => 4,
+                    'author' => $author_id,
+                );
+                $the_query = new WP_Query($args);
+                ?>
+                <?php if ($the_query->have_posts()) : ?>
+                    <ul class="index-list type-side01">
+                        <?php while ($the_query->have_posts()) : ?>
+                            <?php $the_query->the_post(); ?>
+                            <li>
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php $eyecatch = wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail'); ?>
+                                    <img src="<?php echo $eyecatch[0]; ?>" alt="" width="134" height="90">
+                                    <span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
+                                    <span class="blog-ttl"><?php the_title(); ?></span>
+                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                </a>
+                            </li>
+                        <?php endwhile; ?>
+                        <!--/#readersblog--></ul>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
             <!--/.module-type01--></div>
         <ul class="bnr-area">
@@ -285,7 +284,7 @@
                         <li>
                             <a href="<?php the_permalink(); ?>">
                                 <span class="desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($comment->comment_content)), 0, 50); ?></span>
-                                <span class="name"><?php comment_author(); ?></span>
+                                <span class="name"><?php the_author_meta('nickname', $comment->user_id); ?></span>
                                 <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
                             </a>
                         </li>

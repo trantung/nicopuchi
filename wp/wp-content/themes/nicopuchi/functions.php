@@ -764,18 +764,25 @@ function my_comlist($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment; ?>
     <li>
-        <?php FB::info($comment); ?>
         <div class="comment-desc">
             <?php comment_text(); ?>
         </div>
         <div class="comment-foot">
-            <?php comment_author(); ?> | <?php comment_date('Y年m月d日'); ?>
+            <?php the_author_meta('nickname', $comment->user_id); ?> | <?php comment_date('Y年m月d日'); ?>
         </div>
     </li>
 <?php
 }
 
-
+// コメント SP
+function my_comlist_sp($comment, $args, $depth)
+{
+	$GLOBALS['comment'] = $comment; ?>
+	<?php comment_text(); ?>
+	<p class="comment_credit"><?php the_author_meta('nickname', $comment->user_id); ?> 　|　 <?php comment_date('Y年m月d日'); ?></p>
+	<hr class="line">
+<?php
+}
 
 
 
@@ -786,6 +793,7 @@ function getJsonData()
 {
     $source = file_get_contents(get_stylesheet_directory() . '/data/data.json');
     $jsonData = json_decode($source, true);
+    $jsonData !== null ?: $jsonData = [];
     return $jsonData;
 }
 
