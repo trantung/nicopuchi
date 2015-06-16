@@ -28,6 +28,7 @@
 <title><?php wp_title('｜', true, 'right'); ?></title>
 <link rel="stylesheet" href="/common/css/style_sp.css">
 <link rel="stylesheet" href="/common/css/slick_sp.css">
+<link rel="stylesheet" href="/common/css/magnific-popup.css">
 <link rel="stylesheet" media="print" href="/common/css/print.css">
 </head>
 <body id="pagetop">

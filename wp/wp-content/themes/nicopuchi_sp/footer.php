@@ -45,8 +45,26 @@ $("document").ready(function(){
 });
 </script>
 <script type="text/javascript" src="/common/js/jquery.heightLine.js"></script>
+<script type="text/javascript" src="/common/js/jquery.magnific-popup.min.js"></script>
 <script>
-	 $(".publog").heightLine();
+	$(function(){
+		$("#newest").magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			gallery: {
+				enabled: true
+			}
+		});
+		$("#timeline_issue ul li").each(function(){
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				gallery: {
+					enabled: true
+				}
+			});
+		});
+	});
 </script>
 </body>
 </html>
