@@ -48,7 +48,7 @@
 					<!--/#puchinew10-->
 				</ul>
 			<?php endif; ?>
-			<?php my_pager($additional_loop->max_num_pages); ?>
+			<?php my_pager_sp($additional_loop->max_num_pages); ?>
 		</div>
 	</div><!--/.module-type01-->
 </article><!--/#main-->

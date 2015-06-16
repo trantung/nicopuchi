@@ -588,6 +588,62 @@ function my_pager($pages = '', $range = 2)
     //}
 }
 
+// ページネーションの出力
+function my_pager_sp($pages = '', $range = 2)
+{
+	$eol = "\n";
+	$showitems = ($range * 1) + 1;
+
+	global $paged;
+	if (empty($paged))
+	{
+		$paged = 1;
+	}
+
+	if (! $pages)
+	{
+		global $wp_query;
+		$pages = $wp_query->max_num_pages;
+		if (! $pages)
+		{
+			$pages = 1;
+		}
+	}
+
+	//if (1 != $pages)
+	//{
+	$html = '<ul class="pageNav01 pt10">' . $eol;
+
+	if ($paged > 1)
+	{
+		$html .= '<li><a href="' . get_pagenum_link($paged - 1) . '"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a>' . $eol;
+	}
+
+	for ($i = 1; $i <= $pages; $i ++)
+	{
+		//if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+		if ((! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+		{
+			if ($paged == $i)
+			{
+				$html .= '<li><span>' . $i . '</span></li>' . $eol;
+			}
+			else
+			{
+				$html .= '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>' . $eol;
+			}
+		}
+	}
+
+	if ($paged < $pages)
+	{
+		$html .= '<li><a href="' . get_pagenum_link($paged + 1) . '"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a></li>' . $eol;
+	}
+
+	$html .= '</p>' . $eol;
+	echo $html;
+	//}
+}
 
 
 //「続きを読む」のリンク先を変更（URLから「#」以降を削除）
