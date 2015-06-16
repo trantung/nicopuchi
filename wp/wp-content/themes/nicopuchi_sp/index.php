@@ -4,39 +4,58 @@ get_header();
 
 <article id="main">
 	<div id="mainvisual">
-		<ul class="bxslider">
-			<li><a href=""><img class="full" src="/common/img/sp/index/img_mv0001.png" alt=""></a></li>
-			<li><a href=""><img class="full" src="/common/img/sp/index/img_mv0001.png" alt=""></a></li>
-			<li><a href=""><img class="full" src="/common/img/sp/index/img_mv0001.png" alt=""></a></li>
-			<li><a href=""><img class="full" src="/common/img/sp/index/img_mv0001.png" alt=""></a></li>
-		</ul>
+		<?php
+		$args = array(
+			'post_type' => 'top_mainimage',
+			'posts_per_page' => 1,
+		);
+		$the_query = new WP_Query($args);
+		?>
+		<?php if ($the_query->have_posts()) : ?>
+			<?php $the_query->the_post(); ?>
+			<?php if (have_rows('mainimage')) : ?>
+				<ul class="bxslider">
+					<?php while (have_rows('mainimage')) : the_row(); ?>
+						<li>
+							<?php if (get_sub_field('link')) : ?>
+							<a href="<?php the_sub_field('link'); ?>" target="_<?php the_sub_field('window'); ?>">
+								<?php endif; ?>
+								<?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'full'); ?>
+								<img class="full" src="<?php echo $image[0]; ?>" alt="<?php the_sub_field('alt'); ?>">
+								<?php if (get_sub_field('link')) : ?>
+							</a>
+						<?php endif; ?>
+						</li>
+					<?php endwhile; ?>
+				</ul>
+			<?php endif; ?>
+		<?php endif; ?>
+		<?php wp_reset_postdata(); ?>
 		<div class="slider-selector">
-			<ul class="bx-pager">
-				<li>
-					<a data-slide-index="0" href="">
-						<img class="thumbsnail full" src="/common/img/sp/index/img_slider_thumbs0001.png">
-						<img class="cover full" src="/common/img/sp/index/img_cover.png">
-					</a>
-				</li>
-				<li>
-					<a data-slide-index="1" href="">
-						<img class="thumbsnail full" src="/common/img/sp/index/img_slider_thumbs0001.png">
-						<img class="cover full" src="/common/img/sp/index/img_cover.png">
-					</a>
-				</li>
-				<li>
-					<a data-slide-index="2" href="">
-						<img class="thumbsnail full" src="/common/img/sp/index/img_slider_thumbs0001.png">
-						<img class="cover full" src="/common/img/sp/index/img_cover.png">
-					</a>
-				</li>
-				<li>
-					<a data-slide-index="3" href="">
-						<img class="thumbsnail full" src="/common/img/sp/index/img_slider_thumbs0001.png">
-						<img class="cover full" src="/common/img/sp/index/img_cover.png">
-					</a>
-				</li>
-			</ul>
+			<?php
+			$args = array(
+				'post_type' => 'top_mainimage',
+				'posts_per_page' => 1,
+			);
+			$the_query = new WP_Query($args);
+			?>
+			<?php if ($the_query->have_posts()) : ?>
+				<?php $the_query->the_post(); ?>
+				<?php if (have_rows('mainimage')) : ?>
+					<ul class="bx-pager">
+						<?php $flag = 0; while (have_rows('mainimage')) : the_row(); ?>
+							<li>
+								<a data-slide-index="<?php echo $flag; ?>" href="">
+									<?php $image = wp_get_attachment_image_src(get_sub_field('image'), 'thumbnail'); ?>
+									<img class="thumbsnail full" src="<?php echo $image[0]; ?>">
+									<img class="cover full" src="/common/img/sp/index/img_cover.png">
+								</a>
+							</li>
+						<?php $flag ++; endwhile; ?>
+					</ul>
+				<?php endif; ?>
+			<?php endif; ?>
+			<?php wp_reset_postdata(); ?>
 		</div>
 		<!--/#mainvisual--></div>
 	<div class="module-type01">
