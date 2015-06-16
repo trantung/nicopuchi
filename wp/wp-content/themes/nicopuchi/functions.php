@@ -395,6 +395,58 @@ function register_cpt_nico_cover()
 
 
 
+// カスタム投稿タイプ登録（表紙コレクション）
+add_action('init', 'register_cpt_top_mainimage');
+function register_cpt_top_mainimage()
+{
+    $labels = array(
+        'name' => 'トップメイン画像',
+        'singular_name' => 'トップメイン画像',
+        'add_new' => '新規追加',
+        'add_new_item' => '新規追加',
+        'edit_item' => '編集する',
+        'new_item' => '新規',
+        'all_items' => '一覧',
+        'view_item' => '投稿を表示',
+        'search_items' => '検索する',
+        'not_found' => '投稿が見つかりませんでした。',
+        'not_found_in_trash' => 'ゴミ箱内に投稿が見つかりませんでした。',
+        'menu_name' => 'トップメイン画像',
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => false,
+        'description' => '',
+        'supports' => array(
+            'title',
+            'author',
+            'revisions',
+            //'thumbnail',
+            //'editor',
+            //excerpt
+            //comments
+            //trackbacks
+            //custom-fields
+            //revisions
+            //page-attributes ：属性（「hierarchical」を「true」に設定している場合のみ指定）
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 6,
+        //'menu_icon' => '',
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+    register_post_type('top_mainimage', $args);
+}
+
 
 
 // editor-style.cssの設定
