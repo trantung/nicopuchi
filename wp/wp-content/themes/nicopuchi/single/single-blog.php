@@ -39,62 +39,19 @@
                             <div class="blog-foot">
                                 <ul class="pagenav">
                                     <li><a href=""><span>前の記事</span></a></li>
-                                    <li><a href="<?php home(); ?>">/blog/<span>記事一覧</span></a></li>
+                                    <li><a href="<?php home(); ?>/blog/"><span>記事一覧</span></a></li>
                                     <li><a href=""><span>次の記事</span></a></li>
                                 </ul>
                             </div>
+
+
                             <div class="blog-comment">
                                 <h3><img src="<?php home(); ?>/common/img/pc/04/ttl_comment2.png" alt="コメント ニコ☆プチに会員登録すると、コメント投稿できるよ"></h3>
                                 <ul class="btn-list">
                                     <li><a href=""><span>会員登録</span></a></li>
                                     <li><a href=""><span>ログイン</span></a></li>
                                 </ul>
-                                <div class="inner">
-                                    <h4 class="ttl-comment">コメント（6）</h4>
-                                    <ul>
-                                        <li>
-                                            <div class="comment-desc">
-                                                <p>
-                                                    メルちゃん。<br>
-                                                    ご卒業おめでとうございます＊<br><br>
-                                                    これからもお仕事頑張ってください。<br><br><br>
-                                                    大好きだよ
-                                                </p>
-                                            </div>
-                                            <div class="comment-foot">
-                                                れんか♪ &copy; | 2015年5月1日
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="comment-desc">
-                                                <p>
-                                                    めるｃへ。<br><br>
-                                                    卒業おめでとう！<br>
-                                                    とうとう最後のブログになっちゃったね。。。<br><br>
-                                                    いつもコメント返しありがとうね。<br>
-                                                    嬉しかったよ！<br><br>
-                                                    毎回ニコプチを開くと、いつもそこに笑顔のめるｃがいた。<br>
-                                                    その笑顔に何度励まされたかな。。。<br>
-                                                    ありがとう。大好きだよ。<br>
-                                                    めるｃの卒業は、ほんっっとに悲しいし寂しい。<br>
-                                                    でも、めるｃや卒モのみんながいたからこそ<br>
-                                                    ニコプチは輝いてた。<br>
-                                                    めっちゃキラキラしてた☆彡<br><br>
-                                                    めるｃは、絶対に夢をかなえられる！<br>
-                                                    こえからも自分を信じて頑張ってね！<br><br>
-                                                    大好き！<br>
-                                                    ファンレ送ったから、お返事くれると嬉しいな♪<br>
-                                                    頑張って絵もかいたよ～笑<br><br>
-                                                    じゃあ。。。byebye♪<br><br>
-                                                    　　　　　　　　　　　ーかのんー
-                                                </p>
-                                            </div>
-                                            <div class="comment-foot">
-                                                れんか♪ &copy; | 2015年5月1日
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <?php comments_template(); ?>
                             </div>
                         </div>
                     </div>
@@ -105,7 +62,7 @@
         <div class="module-type01">
             <div class="module-head">
                 <h2 class="icn type03"><img src="/common/img/pc/index/ttl03.png" alt="プチモ☆ブログ" width="160" height="32"></h2>
-                <a href="" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                <a href="/blog/" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
             </div>
             <div class="module-body bg-type03">
                 <div id="puchiblog" class="slider-area">
@@ -355,77 +312,18 @@
                 <h2><img src="/common/img/pc/04/ttl_comment.png" alt="最近のコメント" width="270" height="50"></h2>
             </div>
             <div class="module-body">
+                <?php $comments = get_comments(array('status' => 'approve', 'number' => 10)); ?>
                 <ul class="index-list-type03">
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませ…</span>
-                            <span class="name">つきみ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="desc">涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</span>
-                            <span class="name">わわ &copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
+                    <?php foreach ($comments as $comment) : ?>
+                        <?php $post = get_post($comment->comment_post_ID); ?>
+                        <li>
+                            <a href="<?php the_permalink(); ?>">
+                                <span class="desc"><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($comment->comment_content)), 0, 50); ?></span>
+                                <span class="name"><?php comment_author(); ?></span>
+                                <img class="icn-new" src="<?php home(); ?>/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                     <!--/#readersblog--></ul>
             </div>
             <!--/.module-type01--></div>

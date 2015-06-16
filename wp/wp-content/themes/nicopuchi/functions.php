@@ -450,7 +450,7 @@ function my_body_class()
         global $post;
         $classes .= ' page-' . $post->post_name;
     }
-    echo $classes;
+    //echo $classes;
 }
 
 
@@ -555,40 +555,37 @@ function my_pager($pages = '', $range = 2)
 
     //if (1 != $pages)
     //{
-
-        $html = '<div class="pagination">' . $eol;
-        $html .= '<ul>' . $eol;
+        $html = '<p class="page">' . $eol;
 
         if ($paged > 1)
         {
-            $html .= '<li><a href="' . get_pagenum_link($paged - 1) . '">&lt;</a></li>' . $eol;
+            $html .= '<a class="prev page-numbers" href="' . get_pagenum_link($paged - 1) . '">&lt;</a>' . $eol;
         }
 
         for ($i = 1; $i <= $pages; $i ++)
         {
-            if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+            //if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+            if ((! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
             {
                 if ($paged == $i)
                 {
-                    $html .= '<li><span class="current">' . $i . '</span></li>' . $eol;
+                    $html .= '<span class="page-numbers current">' . $i . '</span>' . $eol;
                 }
                 else
                 {
-                    $html .= '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>' . $eol;
+                    $html .= '<a class="page-numbers" href="' . get_pagenum_link($i) . '">' . $i . '</a>' . $eol;
                 }
             }
         }
 
         if ($paged < $pages)
         {
-            $html .= '<li><a href="' . get_pagenum_link($paged + 1) . '">&gt;</a></li>' . $eol;
+            $html .= '<a class="next page-numbers" href="' . get_pagenum_link($paged + 1) . '">&gt;</a>' . $eol;
         }
 
-        $html .= '</ul>' . $eol;
-        $html .= '</div>' . $eol;
+        $html .= '</p>' . $eol;
         echo $html;
     //}
-
 }
 
 
@@ -609,10 +606,35 @@ function remove_more_jump_link($link)
     return $link;
 }
 
-function getJsonData(){
-   $source = file_get_contents(get_stylesheet_directory().'/data/data.json');
-   $jsonData = json_decode($source, true);
-   return $jsonData;
+
+
+// コメント
+function my_comlist($comment, $args, $depth)
+{
+    $GLOBALS['comment'] = $comment; ?>
+    <li>
+        <div class="comment-desc">
+            <?php comment_text(); ?>
+        </div>
+        <div class="comment-foot">
+            <?php comment_author(); ?> | <?php comment_date('Y年m月d日'); ?>
+        </div>
+    </li>
+<?php
+}
+
+
+
+
+
+
+
+
+function getJsonData()
+{
+    $source = file_get_contents(get_stylesheet_directory() . '/data/data.json');
+    $jsonData = json_decode($source, true);
+    return $jsonData;
 }
 
 
