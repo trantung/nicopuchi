@@ -12,33 +12,93 @@ Any other notes about the plugin go here
 .
 */
 
-add_filter( 'cron_schedules', 'add_cron_intervals' );
+define('WP_ROOT_DIR', dirname(dirname(dirname(__DIR__))));
+define('DUP_EXEC_CHK_FILE_PATH', sprintf('%s/wp-content/themes/nicopuchi/dup_chk/dup_exec.chk', WP_ROOT_DIR));
 
-function add_cron_intervals( $schedules ) {
+require_once sprintf('%s/wp-config.php', WP_ROOT_DIR);
 
-    $schedules['5seconds'] = array(
-        // Provide the programmatic name to be used in code
-        'interval' => 5, // Intervals are listed in seconds
-        'display' => __('Every 5 Seconds') // Easy to read display name
-    );
-    return $schedules; // Do not forget to give back the list of schedules!
-}
-
-add_action( 'cron_hook', 'cron_exec' );
-if( !wp_next_scheduled( 'cron_hook' ) ) {
-    wp_schedule_event( time(), '5seconds', 'cron_hook' );
-}
+cron_exec();
 
 function cron_exec() {
+    //======================
+    echoLog('RSS LOAD BATCH START!!');
+    //======================
+
+    echoLog('exsist dup file chk');
+    if (canCronExec() !== false) {
+        errorEndLog('cron is running!');
+    }
+
+    //======================
+    echoLog('EXEC MAIN PROCCESS');
+    //======================
+    echoLog('set dup chk file');
+    startCronExec();
+
+    echoLog('fetch rss data');
     crawData();
-    echo "cront is running!";
+
+    //======================
+    echoLog('RSS LOAD BATCH END!!');
+    //======================
+    echoLog('remove dup chk file');
+    endCronExec();
+
+    echoLog('COMP RSS LOAD');
 }
 
-register_deactivation_hook( __FILE__, 'bl_deactivate' );
+function echoLog () {
+    $message = implode(', ', func_get_args());
+    $mts_part = explode('.', microtime(true));
+    printf('[%s.%-6s] %s%s', date('Y-m-d H:i:s', $mts_part[0]), $mts_part[1], $message, \PHP_EOL);
+}
 
-function bl_deactivate() {
-    $timestamp = wp_next_scheduled( 'cron_hook' );
-    wp_unschedule_event($timestamp, 'cron_hook' );
+function errorEndLog () {
+    $args = func_get_args();
+    array_unshift($args, '!!ERROR!!');
+    call_user_func_array('echoLog', $args);
+    exit(1);
+}
+
+function canCronExec () {
+    clearstatcache(DUP_EXEC_CHK_FILE_PATH, true);
+    return file_exists(DUP_EXEC_CHK_FILE_PATH);
+}
+
+function startCronExec () {
+    clearstatcache(DUP_EXEC_CHK_FILE_PATH, true);
+
+    $parnet_dir =  dirname(DUP_EXEC_CHK_FILE_PATH);
+    if (!file_exists($parnet_dir)) {
+        if (!mkdir($parnet_dir, 0777)) {
+            errorEndLog('dup chk file parent dir is not created!!', $parnet_dir);
+        }
+        chmod($parnet_dir, 0777);
+    }
+    if (!is_writable($parnet_dir)) {
+        errorEndLog('dup chk file parent dir is not writable!!', $parnet_dir);
+    }
+
+    touch(DUP_EXEC_CHK_FILE_PATH);
+    chmod(DUP_EXEC_CHK_FILE_PATH, 0666);
+}
+
+function endCronExec () {
+    clearstatcache(DUP_EXEC_CHK_FILE_PATH, true);
+
+    $parnet_dir =  dirname(DUP_EXEC_CHK_FILE_PATH);
+    if (!file_exists($parnet_dir)) {
+        errorEndLog('dup chk file parent dir is not exsist!!', $parnet_dir);
+    }
+    if (!is_writable($parnet_dir)) {
+        errorEndLog('dup chk file parent dir is not writable!!', $parnet_dir);
+    }
+
+    if (!is_writable(DUP_EXEC_CHK_FILE_PATH)) {
+        errorEndLog('dup chk file is not writable!!', DUP_EXEC_CHK_FILE_PATH);
+    }
+
+    unlink(DUP_EXEC_CHK_FILE_PATH);
 }
 
 function crawData(){
@@ -166,13 +226,13 @@ function getXMLData($url, $username, $password, $domain, $bg_image){
     $data = file_get_contents($url, false, $context);
     $xml=simplexml_load_string($data);
     $item = array();
-  foreach($xml->children() as $child) {
+    foreach($xml->children() as $child) {
         $tmp['title']=$child->title.'';
         $tmp['title_link']=$domain.$child->link.'';
         $tmp['date'] = str_replace(".","-",$child->datetime.'');
         $tmp['desc']=$child->body.'';
         $tmp['image']=$domain.$child->img.'';
-        $tmp['blog_image'] = $bg_image; 
+        $tmp['blog_image'] = $bg_image;
         $item[] = $tmp;
       }
     return $item;
