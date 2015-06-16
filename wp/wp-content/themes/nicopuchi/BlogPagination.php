@@ -48,7 +48,7 @@ class BlogPagination {
     public function getLinkPage($page, $navigate = null)
     {
         $navigate = $navigate ? $navigate : $page;
-        return '<a class="page-numbers" href="'. site_url('timeline') .'/?page='. $page .'">' . $navigate . '</a>';
+        return '<a class="page-numbers" href="'. home_url('timeline') .'/?page='. $page .'">' . $navigate . '</a>';
     }
 
     public function getLinkLastPage()
