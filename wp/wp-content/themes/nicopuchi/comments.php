@@ -20,6 +20,8 @@
     <?php
     $args = array(
         'must_log_in' => null,
+        'comment_notes_before'  => null,
+        'comment_notes_after'  => null,
     );
     comment_form($args);
     ?>

@@ -143,9 +143,33 @@ function home()
  * ---------------------------------------------------------------------
  */
 
+// 購読者に管理画面を表示させない
+add_action('auth_redirect', 'subscriber_go_to_home');
+function subscriber_go_to_home($user_id)
+{
+    $user = get_userdata($user_id);
+    if (! $user->has_cap('edit_posts'))
+    {
+        wp_redirect(get_home_url());
+        exit();
+    }
+}
+
+// 購読者にツールバー（admin bar）を表示させない
+add_action('after_setup_theme', 'subscriber_hide_admin_bar');
+function subscriber_hide_admin_bar()
+{
+    $user = wp_get_current_user();
+    if (isset($user->data) && ! $user->has_cap('edit_posts'))
+    {
+        show_admin_bar(false);
+    }
+}
+
+
+
 // ログイン画面のロゴを変更する
 /*
-
 add_action('login_enqueue_scripts', 'custom_login_logo');
 function custom_login_logo()
 {
@@ -532,73 +556,73 @@ function my_breadcrumbs()
 // パンくずの出力 SP
 function my_breadcrumbs_sp()
 {
-	$eol = "\n";
-	$val = '';
-	if (! is_home())
-	{
-		$val .= '<ul class="dir-path cFix">' . $eol;
-		$val .= '<li><a href="' . home_url() . '/">TOP</a>&gt;</li>' . $eol;
+    $eol = "\n";
+    $val = '';
+    if (! is_home())
+    {
+        $val .= '<ul class="dir-path cFix">' . $eol;
+        $val .= '<li><a href="' . home_url() . '/">TOP</a>&gt;</li>' . $eol;
 
-		if (is_search())
-		{
-			$val .= '<li>検索結果</li>' . $eol;
-		}
-		elseif (is_404())
-		{
-			$val .= '<li>お探しのページが見つかりませんでした</li>' . $eol;
-		}
-		elseif (is_category())
-		{
-			global $cat;
-			global $cat_info;
-			if ($cat_info->parent)
-			{
-				$cat_list_link = get_category_parents($cat, true, '|');
-				$cat_list_link = explode('|', $cat_list_link);
-				array_pop($cat_list_link);
-				array_pop($cat_list_link);
-				foreach ($cat_list_link as $item)
-				{
-					$val .= '<li>' . $item . '&gt;</li>' . $eol;
-				}
-			}
-			$val .= '<li>' . $cat_info->name . '</li>' . $eol;
-		}
-		elseif (is_post_type_archive())
-		{
-			global $post_type;
-			$post_type_info = get_post_type_object($post_type);
-			$val .= '<li>' . $post_type_info->label . '</li>' . $eol;
-		}
-		elseif (is_single())
-		{
-			global $cats;
-			if ($cats)
-			{
-				global $cat_current;
-				$cat_list_link = get_category_parents($cat_current->cat_ID, true, '|');
-				$cat_list_link = explode('|', $cat_list_link);
-				array_pop($cat_list_link);
-				foreach ($cat_list_link as $item)
-				{
-					$val .= '<li>' . $item . '&gt;</li>' . $eol;
-				}
-			}
-			else
-			{
-				global $post_type;
-				$post_type_info = get_post_type_object($post_type);
-				$val .= '<li><a href="' . get_post_type_archive_link($post_type) . '">' . $post_type_info->label . '</a>&gt;</li>' . $eol;
-			}
-			$val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
-		}
-		elseif (is_page())
-		{
-			$val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
-		}
-		$val .= '</ul>' . $eol;
-		echo $val;
-	}
+        if (is_search())
+        {
+            $val .= '<li>検索結果</li>' . $eol;
+        }
+        elseif (is_404())
+        {
+            $val .= '<li>お探しのページが見つかりませんでした</li>' . $eol;
+        }
+        elseif (is_category())
+        {
+            global $cat;
+            global $cat_info;
+            if ($cat_info->parent)
+            {
+                $cat_list_link = get_category_parents($cat, true, '|');
+                $cat_list_link = explode('|', $cat_list_link);
+                array_pop($cat_list_link);
+                array_pop($cat_list_link);
+                foreach ($cat_list_link as $item)
+                {
+                    $val .= '<li>' . $item . '&gt;</li>' . $eol;
+                }
+            }
+            $val .= '<li>' . $cat_info->name . '</li>' . $eol;
+        }
+        elseif (is_post_type_archive())
+        {
+            global $post_type;
+            $post_type_info = get_post_type_object($post_type);
+            $val .= '<li>' . $post_type_info->label . '</li>' . $eol;
+        }
+        elseif (is_single())
+        {
+            global $cats;
+            if ($cats)
+            {
+                global $cat_current;
+                $cat_list_link = get_category_parents($cat_current->cat_ID, true, '|');
+                $cat_list_link = explode('|', $cat_list_link);
+                array_pop($cat_list_link);
+                foreach ($cat_list_link as $item)
+                {
+                    $val .= '<li>' . $item . '&gt;</li>' . $eol;
+                }
+            }
+            else
+            {
+                global $post_type;
+                $post_type_info = get_post_type_object($post_type);
+                $val .= '<li><a href="' . get_post_type_archive_link($post_type) . '">' . $post_type_info->label . '</a>&gt;</li>' . $eol;
+            }
+            $val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
+        }
+        elseif (is_page())
+        {
+            $val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
+        }
+        $val .= '</ul>' . $eol;
+        echo $val;
+    }
 }
 
 
@@ -626,94 +650,94 @@ function my_pager($pages = '', $range = 2)
 
     //if (1 != $pages)
     //{
-        $html = '<p class="page">' . $eol;
+    $html = '<p class="page">' . $eol;
 
-        if ($paged > 1)
-        {
-            $html .= '<a class="prev page-numbers" href="' . get_pagenum_link($paged - 1) . '">&lt;</a>' . $eol;
-        }
+    if ($paged > 1)
+    {
+        $html .= '<a class="prev page-numbers" href="' . get_pagenum_link($paged - 1) . '">&lt;</a>' . $eol;
+    }
 
-        for ($i = 1; $i <= $pages; $i ++)
+    for ($i = 1; $i <= $pages; $i ++)
+    {
+        //if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+        if ((! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
         {
-            //if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
-            if ((! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+            if ($paged == $i)
             {
-                if ($paged == $i)
-                {
-                    $html .= '<span class="page-numbers current">' . $i . '</span>' . $eol;
-                }
-                else
-                {
-                    $html .= '<a class="page-numbers" href="' . get_pagenum_link($i) . '">' . $i . '</a>' . $eol;
-                }
+                $html .= '<span class="page-numbers current">' . $i . '</span>' . $eol;
+            }
+            else
+            {
+                $html .= '<a class="page-numbers" href="' . get_pagenum_link($i) . '">' . $i . '</a>' . $eol;
             }
         }
+    }
 
-        if ($paged < $pages)
-        {
-            $html .= '<a class="next page-numbers" href="' . get_pagenum_link($paged + 1) . '">&gt;</a>' . $eol;
-        }
+    if ($paged < $pages)
+    {
+        $html .= '<a class="next page-numbers" href="' . get_pagenum_link($paged + 1) . '">&gt;</a>' . $eol;
+    }
 
-        $html .= '</p>' . $eol;
-        echo $html;
+    $html .= '</p>' . $eol;
+    echo $html;
     //}
 }
 
 // ページネーションの出力
 function my_pager_sp($pages = '', $range = 2)
 {
-	$eol = "\n";
-	$showitems = ($range * 1) + 1;
+    $eol = "\n";
+    $showitems = ($range * 1) + 1;
 
-	global $paged;
-	if (empty($paged))
-	{
-		$paged = 1;
-	}
+    global $paged;
+    if (empty($paged))
+    {
+        $paged = 1;
+    }
 
-	if (! $pages)
-	{
-		global $wp_query;
-		$pages = $wp_query->max_num_pages;
-		if (! $pages)
-		{
-			$pages = 1;
-		}
-	}
+    if (! $pages)
+    {
+        global $wp_query;
+        $pages = $wp_query->max_num_pages;
+        if (! $pages)
+        {
+            $pages = 1;
+        }
+    }
 
-	//if (1 != $pages)
-	//{
-	$html = '<ul class="pageNav01 pt10">' . $eol;
+    //if (1 != $pages)
+    //{
+    $html = '<ul class="pageNav01 pt10">' . $eol;
 
-	if ($paged > 1)
-	{
-		$html .= '<li><a href="' . get_pagenum_link($paged - 1) . '"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a>' . $eol;
-	}
+    if ($paged > 1)
+    {
+        $html .= '<li><a href="' . get_pagenum_link($paged - 1) . '"><img src="/common/img/sp/arrow_L.jpg" width="12" height="12"></a>' . $eol;
+    }
 
-	for ($i = 1; $i <= $pages; $i ++)
-	{
-		//if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
-		if ((! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
-		{
-			if ($paged == $i)
-			{
-				$html .= '<li><span>' . $i . '</span></li>' . $eol;
-			}
-			else
-			{
-				$html .= '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>' . $eol;
-			}
-		}
-	}
+    for ($i = 1; $i <= $pages; $i ++)
+    {
+        //if (1 != $pages && (! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+        if ((! ($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
+        {
+            if ($paged == $i)
+            {
+                $html .= '<li><span>' . $i . '</span></li>' . $eol;
+            }
+            else
+            {
+                $html .= '<li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>' . $eol;
+            }
+        }
+    }
 
-	if ($paged < $pages)
-	{
-		$html .= '<li><a href="' . get_pagenum_link($paged + 1) . '"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a></li>' . $eol;
-	}
+    if ($paged < $pages)
+    {
+        $html .= '<li><a href="' . get_pagenum_link($paged + 1) . '"><img src="/common/img/sp/arrow_R.jpg" width="12" height="12"></a></li>' . $eol;
+    }
 
-	$html .= '</p>' . $eol;
-	echo $html;
-	//}
+    $html .= '</p>' . $eol;
+    echo $html;
+    //}
 }
 
 
