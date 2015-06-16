@@ -65,112 +65,28 @@
 			<h2 class="module-head-ttl"><img class="full" src="/common/img/sp/04/ttl02.png" alt="プチモ＆スーモ"></h2>
 		</div>
 		<div class="module-body bg-type03">
+			<?php
+			$args = array(
+				'orderby'	=> 'ID',
+				'order'		=> 'ASC',
+				'role'		=> 'editor,author'
+			);
+			$users = get_users($args);
+			?>
 			<div id="blogthum" class="cFix pt25">
 				<ul>
+					<?php foreach ($users as $user) : ?>
+					<?php $userData = get_userdata($user->ID); ?>
 					<li class="item">
-						<a href="">
+						<a href="/blog/?author=<?php echo $user->ID; ?>">
 							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
+								<?php $avatar01 = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar01', $user->ID), 'thumbnail'); ?>
+								<dt><img class="full" src="<?php echo $avatar01[0]; ?>" alt=""></dt>
+								<dd><?php echo $user->display_name; ?></dd>
 							</dl>
 						</a>
 					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample04.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample04.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample04.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample04.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample04.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample04.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<dl>
-								<dt><img class="full" src="/common/img/sp/04/sample03.jpg" alt=""></dt>
-								<dd>モデル名</dd>
-							</dl>
-						</a>
-					</li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 		</div>
