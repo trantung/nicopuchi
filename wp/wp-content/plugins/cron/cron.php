@@ -66,11 +66,13 @@ function crawData(){
     $item_group1 = returnArrayData($group1, 1);
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
-    $item_group4 = getXMLData("http://52.68.157.55/blog/?feed=rss2", "guest", "nadia", 'http://52.68.157.55','ttl_blog01.png');
-    $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog05.png');
-    $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog06.png');
-    $items = array_merge($item_group1, $item_group2, $item_group3, $item_group4, $item_group5, $item_group6);
-
+    $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog05.png', NULL);
+    $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog06.png', NULL);
+    $items = array_merge($item_group1, $item_group2, $item_group3, $item_group5, $item_group6);
+    $item_group4 = getXMLData("http://52.68.157.55/blog/feed/", "guest", "nadia", 'http://52.68.157.55','ttl_blog01.png',1);
+    foreach ($item_group4 as $key => $itemxml) {
+        $items = array_merge($items, $itemxml);
+    }
     $dataJsonFolder= get_stylesheet_directory()."/data";
     if (! file_exists($dataJsonFolder)) {
         mkdir($dataJsonFolder, 0766);
@@ -157,7 +159,7 @@ function returnArrayData($arrUrl,$group) {
     return $arrItem;
 }
 
-function getXMLData($url, $username, $password, $domain, $bg_image){
+function getXMLData($url, $username, $password, $domain, $bg_image,$status){
     $context = stream_context_create(array(
     'http' => array(
         'header'  => "Authorization: Basic " . base64_encode("$username:$password")
@@ -166,14 +168,41 @@ function getXMLData($url, $username, $password, $domain, $bg_image){
     $data = file_get_contents($url, false, $context);
     $xml=simplexml_load_string($data);
     $item = array();
-  foreach($xml->children() as $child) {
-        $tmp['title']=$child->title.'';
-        $tmp['title_link']=$domain.$child->link.'';
-        $tmp['date'] = str_replace(".","-",$child->datetime.'');
-        $tmp['desc']=$child->body.'';
-        $tmp['image']=$domain.$child->img.'';
-        $tmp['blog_image'] = $bg_image; 
-        $item[] = $tmp;
-      }
+    $tmps = array();
+    foreach($xml->children() as $child) {
+        if($status == NULL){
+            $tmp = getXMLDataCommon($child, $domain, $bg_image,'body',NULL);
+            $item[] = $tmp; 
+        }
+        else{
+            foreach ($child as $key => $value) {
+                if($value->pubDate.'' != ''){
+                    $tmp = getXMLDataCommon($value, $domain, $bg_image,'body',1);
+                    $tmps[] = $tmp;
+                }
+            }
+            $item[] = $tmps;
+        }
+    }
     return $item;
+}
+
+function getXMLDataCommon($child, $domain, $bg_image,$description,$status)
+{
+    $tmp = array();
+    $tmp['title']=$child->title.'';
+    $tmp['desc']=$child->$description.'';
+    $tmp['blog_image'] = $bg_image; 
+    $tmp['image']=$domain.$child->img.'';
+    if($status == NULL){
+        $tmp['title_link']=$domain.$child->link.'';
+        $date = str_replace(".","-",$child->datetime.'');
+        $tmp['date'] = strtotime($date);
+    }
+    else{
+        $tmp['title_link']=$child->link.'';
+        $date =date('Y-m-d H:i:s',strtotime($child->pubDate.''));
+        $tmp['date'] = strtotime($date);
+    }
+    return $tmp;
 }
