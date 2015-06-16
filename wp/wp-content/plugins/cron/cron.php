@@ -66,10 +66,10 @@ function crawData(){
     $item_group1 = returnArrayData($group1, 1);
     $item_group2 = returnArrayData($group2, 2);
     $item_group3 = returnArrayData($group3, 3);
-    $item_group5 = getXMLData("http://52.68.157.55/puchisna/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog05.png', NULL);
-    $item_group6 = getXMLData("http://52.68.157.55/support/xml/", "guest", "nadia", 'http://52.68.157.55','ttl_blog06.png', NULL);
+    $item_group5 = getXMLData(ROOT_URL . "/puchisna/xml/", USER_AUTH, PASSWORD_AUTH, ROOT_URL, 'ttl_blog05.png', NULL);
+    $item_group6 = getXMLData(ROOT_URL . "/support/xml/", USER_AUTH, PASSWORD_AUTH, ROOT_URL, 'ttl_blog06.png', NULL);
     $items = array_merge($item_group1, $item_group2, $item_group3, $item_group5, $item_group6);
-    $item_group4 = getXMLData("http://52.68.157.55/blog/feed/", "guest", "nadia", 'http://52.68.157.55','ttl_blog01.png',1);
+    $item_group4 = getXMLData(ROOT_URL . "/blog/feed/", USER_AUTH, PASSWORD_AUTH, ROOT_URL, 'ttl_blog01.png',1);
     foreach ($item_group4 as $key => $itemxml) {
         $items = array_merge($items, $itemxml);
     }
@@ -166,19 +166,16 @@ function getXMLData($url, $username, $password, $domain, $bg_image,$status){
         )
     ));
     $data = file_get_contents($url, false, $context);
-    $xml=simplexml_load_string($data);
+    $xml = simplexml_load_string($data);
     $item = array();
     $tmps = array();
     foreach($xml->children() as $child) {
         if($status == NULL){
-            $tmp = getXMLDataCommon($child, $domain, $bg_image,'body',NULL);
-            $item[] = $tmp; 
-        }
-        else{
+            $item[] = getXMLDataCommon($child, $domain, $bg_image,'body',NULL);
+        } else {
             foreach ($child as $key => $value) {
                 if($value->pubDate.'' != ''){
-                    $tmp = getXMLDataCommon($value, $domain, $bg_image,'body',1);
-                    $tmps[] = $tmp;
+                    $tmps[] = getXMLDataCommon($value, $domain, $bg_image,'body',1);
                 }
             }
             $item[] = $tmps;

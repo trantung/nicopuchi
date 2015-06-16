@@ -24,3 +24,10 @@ define('ITEM_PER_TIMELINE', 12);
 
 //もっと見るの最大回数（デフォルト表示は1回目とみなす）
 define('MORE_COUNT_PER_TIMELINE', 2);
+
+/**
+ * Define URL RSS data
+ */
+define('ROOT_URL', 'http://52.68.157.55');
+define('USER_AUTH', 'guest');
+define('PASSWORD_AUTH', 'nadia');
