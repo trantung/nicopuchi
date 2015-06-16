@@ -15,6 +15,13 @@
             </div>
             <div class="module-body">
                 <div class="masonry">
+                    <?php
+                    $args = array(
+                        'post_type' => 'nico_profile',
+                        'posts_per_page' => 10,
+                    );
+                    query_posts($args);
+                    ?>
                     <?php if (have_posts()) : ?>
                         <ul class="masonry-inner">
                             <?php while (have_posts()) : the_post(); ?>
@@ -29,17 +36,7 @@
                             <?php endwhile; ?>
                         </ul>
                     <?php endif; ?>
-                    <p class="page">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="">2</a>
-                        <a class="page-numbers" href="">3</a>
-                        <a class="page-numbers" href="">4</a>
-                        <a class="page-numbers" href="">5</a>
-                        <a class="page-numbers" href="">6</a>
-                        <span class="page-numbers dots">…</span>
-                        <a class="page-numbers" href="">35</a>
-                        <a class="next page-numbers" href="">&gt;</a>
-                    </p>
+                    <?php my_pager($additional_loop->max_num_pages); ?>
                     <!--/.masonry--></div>
             </div>
             <!--/.module-type01--></div>

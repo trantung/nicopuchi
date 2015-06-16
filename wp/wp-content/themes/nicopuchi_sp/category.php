@@ -14,7 +14,7 @@ get_header();
 
 if (is_category('blog'))
 {
-    include(TEMPLATEPATH . '/category/category-blog.php');
+    include(STYLESHEETPATH . '/category/category-blog.php');
 }
 
 
