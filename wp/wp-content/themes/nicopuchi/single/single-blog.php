@@ -38,9 +38,21 @@
                             </div>
                             <div class="blog-foot">
                                 <ul class="pagenav">
-                                    <li><a href=""><span>前の記事</span></a></li>
+                                    <?php
+                                    $prev_post = get_previous_post();
+                                    if ($prev_post)
+                                    {
+                                        echo '<li><a href="' . get_permalink($prev_post->ID) . '"><span>前の記事</span></a></li>';
+                                    }
+                                    ?>
                                     <li><a href="/blog/"><span>記事一覧</span></a></li>
-                                    <li><a href=""><span>次の記事</span></a></li>
+                                    <?php
+                                    $next_post = get_next_post();
+                                    if ($next_post)
+                                    {
+                                        echo '<li><a href="' . get_permalink($next_post->ID) . '"><span>次の記事</span></a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
 
@@ -66,80 +78,34 @@
             </div>
             <div class="module-body bg-type03">
                 <div id="puchiblog" class="slider-area">
-                    <ul class="slider-type02 index-list">
-                        <li>
-                            <a href="" class="new">
-                                <img class="thumbsnail" src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="new">
-                                <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample03a.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">モデル名が入ります。</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample03b.png" alt="" width="140" height="94">
-                                <span class="update">2014.08.14</span>
-                                <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                <span class="model-name type02">モデル名が入ります。</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                    </ul>
+                    <?php
+                    $args = array(
+                        'category_name' => 'blog',
+                        'post_per_page' => 8,
+                    );
+                    $the_query = new WP_Query($args);
+                    ?>
+                    <?php if ($the_query->have_posts()) : ?>
+                        <ul class="slider-type02 index-list">
+                            <?php while ($the_query->have_posts()) : ?>
+                                <?php $the_query->the_post(); ?>
+                                <li>
+                                    <?php
+                                    $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                    $new_flag = ($date_diff <= 4) ? true : false;
+                                    ?>
+                                    <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+                                        <?php the_post_thumbnail(array(140, 94)); ?>
+                                        <span class="update"><?php echo get_the_date('Y.m.d'); ?></span>
+                                        <span class="blog-ttl"><?php the_title(); ?></span>
+                                        <span class="model-name type02"><?php the_author(); ?></span>
+                                        <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
                     <!--/#puchiblog--></div>
 
             </div>
