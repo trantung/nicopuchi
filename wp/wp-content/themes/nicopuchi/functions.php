@@ -838,6 +838,120 @@ function my_comlist_sp($comment, $args, $depth)
 
 
 
+// 月別アーカイブ関連
+add_filter('getarchives_where', 'custom_archives_where', 10, 2);
+add_filter('getarchives_join', 'custom_archives_join', 10, 2);
+function custom_archives_join($x, $r)
+{
+    global $wpdb;
+    $cat_ID = $r['cat'];
+    if (isset($cat_ID))
+    {
+        return $x . " INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) INNER JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)";
+    }
+    else
+    {
+        return $x;
+    }
+}
+
+function custom_archives_where($x, $r)
+{
+    global $wpdb;
+    $cat_ID = $r['cat'];
+    if (isset($cat_ID))
+    {
+        return $x . " AND $wpdb->term_taxonomy.taxonomy = 'category' AND $wpdb->term_taxonomy.term_id IN ($cat_ID)";
+    }
+    else
+    {
+        $x;
+    }
+}
+
+function wp_get_cat_archives($opts, $cat)
+{
+    $args = wp_parse_args($opts, array('echo' => '1')); // default echo is 1.
+    $echo = $args['echo'] != '0'; // remember the original echo flag.
+    $args['echo'] = 0;
+    $args['cat'] = $cat;
+
+    $tag = ($args['format'] === 'option') ? 'option' : 'li';
+    $archives = wp_get_archives(build_query($args));
+    $archs = explode('</' . $tag . '>', $archives);
+    $links = array();
+
+    $requested = "http://{$_SERVER['SERVER_NAME']}{$_SERVER['REQUEST_URI']}";
+    $requested = str_replace('/', '\/', $requested);
+    $requested = str_replace('?', '\?', $requested);
+    $requested = str_replace('.', '\.', $requested);
+
+    foreach ($archs as $archive)
+    {
+        $link = preg_replace("/='([^']+)'/", "='$1?cat={$cat}'", $archive);
+        $pattern = '/' . $requested . '/';
+        if (preg_match($pattern, $link))
+        {
+            $link = str_replace('<option', '<option selected="selected" ', $link);
+        }
+        array_push($links, $link);
+    }
+    $result = implode('</' . $tag . '>', $links);
+
+    if ($echo)
+    {
+        echo $result;
+    }
+    else
+    {
+        return $result;
+    }
+}
+
+function get_monthly_archive($cat)
+{
+    $html = '';
+    $archives_year = strip_tags(wp_get_cat_archives('type=yearly&show_count=0&format=custom&echo=0', $cat));
+    $archives_year_array = explode("\n", $archives_year);
+    array_pop($archives_year_array);
+    $archives = wp_get_cat_archives('type=monthly&show_post_count=0&format=custom&use_desc_for_title=0&echo=0', $cat);
+    $archives_array = explode("\n", $archives);
+
+    foreach ($archives_year_array as $key => $year_value)
+    {
+        $year = ltrim($year_value);
+        $html .= '<li>';
+        if ($key == 0)
+        {
+            $html .= '<dl class="nowyear">';
+        }
+        else
+        {
+            $html = '<dl>';
+        }
+        $html .= '<dt><span></span>' . $year . '年</dt>';
+
+        foreach ($archives_array as $archives_value)
+        {
+            if (intval(strip_tags($archives_value)) == intval($year_value))
+            {
+                $archives_value = ltrim($archives_value);
+                $html .= '<dd>' . $archives_value . '</dd>';
+            }
+        }
+        $html .= '</dl></li>';
+    }
+    $html = '<ul>' . $html . '</ul>';
+    return $html;
+}
+
+
+
+
+
+
+
+
 
 
 
