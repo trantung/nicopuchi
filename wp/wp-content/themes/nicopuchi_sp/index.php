@@ -249,12 +249,16 @@ get_header();
 					<?php while ($the_query->have_posts()) : ?>
 						<?php $the_query->the_post(); ?>
 						<li>
+							<?php
+							$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+							$new_flag = ($date_diff <= 4) ? true : false;
+							?>
 							<?php if (get_the_content()) : ?>
-							<a href="<?php the_permalink(); ?>" class="new">
+							<a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
 								<?php elseif (get_field('link')) : ?>
-								<a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
+								<a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
 									<?php else : ?>
-									<a href="#" class="new">
+									<a href="#"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
 										<?php endif; ?>
 										<dl>
 											<dt>
@@ -294,9 +298,13 @@ get_header();
 						<?php while ($the_query->have_posts()) : ?>
 							<?php $the_query->the_post(); ?>
 							<li>
+								<?php
+								$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+								$new_flag = ($date_diff <= 4) ? true : false;
+								?>
 								<a href="<?php the_permalink(); ?>" class="new">
 									<?php the_post_thumbnail(array(140,94)); ?>
-									<span class="update"><?php echo get_the_date('Y.m.d'); ?><span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span>
+									<span class="update"><?php echo get_the_date('Y.m.d'); ?><?php if ($new_flag) : ?><span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span><?php endif; ?></span>
 									<span class="blog-ttl"><?php the_title(); ?></span>
 									<span class="model-name type02"><?php the_author(); ?></span>
 								</a>
