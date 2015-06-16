@@ -2,8 +2,6 @@
 /**
  * トップページ
  */
-crawData();
-die('1');
 $jsonData = getJsonData();
 
 $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
@@ -135,7 +133,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type03"><img src="/common/img/pc/index/ttl03.png" alt="プチモ☆ブログ" width="160" height="32"></h2>
-                    <a href="/blog" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
+                    <a href="/blog/" class="right fdb"><img src="/common/img/pc/img_list.png" alt="一覧" width="70" height="22"></a>
                 </div>
                 <div class="module-body bg-type03">
                     <div id="puchiblog" class="slider-area">
@@ -314,12 +312,16 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             <?php while ($the_query->have_posts()) : ?>
                                 <?php $the_query->the_post(); ?>
                                 <li>
+                                    <?php
+                                    $date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+                                    $new_flag = ($date_diff <= 4) ? true : false;
+                                    ?>
                                     <?php if (get_the_content()) : ?>
-                                    <a href="<?php the_permalink(); ?>" class="new">
+                                    <a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                         <?php elseif (get_field('link')) : ?>
-                                        <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>" class="new">
+                                        <a href="<?php the_field('link'); ?>" target="_<?php the_field('window'); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                             <?php else : ?>
-                                            <a href="#" class="new">
+                                            <a href="#"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
                                                 <?php endif; ?>
                                                 <dl>
                                                     <dt>
