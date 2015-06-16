@@ -123,7 +123,7 @@
 			$args = array(
 				'orderby'	=> 'ID',
 				'order'		=> 'ASC',
-				'role'		=> 'editor,author'
+				'role'		=> array('editor','author')
 			);
 			$users = get_users($args);
 			?>
