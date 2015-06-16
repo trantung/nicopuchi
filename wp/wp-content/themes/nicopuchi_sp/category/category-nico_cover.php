@@ -6,10 +6,8 @@
 
 <article id="main">
 
-	<ul class="dir-path cFix">
-		<li><a href="">TOP</a>></li>
-		<li>ページタイトル</li>
-	</ul>
+	<?php my_breadcrumbs_sp() ?>
+
 
 	<div class="module-type01">
 		<div class="module-body bg-type02">

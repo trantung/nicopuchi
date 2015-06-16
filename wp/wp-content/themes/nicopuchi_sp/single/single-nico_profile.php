@@ -6,11 +6,9 @@
 
 
 <article id="main">
-    <ul class="dir-path cFix">
-        <li><a href="">TOP</a>></li>
-        <li>ページタイトル</li>
-    </ul>
-    <div class="module-type01">
+	<?php my_breadcrumbs_sp() ?>
+
+	<div class="module-type01">
         <div class="module-body bg-type05 inner10">
             <div class="module-head">
                 <h2 class="module-head-ttl mb10"><img class="full" src="<?php home(); ?>/common/img/sp/05/ttl01.png" alt="プチモプロフィール"></h2>
