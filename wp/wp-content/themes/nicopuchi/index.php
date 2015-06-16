@@ -142,7 +142,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                         <?php
                         $args = array(
                             'category_name' => 'blog',
-                            'post_per_page' => 8,
+                            'posts_per_page' => 8,
                         );
                         $the_query = new WP_Query($args);
                         ?>
