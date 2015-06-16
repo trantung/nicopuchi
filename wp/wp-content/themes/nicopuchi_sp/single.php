@@ -17,7 +17,7 @@ if ($cats)
 
     if (stristr($cat_list_str, '|blog|'))
     {
-        include(TEMPLATEPATH . '/single/single-blog.php');
+        include(STYLESHEETPATH . '/single/single-blog.php');
     }
 
     get_footer();
@@ -28,15 +28,15 @@ else
 
     if ($post_type === 'puchinew')
     {
-        include(TEMPLATEPATH . '/single/single-puchinew.php');
+        include(STYLESHEETPATH . '/single/single-puchinew.php');
     }
     elseif ($post_type === 'nico_profile')
     {
-        include(TEMPLATEPATH . '/single/single-nico_profile.php');
+        include(STYLESHEETPATH . '/single/single-nico_profile.php');
     }
     elseif ($post_type === 'nico_cover')
     {
-        include(TEMPLATEPATH . '/single/single-nico_cover.php');
+        include(STYLESHEETPATH . '/single/single-nico_cover.php');
     }
 
     get_footer();
