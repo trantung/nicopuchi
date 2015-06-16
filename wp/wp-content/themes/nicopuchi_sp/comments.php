@@ -13,15 +13,21 @@
 		'type' => 'comment',
 		'callback' => 'my_comlist_sp'
 	)); ?>
-	<?php
-	$args = array(
-		'must_log_in' => null,
-		'logged_in_as' => null,
-		'comment_notes_before'  => null,
-		'comment_notes_after'  => null,
-	);
-	comment_form($args);
-	?>
 <?php endif; ?>
+<?php
+$logned_in_as = '<p class="logged-in-as">'
+	. sprintf(__('%2$sとしてログインしています。'
+		. ' <a href="%3$s">ログアウト</a>'),
+		admin_url('profile.php'),
+		$user_identity,
+		wp_logout_url(apply_filters('the_permalink', get_permalink($post_id)))) . '</p>';
+$args = array(
+	'must_log_in' => null,
+	'logged_in_as' => $logged_in_as,
+	'comment_notes_before'  => null,
+	'comment_notes_after'  => null,
+);
+comment_form($args);
+?>
 
 
