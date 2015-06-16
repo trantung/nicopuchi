@@ -65,42 +65,7 @@
 						<a href="" class="btn type03 tx_c fl_l"><span class="tx12">会員登録</span></a> <a href="" class="btn type03 tx_c fl_r"><span class="tx12">ログイン</span></a>
 						<!--/entry--></div>
 					<div class="comment">
-						<div class="comment_head">
-							<img src="../common/img/sp/04/icn_comment.gif" width="25" height="20">コメント（6）
-						</div>
-						<p>メルちゃん。</p>
-						<p>ご卒業おめでとうございます＊</p>
-						<p>&nbsp;</p>
-						<p>これからもお仕事頑張ってください。</p>
-						<p>&nbsp;</p>
-						<p>大好きだよ </p>
-						<p class="comment_credit">れんか♪ © 　|　 2015年5月 1日</p>
-						<hr class="line">
-						<p>めるｃへ。</p>
-						<p>&nbsp;</p>
-						<p>卒業おめでとう！</p>
-						<p>とうとう最後のブログになっちゃったね。。。</p>
-						<p>&nbsp;</p>
-						<p>いつもコメント返しありがとうね。</p>
-						<p>嬉しかったよ！</p>
-						<p>&nbsp;</p>
-						<p>毎回ニコプチを開くと、いつもそこに笑顔のめるｃがいた。</p>
-						<p>その笑顔に何度励まされたかな。。。</p>
-						<p>ありがとう。大好きだよ。</p>
-						<p>めるｃの卒業は、ほんっっとに悲しいし寂しい。</p>
-						<p>でも、めるｃや卒モのみんながいたからこそ</p>
-						<p>ニコプチは輝いてた。</p>
-						<p>めっちゃキラキラしてた☆彡</p>
-						<p>&nbsp;</p>
-						<p>めるｃは、絶対に夢をかなえられる！</p>
-						<p>こえからも自分を信じて頑張ってね！</p>
-						<p>&nbsp;</p>
-						<p>大好き！</p>
-						<p>ファンレ送ったから、お返事くれると嬉しいな♪</p>
-						<p>頑張って絵もかいたよ～笑</p>
-						<p>&nbsp;</p>
-						<p>じゃあ。。。byebye♪</p>
-						<p class="comment_credit">れんか♪ © 　|　 2015年5月 1日</p>
+						<?php comments_template(); ?>
 						<!--/entry--></div>
 					<!--/#puchiblog--></div>
 			<?php endif; ?>
@@ -112,28 +77,38 @@
 		</div>
 		<div class="module-body bg-type03">
 			<div id="puchiblog" class="slider-area">
+				<?php
+				$args = array(
+					'category_name' => 'blog',
+					'post_per_page' => 8,
+				);
+				$the_query = new WP_Query($args);
+				?>
+				<?php if ($the_query->have_posts()) : ?>
 				<ul class="slider-type02 index-list">
+					<?php while ($the_query->have_posts()) : ?>
+					<?php $the_query->the_post(); ?>
 					<li>
-						<a href="" class="new">
-							<img class="full" src="/common/img/pc/index/img_sample03a.png" alt="">
-                                <span class="update">2014.08.14
+						<?php
+						$date_diff = (strtotime(date('Y-m-d')) - strtotime(get_the_date('Y-m-d'))) / (3600 * 24);
+						$new_flag = ($date_diff <= 4) ? true : false;
+						?>
+						<a href="<?php the_permalink(); ?>"<?php if ($new_flag) : ?> class="new"<?php endif; ?>>
+							<?php the_post_thumbnail(array(140, 94)); ?>
+                                <span class="update"><?php echo get_the_date('Y.m.d'); ?>
                                     <span class="icn-new type02">
                                         <img class="full" src="/common/img/sp/icn_new.png" alt="NEW">
                                     </span>
                                 </span>
-							<span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span>
-							<span class="model-name type02">モデル名が入ります。</span>
+							<span class="blog-ttl"><?php the_title(); ?></span>
+							<span class="model-name type02"><?php the_author(); ?></span>
 						</a>
 					</li>
-					<li> <a href="" class="new"> <img class="full" src="/common/img/pc/index/img_sample03b.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">タイトルが入ります</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
-					<li> <a href=""> <img class="full" src="/common/img/pc/index/img_sample03a.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">タイトルが入りますタイトルが入ります</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
-					<li> <a href=""> <img class="full" src="/common/img/pc/index/img_sample03b.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入ります</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
-					<li> <a href=""> <img class="full" src="/common/img/pc/index/img_sample03a.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">タイトルが入りますタイトルが入ります</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
-					<li> <a href=""> <img class="full" src="/common/img/pc/index/img_sample03b.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">タイトルが入ります</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
-					<li> <a href=""> <img class="full" src="/common/img/pc/index/img_sample03a.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">モデル名が入ります。</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
-					<li> <a href=""> <img class="full" src="/common/img/pc/index/img_sample03b.png" alt=""> <span class="update">2014.08.14<span class="icn-new type02"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span></span> <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span> <span class="model-name type02">モデル名が入ります。</span> </a> </li>
+					<?php endwhile; ?>
 				</ul>
-				<a href="" class="btn type01 tx_c mt10"><span class="tx12">一覧</span></a>
+				<?php endif; ?>
+				<?php wp_reset_postdata(); ?>
+				<a href="/blog" class="btn type01 tx_c mt10"><span class="tx12">一覧</span></a>
 				<!--/#puchiblog--></div>
 		</div>
 		<!--/.module-type01--></div>
@@ -231,6 +206,7 @@
 		<div class="module-body bg-type03 pb10">
 			<h2 class="module-head-ttl"><img class="full" src="/common/img/sp/04/ttl03.png" alt="カレンダー"></h2>
 			<div class="calendar">
+				<?php get_calendar(); ?>
 				<div class="calendar_header cFix">
 					<ul class="pageNav03">
 						<li class="fl_l"><a href="#"><img src="/common/img/sp/04/icn_cal_l.gif" width="22" height="22"></a></li>
@@ -305,36 +281,14 @@
 				</table>
 			</div>
 			<h2 class="module-head-ttl"><img class="full" src="/common/img/sp/04/ttl04.png" alt="最近のコメント"></h2>
+			<?php $comments = get_comments(array('status' => 'approve', 'number' => 10)); ?>
 			<div class="resent_comment cFix">
-				<p>まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませんでした来年がラストチャン…</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">つきみ ©</p>
+				<?php foreach ($comments as $comment) : ?>
+				<?php $post = get_post($comment->comment_post_ID); ?>
+				<p><?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($comment->comment_content)), 0, 50); ?></p>
+				<p class="resent_comment_credit"><img src="/common/img/sp/04/icn_ribbon.png" width="22" height="22"><?php the_author_meta('nickname', $comment->user_id); ?></p>
 				<hr class="line">
-				<p>涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">わわ ©</p>
-				<hr class="line">
-				<p>まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませんでした来年がラストチャン…</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">つきみ ©</p>
-				<hr class="line">
-				<p>涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">わわ ©</p>
-				<hr class="line">
-				<p>まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませんでした来年がラストチャン…</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">つきみ ©</p>
-				<hr class="line">
-				<p>涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">わわ ©</p>
-				<hr class="line">
-				<p>まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませんでした来年がラストチャン…</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">つきみ ©</p>
-				<hr class="line">
-				<p>涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">わわ ©</p>
-				<hr class="line">
-				<p>まちにまったスズナちゃんのブログがきたーー（＾Ｏ＾☆♪プチコレ5お疲れ様です♪残念ながら私はプチコレ5出れませんでした来年がラストチャン…</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">つきみ ©</p>
-				<hr class="line">
-				<p>涼凪ちゃん、友達からの質問です！質問好きなキャラクターは？です！ぜひ、答えてね♡</p>
-				<p class="resent_comment_credit"><img src="../common/img/sp/04/icn_ribbon.png" width="22" height="22">わわ ©</p>
+				<?php endforeach; ?>
 			</div>
 		</div>
 		<!--/.module-type01--></div>
