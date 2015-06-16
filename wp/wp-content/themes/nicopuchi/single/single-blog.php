@@ -68,8 +68,8 @@
                             <div class="blog-comment">
                                 <h3><img src="<?php home(); ?>/common/img/pc/04/ttl_comment2.png" alt="コメント ニコ☆プチに会員登録すると、コメント投稿できるよ"></h3>
                                 <ul class="btn-list">
-                                    <li><a href="/blog_mypage/"><span>会員登録</span></a></li>
-                                    <li><a href="/blog_mypage/"><span>ログイン</span></a></li>
+                                    <li><a href="/blog_sign_up/"><span>会員登録</span></a></li>
+                                    <li><a href="/blog_sign_in/"><span>ログイン</span></a></li>
                                 </ul>
                                 <?php comments_template(); ?>
                             </div>
