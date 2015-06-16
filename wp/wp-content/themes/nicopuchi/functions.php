@@ -529,6 +529,77 @@ function my_breadcrumbs()
     }
 }
 
+// パンくずの出力 SP
+function my_breadcrumbs_sp()
+{
+	$eol = "\n";
+	$val = '';
+	if (! is_home())
+	{
+		$val .= '<ul class="dir-path cFix">' . $eol;
+		$val .= '<li><a href="' . home_url() . '/">TOP</a></li>' . $eol;
+
+		if (is_search())
+		{
+			$val .= '<li>検索結果</li>' . $eol;
+		}
+		elseif (is_404())
+		{
+			$val .= '<li>お探しのページが見つかりませんでした</li>' . $eol;
+		}
+		elseif (is_category())
+		{
+			global $cat;
+			global $cat_info;
+			if ($cat_info->parent)
+			{
+				$cat_list_link = get_category_parents($cat, true, '|');
+				$cat_list_link = explode('|', $cat_list_link);
+				array_pop($cat_list_link);
+				array_pop($cat_list_link);
+				foreach ($cat_list_link as $item)
+				{
+					$val .= '<li>' . $item . '</li>' . $eol;
+				}
+			}
+			$val .= '<li>' . $cat_info->name . '</li>' . $eol;
+		}
+		elseif (is_post_type_archive())
+		{
+			global $post_type;
+			$post_type_info = get_post_type_object($post_type);
+			$val .= '<li>' . $post_type_info->label . '</li>' . $eol;
+		}
+		elseif (is_single())
+		{
+			global $cats;
+			if ($cats)
+			{
+				global $cat_current;
+				$cat_list_link = get_category_parents($cat_current->cat_ID, true, '|');
+				$cat_list_link = explode('|', $cat_list_link);
+				array_pop($cat_list_link);
+				foreach ($cat_list_link as $item)
+				{
+					$val .= '<li>' . $item . '</li>' . $eol;
+				}
+			}
+			else
+			{
+				global $post_type;
+				$post_type_info = get_post_type_object($post_type);
+				$val .= '<li><a href="' . get_post_type_archive_link($post_type) . '">' . $post_type_info->label . '</a></li>' . $eol;
+			}
+			$val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
+		}
+		elseif (is_page())
+		{
+			$val .= '<li>' . strip_tags(get_the_title()) . '</li>' . $eol;
+		}
+		$val .= '</ul>' . $eol;
+		echo $val;
+	}
+}
 
 
 // ページネーションの出力
