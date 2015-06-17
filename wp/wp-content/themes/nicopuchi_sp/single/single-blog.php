@@ -151,7 +151,7 @@
 		<div class="module-body bg-type03 pb10">
 			<h2 class="module-head-ttl"><img class="full" src="/common/img/sp/04/ttl03.png" alt="カレンダー"></h2>
 			<div class="calendar">
-				<?php get_calendar(); ?>
+				<?php get_my_calendar_sp(); ?>
 				<div class="calendar_header cFix">
 					<ul class="pageNav03">
 						<li class="fl_l"><a href="#"><img src="/common/img/sp/04/icn_cal_l.gif" width="22" height="22"></a></li>
