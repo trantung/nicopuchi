@@ -122,12 +122,7 @@
         <!--/#main--></div>
     <div id="side">
 
-        <ul class="bnr-area">
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h250.png" alt="" width="300" height="250"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-        </ul>
+        <?php include(dirname(__FILE__) . '/../../../../../common/inc/pc/bnr-area01.html'); ?>
 
         <div class="module-type01">
             <div class="module-head">
@@ -161,9 +156,11 @@
                 <?php wp_reset_postdata(); ?>
             </div>
             <!--/.module-type01--></div>
+
         <ul class="bnr-area">
             <li><a href="" class="fdb"><img src="/common/img/pc/04/bnr_blogrule.png" alt="" width="300" height="97"></a></li>
         </ul>
+
         <div class="module-type01">
             <div class="module-head">
                 <h2><img src="/common/img/pc/04/ttl01_side.png" alt="スーパー読モブログ" width="300" height="50"></h2>
@@ -265,13 +262,14 @@
                     <!--/#readersblog--></ul>
             </div>
             <!--/.module-type01--></div>
+
         <div class="module-type01 bg-type03 inner15">
             <div class="module-head">
                 <h2><img src="/common/img/pc/04/ttl_calendar.png" alt="カレンダー" width="270" height="50"></h2>
-                <?php get_calendar(); ?>
             </div>
             <div class="module-body">
-                <img src="/common/img/pc/04/img_calendar.png" alt="">
+                <?php get_my_calendar_sp('blog'); ?>
+                <!--<img src="/common/img/pc/04/img_calendar.png" alt="">-->
             </div>
             <div class="module-head">
                 <h2><img src="/common/img/pc/04/ttl_comment.png" alt="最近のコメント" width="270" height="50"></h2>

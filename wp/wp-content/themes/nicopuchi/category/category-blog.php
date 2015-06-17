@@ -84,122 +84,48 @@
         <!--/#main--></div>
     <div id="side">
 
-        <ul class="bnr-area">
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/index/img_w300h250.png" alt="" width="300" height="250"></a></li>
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-        </ul>
+        <?php include(dirname(__FILE__) . '/../../../../../common/inc/pc/bnr-area01.html'); ?>
 
         <ul class="bnr-area">
             <li><a href="" class="fdb"><img src="<?php home(); ?>/common/img/pc/04/bnr_blogrule.png" alt="" width="300" height="97"></a></li>
         </ul>
+
         <div class="module-type01">
             <div class="module-head">
                 <h2><img src="<?php home(); ?>/common/img/pc/04/ttl01_side.png" alt="スーパー読モブログ" width="300" height="50"></h2>
             </div>
             <div class="module-body bg-type03 inner15">
+                <?php
+                $args = array(
+                    'orderby' => 'ID',
+                    'order' => 'ASC',
+                    'role' => 'author',
+                );
+                $users = get_users($args);
+                ?>
                 <ul id="readersblog" class="index-list type-side01">
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01b.png" alt="ぴよりん" width="134" height="90">
-                            <span class="blog-ttl pd10">ぴよりん..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="/common/img/pc/index/img_sample01a.png" alt="ゆう" width="134" height="90">
-                            <span class="blog-ttl pd10">ゆう..&copy;</span>
-                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                        </a>
-                    </li>
+                    <?php foreach ($users as $user) : ?>
+                        <li>
+                            <?php $userData = get_userdata($user->ID); ?>
+                            <a href="/blog/?author=<?php echo $user->ID; ?>">
+                                <?php $avatar01 = wp_get_attachment_image_src(get_the_author_meta('my_user_avatar01', $user->ID), 'thumbnail'); ?>
+                                <img src="<?php echo $avatar01[0]; ?>" alt="" width="134" height="90">
+                                <span class="blog-ttl pd10"><?php echo $user->display_name; ?></span>
+                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                     <!--/#readersblog--></ul>
             </div>
             <!--/.module-type01--></div>
+
         <div class="module-type01 bg-type03 inner15">
             <div class="module-head">
                 <h2><img src="/common/img/pc/04/ttl_calendar.png" alt="カレンダー" width="270" height="50"></h2>
             </div>
             <div class="module-body">
-                <img src="/common/img/pc/04/img_calendar.png" alt="">
+                <?php get_my_calendar_sp('blog'); ?>
+                <!--<img src="/common/img/pc/04/img_calendar.png" alt="">-->
             </div>
             <div class="module-head">
                 <h2><img src="/common/img/pc/04/ttl_comment.png" alt="最近のコメント" width="270" height="50"></h2>
