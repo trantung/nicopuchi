@@ -970,6 +970,7 @@ function get_my_calendar_sp($cat_name) {
 	);
 
 	$event_posts = get_posts( $args );
+	var_export($args);
 	var_export($event_posts);
 	$events = array();
 	if ( $event_posts ) {
