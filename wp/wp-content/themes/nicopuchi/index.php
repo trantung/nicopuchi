@@ -40,7 +40,8 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <?php wp_reset_postdata(); ?>
                 <!--/#mainvisual--></div>
 
-            <?php require_once('common/inc/pc/blogsupporter.php'); ?>
+            <?php 
+            // require_once('common/inc/pc/blogsupporter.php'); ?>
 
             <?php /* Comment for VN, Maker please check!
             <div class="module-type01">
@@ -93,21 +94,8 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             { ?>
                                 <li class="item <?php if($key >11) echo 'more-item' ?> "
                                  <?php if($key >11) echo 'style="display:none"' ?> >
-                                    <a href="<?= $blogData['entry_url'] ?>" class="new">
-                                        <img src="<?= $blogData['image_list'][0] ?>" alt="" width="246" height="164">
-                                        <dl class="update">
-                                            <dt><img src="/common/img/pc/<?=get_blog_type_img_name_list()[$blogData['blog_type']]?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?= date('Y m d | g:i a', $blogData['entry_date']) ?></dd>
-                                        </dl>
-                                        <span class="blog-ttl"><?= $blogData['title'] ?></span>
-                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;">
-                                            <?= $blogData['description'] ?>
-                                        </div>
-                                        <?php if ($blogData['entry_date'] == strtotime(date('Y-m-d')))
-                                        { ?>
-                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                        <?php } ?>
-                                    </a>
+                                    <?php echo commonRenderHTMLIndex($blogData,'',246,164, '50px', 2,1)?>
+
                                 </li>
                             <?php }
                             else
@@ -178,17 +166,8 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             <?php foreach ($jsonData as $key => $blogData) {?>
                             <?php if($blogData['blog_type'] == BLOG_TYPE_NICOPETIT_ED){ ?>
                             <li>
-                                <a href="<?=$blogData['entry_url']?>" class="new">
-                                    <img class="thumbsnail" src="<?=$blogData['image_list'][0] ?>" alt="" width="140" height="94">
-                                    <span class="update"><?=date('Y m d', $blogData['entry_date'])?></span>
-                                    <span class="blog-ttl"><?=$blogData['title']?></span>
-                                    <div class="blog-theme" class="description" style="height: 25px; overflow:hidden !important;">
-                                    <?=$blogData['description']?></div>
-                                    <?php if ($blogData['entry_date'] == strtotime(date('Y-m-d')))
-                                        { ?>
-                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                        <?php } ?>
-                                </a>
+                                <?php echo commonRenderHTMLIndex($blogData,'' ,140,94,'25px', 1,1)?>
+
                             </li>
                             <?php } ?>
                             <?php } ?>
@@ -294,60 +273,14 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 </div>
                 <div class="module-body bg-type01 inner15">
                     <ul id="readersblog" class="index-list type-side01">
+                        <?php foreach ($jsonData as $key => $blogData) {?>
+                        <?php if($blogData['blog_type'] == BLOG_TYPE_SUPER_DOKUMO && $key < DOKUMO_NUMBER){ ?>
                         <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07a.png" alt="上野沙耶香" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">上野 沙耶香 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
+                        <?php echo commonRenderHTMLIndex($blogData,'斉藤梨鈴',134,90, '15px', 1,NULL) ?>
+
                         </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07b.png" alt="斉藤梨鈴" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">斉藤 梨鈴 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07c.png" alt="大森汐莉" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">大森 汐莉 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07d.png" alt="石田結耶" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">石田 結耶 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07e.png" alt="角紫音" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">角 紫音 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07f.png" alt="武内愛莉" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">武内 愛莉 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
+                        <?php } ?>
+                        <?php } ?>
                         <!--/#readersblog--></ul>
                 </div>
                 <!--/.module-type01--></div>
