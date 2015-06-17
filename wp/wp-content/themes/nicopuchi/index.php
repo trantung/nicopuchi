@@ -79,6 +79,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
             
 			<?php if (0): // 一時的に処理停止 ?>
             */ ?>
+
             <div class="module-type01">
                 <div class="module-head">
                     <h2 class="icn type02"><img src="/common/img/pc/index/ttl02.png" alt="ニコ☆プチタイムライン" width="221" height="32"></h2>
@@ -283,119 +284,20 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                     <?php wp_reset_postdata(); ?>
                 </div>
                 <!--/.module-type01--></div>
-            <div class="module-type01">
-                <div class="module-head">
-                    <h2 class="icn type03"><img src="/common/img/pc/index/ttl07.png" alt="スーパー読モブログ" width="194" height="32"></h2>
-                </div>
-                <div class="module-body bg-type01 inner15">
-                    <ul id="readersblog" class="index-list type-side01">
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07a.png" alt="上野沙耶香" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">上野 沙耶香 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07b.png" alt="斉藤梨鈴" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">斉藤 梨鈴 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07c.png" alt="大森汐莉" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">大森 汐莉 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07d.png" alt="石田結耶" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">石田 結耶 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07e.png" alt="角紫音" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">角 紫音 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="/common/img/pc/index/img_sample07f.png" alt="武内愛莉" width="134" height="90">
-                                <span class="update">2015.00.00</span>
-                                <span class="blog-ttl">タイトルが入ります</span>
-                                <span class="blog-theme">武内 愛莉 &copy;</span>
-                                <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                            </a>
-                        </li>
-                        <!--/#readersblog--></ul>
-                </div>
-                <!--/.module-type01--></div>
 
-            <div class="module-type01">
-                <div class="module-head">
-                    <h2><img src="/common/img/pc/index/ttl08.png" alt="女子小学生のファッション誌" width="300" height="80"></h2>
-                </div>
-                <div class="module-body bg-type02 inner15">
-                    <ul id="magazine" class="index-list-type02">
-                        <li>
-                            <span class="inner">
-                                <dl>
-                                    <dt>
-                                        <img src="/common/img/pc/index/img_sample08.png" alt="" width="108" height="154">
-                                    </dt>
-                                    <dd>
-                                        <span class="ttl">ニコ☆プチ○月号<span class="price">（2015/00/00発売）590円</span></span>
-                                        <a href="" class="btn fdb">立ち読み</a>
-                                        <a href="" class="btn fdb">6月号の予告</a>
-                                        <a href="" class="btn fdb">バックナンバー</a>
-                                    </dd>
-                                </dl>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-                <!--/.module-type01--></div>
-            <div class="module-type01">
-                <div class="module-head">
-                    <h2 class="icn type07"><img src="/common/img/pc/index/ttl09.png" alt="ニコ☆プチステッカー" width="198" height="32"></h2>
-                </div>
-                <div class="module-body bg-type02 inner15">
-                    <ul id="sticker" class="index-list-type02">
-                        <li>
-                            <dl>
-                                <dt><img src="/common/img/pc/index/img_sample09.png" alt="" width="93" height="147"></dt>
-                                <dd>
-                                    <p class="desc">2ヶ月に1回、自動で画像が変わるよ☆ブログやホームページに貼ってね♪</p>
-                                    <span class="source">
-                                        &lt;a href="http://www.nicopuchi.jp/"&gt;&lt;img src="http://www.nicopuchi.jp/images/sticker/sticker_cover_blog.jpg" alt="ニコ☆プチネット" width="138" height="219"&gt;&lt;/a&gt;
-                                    </span>
-                                </dd>
-                            </dl>
-                        </li>
-                    </ul>
-                </div>
-                <!--/.module-type01--></div>
+            <?php include(dirname(__FILE__).'/../../../../common/inc/pc/readersblog.html'); ?>
+
+            <?php include(dirname(__FILE__).'/../../../../common/inc/pc/magazine.html'); ?>
+
+            <?php include(dirname(__FILE__).'/../../../../common/inc/pc/sticker.html'); ?>
+
             <ul class="bnr-area">
                 <li><a href="" class="fdb"><img src="/common/img/pc/index/bnr_nicolanet.png" alt="" width="300" height="144"></a></li>
             </ul>
+
             <!--/#side--></div>
         <!--/#contents--></div>
+
     <script type="text/javascript" src="/common/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/common/js/selectivizr-min.js"></script>
     <script type="text/javascript" src="/common/js/script.js"></script>
