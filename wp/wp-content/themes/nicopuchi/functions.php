@@ -960,6 +960,8 @@ function get_my_calendar_sp($cat_name) {
 		'category_name'	=> $category_name,
 		'post_status' => 'publish',
 		'posts_per_page' => -1, // 全件取得
+		'year'	=> $current_y,
+		'month'	=> $current_m,
         /*
 		'meta_query' => array(
 			array(
