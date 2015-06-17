@@ -266,3 +266,22 @@ function getXMLDataCommon($child, $domain, $bg_image,$description,$status)
     }
     return $tmp;
 }
+
+function getImageFromSite($url){
+    $htmlContent = file_get_contents($url);
+    $dom = new DOMDocument();
+    libxml_use_internal_errors(true);
+    $dom->loadHTML($htmlContent);
+    $tags = $dom->getElementsByTagName('img');
+    $image = array();
+    foreach ($tags as $key => $tag) {
+       $text = $tag->getAttribute('src');
+       $pattern = '/\bhttps?:[^)\'\'\"]+\/user_images\/[^\)\'\'\"]+\.(?:jpg|jpeg|png)/';
+        preg_match($pattern, $text, $matches);
+        if(!empty($matches))
+             $image[] = $matches[0];
+
+    }
+    var_dump($image[0]);
+}
+
