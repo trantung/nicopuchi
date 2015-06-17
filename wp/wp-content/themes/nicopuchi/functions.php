@@ -960,6 +960,7 @@ function get_my_calendar_sp($cat_name) {
 		'category_name'	=> $category_name,
 		'post_status' => 'publish',
 		'posts_per_page' => -1, // 全件取得
+        /*
 		'meta_query' => array(
 			array(
 				'key' => 'event_date',
@@ -967,11 +968,13 @@ function get_my_calendar_sp($cat_name) {
 				'compare' => 'LIKE'
 			)
 		)
+        */
 	);
 
 	$event_posts = get_posts( $args );
 	var_export($args);
 	var_export($event_posts);
+    FB::info($event_posts);
 	$events = array();
 	if ( $event_posts ) {
 		foreach ( $event_posts as $post ) {
