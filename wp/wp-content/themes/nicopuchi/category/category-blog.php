@@ -35,6 +35,16 @@
                         'posts_per_page' => 10,
                         'paged' => get_query_var('paged')
                     );
+                    $year = get_query_var('year');
+                    $month = get_query_var('monthnum');
+                    if ($year)
+                    {
+                        $args['year'] = $year;
+                    }
+                    if ($month)
+                    {
+                        $args['monthnum'] = $month;
+                    }
                     query_posts($args);
                     ?>
                     <?php if (have_posts()) : ?>
