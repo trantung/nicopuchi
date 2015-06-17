@@ -1095,7 +1095,7 @@ function get_blog_type_img_name_list () {
 
 function getJsonData()
 {
-    $source = file_get_contents(get_stylesheet_directory() . '/data/data.json');
+    $source = file_get_contents(get_template_directory() . '/data/data.json');
     $jsonData = json_decode($source, true);
     $jsonData !== null ?: $jsonData = [];
     return $jsonData;
