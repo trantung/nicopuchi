@@ -974,13 +974,10 @@ function get_my_calendar_sp($cat_name) {
 	);
 
 	$event_posts = get_posts( $args );
-	var_export($args);
-	var_export($event_posts);
-    FB::info($event_posts);
 	$events = array();
 	if ( $event_posts ) {
 		foreach ( $event_posts as $post ) {
-			$event_date = esc_html( get_post_meta( $post -> ID, 'event_date', true ) );
+			$event_date = date_i18n('Y-m-d', strtotime($post->post_date));
 			$events[$event_date] = 1;
 		}
 	}
