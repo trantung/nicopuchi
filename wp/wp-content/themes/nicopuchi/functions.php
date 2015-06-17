@@ -920,6 +920,7 @@ function get_monthly_archive($cat)
     foreach ($archives_year_array as $key => $year_value)
     {
         $year = ltrim($year_value);
+        /*
         $html .= '<li>';
         if ($key == 0)
         {
@@ -930,16 +931,17 @@ function get_monthly_archive($cat)
             $html = '<dl>';
         }
         $html .= '<dt><span></span>' . $year . '年</dt>';
+        */
 
         foreach ($archives_array as $archives_value)
         {
             if (intval(strip_tags($archives_value)) == intval($year_value))
             {
                 $archives_value = ltrim($archives_value);
-                $html .= '<dd>' . $archives_value . '</dd>';
+                $html .= '<li>' . $archives_value . '</li>';
             }
         }
-        $html .= '</dl></li>';
+        //$html .= '</dl></li>';
     }
     $html = '<ul>' . $html . '</ul>';
     return $html;
