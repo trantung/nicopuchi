@@ -946,7 +946,9 @@ function get_monthly_archive($cat)
 }
 
 // カレンダー
-function get_my_calendar_sp() {
+function get_my_calendar_sp($cat_name) {
+
+	$category_name = (!$cat_name) ? 'blog' : $cat_name;
 
 	$current_y = date_i18n('Y');
 	$current_m = date_i18n('m');
@@ -955,6 +957,7 @@ function get_my_calendar_sp() {
 	$calendar_ym = $current_y.'-'.$current_m;
 
 	$args = array(
+		'category_name'	=> $category_name,
 		'post_status' => 'publish',
 		'posts_per_page' => -1, // 全件取得
 		'meta_query' => array(
@@ -1016,12 +1019,13 @@ __EOF__;
 			$class = '';
 		}
 
-		if (isset($events[$calendar_ym.'-'.$calendar_date]) && count($events[$calendar_ym.'-'.$calendar_date]) > 0) {
-			$day_link = '<a href="">'.$i.'</a>';
+		if ($events[$calendar_ym.'-'.$calendar_date] == '1') {
+			$day_url = '/'.$category_name.'/'.$current_y.'/'.$current_m.'/'.$i;
+			$day_link_html = '<a href="'.$day_url.'">'.$i.'</a>';
 		} else {
-			$day_link = $i;
+			$day_link_html = $i;
 		}
-		$calendar_html .= '<td class="'.$class.'">'.$day_link.'</td>';
+		$calendar_html .= '<td class="'.$class.'">'.$day_link_html.'</td>';
 
 		if ($calendar_day == 6) {
 			$calendar_html .= '</tr>';
