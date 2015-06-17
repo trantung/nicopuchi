@@ -557,4 +557,3 @@ function parse_entry ($entry_url, $rss_node, $options = []) {
         'blog_type'     => $options['blog_type'],
     ];
 }
-

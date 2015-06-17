@@ -89,49 +89,30 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                         <ul class="masonry-inner mt10">
                             <?php foreach ($jsonData as $key => $blogData)
                             { ?>
-                                <?php if ($key < 12)
+                                <?php if ($key < 24)
                             { ?>
-                                <li class="item">
-                                    <a href="<?= $blogData['title_link'] ?>" class="new">
-                                        <img src="<?= $blogData['image'] ?>" alt="" width="246" height="164">
+                                <li class="item <?php if($key >11) echo 'more-item' ?> "
+                                 <?php if($key >11) echo 'style="display:none"' ?> >
+                                    <a href="<?= $blogData['entry_url'] ?>" class="new">
+                                        <img src="<?= $blogData['image_list'][0] ?>" alt="" width="246" height="164">
                                         <dl class="update">
-                                            <dt><img src="/common/img/pc/<?= $blogData['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?= date('Y m d | g:i a', $blogData['date']) ?></dd>
+                                            <dt><img src="/common/img/pc/<?=get_blog_type_img_name_list()[$blogData['blog_type']]?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                            <dd><?= date('Y m d | g:i a', $blogData['entry_date']) ?></dd>
                                         </dl>
                                         <span class="blog-ttl"><?= $blogData['title'] ?></span>
-                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?= $blogData['desc'] ?></div>
-                                        <?php if ($blogData['date'] == strtotime(date('Y-m-d')))
+                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;">
+                                            <?= $blogData['description'] ?>
+                                        </div>
+                                        <?php if ($blogData['entry_date'] == strtotime(date('Y-m-d')))
                                         { ?>
                                             <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                         <?php } ?>
                                     </a>
                                 </li>
-
-                            <?php }
-                            elseif ($key > 11 && $key < 24)
-                            { ?>
-
-                                <li class="item more-item" style="display:none">
-                                    <a href="<?= $blogData['title_link'] ?>" class="new">
-                                        <img src="<?= $blogData['image'] ?>" alt="" width="246" height="164">
-                                        <dl class="update">
-                                            <dt><img src="/common/img/pc/<?= $blogData['blog_image'] ?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?= date('Y m d | g:i a', $blogData['date']) ?></dd>
-                                        </dl>
-                                        <span class="blog-ttl"><?= $blogData['title'] ?></span>
-                                        <div class="blog-desc" class="description" style="height: 50px; overflow: hidden;"><?= $blogData['desc'] ?></div>
-                                        <?php if ($blogData['date'] == strtotime(date('Y-m-d')))
-                                        { ?>
-                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                        <?php } ?>
-                                    </a>
-                                </li>
-
                             <?php }
                             else
                             { ?>
-                                <?php break;
-                            } ?>
+                            <?php break;} ?>
 
                             <?php } ?>
                         </ul>
