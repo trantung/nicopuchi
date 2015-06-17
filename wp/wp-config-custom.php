@@ -32,10 +32,12 @@ define('ROOT_URL', 'http://52.68.157.55');
 define('USER_AUTH', 'guest');
 define('PASSWORD_AUTH', 'nadia');
 
-define('BLOG_TYPE_PETIT_MO',			'1');	//プチモブログ
-define('BLOG_TYPE_SUPER_DOKUMO',		'2');	//スーパー読モブログ
-define('BLOG_TYPE_PETIT_MO_OFFICIAL',	'3');	//プチモオフィシャルブログ
-define('BLOG_TYPE_NICOPETIT_ED',		'4');	//ニコプチ編集部ブログ
+define('BLOG_TYPE_PETIT_MO'           , '1');   //プチモブログ
+define('BLOG_TYPE_SUPER_DOKUMO'       , '2');   //スーパー読モブログ
+define('BLOG_TYPE_PETIT_MO_OFFICIAL'  , '3');   //プチモオフィシャルブログ
+define('BLOG_TYPE_NICOPETIT_ED'       , '4');   //ニコプチ編集部ブログ
+define('BLOG_TYPE_NICOPETIT_SUPPORT'  , '5');   // SUPPORT
+define('BLOG_TYPE_NICOPETIT_PUCHISNA' , '6');   // PUCHISNA
 
 //BLOGのデフォルトキャラクタセット
 define('BLOG_CHAR_SET', 'UTF-8');

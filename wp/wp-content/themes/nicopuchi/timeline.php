@@ -53,15 +53,15 @@ $blogsData = $blogsObj->getData($page);
                     <ul class="masonry-inner mt10">
                         <?php foreach ($blogsData as $key => $blogData) {?>
                         <li class="item" id ="<?php echo $key ?>">
-                            <a href="<?=$blogData['title_link']?>" class="new">
-                                <img src="<?=$blogData['image'] ?>" alt="" width="246" height="164">
+                            <a href="<?=$blogData['entry_url']?>" class="new">
+                                <img src="<?=$blogData['image_list'][0] ?>" alt="" width="246" height="164">
                                 <dl class="update">
-                                    <dt><img src="/common/img/pc/<?=$blogData['blog_image']?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                    <dd><?=date('Y m d | g:i a', $blogData['date'])?></dd>
+                                    <dt><img src="/common/img/pc/<?=get_blog_type_img_name_list()[$blogData['blog_type']]?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
+                                    <dd><?=date('Y m d | g:i a', $blogData['entry_date'])?></dd>
                                 </dl>
                                 <span class="blog-ttl"><?=$blogData['title']?></span>
-                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$blogData['desc']?></div>
-                                <?php if($blogData['date'] == strtotime(date('Y-m-d'))){ ?>
+                                <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;"><?=$blogData['description']?></div>
+                                <?php if($blogData['entry_date'] == strtotime(date('Y-m-d'))){ ?>
                                     <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                 <?php } ?>
                             </a>
