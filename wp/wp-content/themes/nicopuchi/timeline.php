@@ -53,6 +53,7 @@ $blogsData = $blogsObj->getData($page);
                     <ul class="masonry-inner mt10">
                         <?php foreach ($blogsData as $key => $blogData) {?>
                         <li class="item" id ="<?php echo $key ?>">
+                            <?php echo commonRenderHTMLIndex($blogData,'',246,164, '50px', 2,1)?>
                             <a href="<?=$blogData['entry_url']?>" class="new">
                                 <img src="<?=$blogData['image_list'][0] ?>" alt="" width="246" height="164">
                                 <dl class="update">
@@ -65,6 +66,7 @@ $blogsData = $blogsObj->getData($page);
                                     <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
                                 <?php } ?>
                             </a>
+
                         </li>
                         <?php } ?>
                     </ul>
