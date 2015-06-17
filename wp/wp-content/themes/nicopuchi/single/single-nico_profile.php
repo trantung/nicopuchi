@@ -79,13 +79,11 @@
         <!--/#main--></div>
     <div id="side">
 
-        <ul class="bnr-area">
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h250.png" alt="" width="300" height="250"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-        </ul>
+        <?php include(dirname(__FILE__).'/../../../../../common/inc/pc/bnr-area01.html'); ?>
 
+        <?php include(dirname(__FILE__).'/../../../../../common/inc/pc/welovepuchi.html'); ?>
+
+        <!--
         <div class="module-type01">
             <div class="module-head">
                 <h2 class="icn type03"><img src="<?php home(); ?>/common/img/pc/index/ttl05.png" alt="WE&hearts;プチモ" width="130" height="32"></h2>
@@ -111,11 +109,12 @@
                                 </a>
                             </li>
                         <?php endwhile; ?>
-                        <!--/#readersblog--></ul>
+                        --><!--/#readersblog--><!--</ul>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
             </div>
-            <!--/.module-type01--></div>
+            --><!--/.module-type01--><!--</div>-->
+
         <!--/#side--></div>
     <!--/#contents--></div>
 
