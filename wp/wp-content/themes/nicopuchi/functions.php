@@ -1067,7 +1067,7 @@ __EOF__;
 					$calendar_html .= '</tr><tr>';
 				} elseif ($calendar_day < 6) {
 					$calendar_day ++;
-					$calendar_html .= '<td>'.$i.'</td>';
+					$calendar_html .= '<td>&nbsp;</td>';
 				}
 			}
 		}
