@@ -1088,10 +1088,10 @@ function get_blog_type_img_name_list () {
     return [
         BLOG_TYPE_PETIT_MO           => 'ttl_blog01.png',   //プチモブログ
         BLOG_TYPE_SUPER_DOKUMO       => 'ttl_blog02.png',   //スーパー読モブログ
-        BLOG_TYPE_PETIT_MO_OFFICIAL  => 'ttl_blog03.png',   //プチモオフィシャルブログ
+        BLOG_TYPE_PETIT_MO_OFFICIAL  => 'ttl_blog06.png',   //プチモオフィシャルブログ
         BLOG_TYPE_NICOPETIT_ED       => 'ttl_blog04.png',    //ニコプチ編集部ブログ
-        BLOG_TYPE_NICOPETIT_SUPPORT  => 'ttl_blog05.png',    //http://www.nicopuchi.jp/support/
-        BLOG_TYPE_NICOPETIT_PUCHISNA => 'ttl_blog06.png',   //http://www.nicopuchi.jp/puchisna/
+        BLOG_TYPE_NICOPETIT_SUPPORT  => 'ttl_blog05.png',    //読者ブログサポーター
+        BLOG_TYPE_NICOPETIT_PUCHISNA => 'ttl_blog03.png',   //プチ撮影日記
     ];
 }
 
