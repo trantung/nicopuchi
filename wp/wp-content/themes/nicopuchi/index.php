@@ -233,12 +233,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
             <!--/#main--></div>
         <div id="side" class="mt0">
 
-            <ul class="bnr-area">
-                <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h250.png" alt="" width="300" height="250"></a></li>
-                <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-                <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-                <li><a href="" class="fdb"><img src="/common/img/pc/index/img_w300h98.png" alt="" width="300" height="98"></a></li>
-            </ul>
+            <?php include(dirname(__FILE__).'/../../../../common/inc/pc/bnr-area01.html'); ?>
 
             <div class="module-type01">
                 <div class="module-head">
