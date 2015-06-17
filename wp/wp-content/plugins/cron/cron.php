@@ -118,83 +118,10 @@ function crawData(){
     file_put_contents($dataJsonFolder."/data.json",json_encode($data));
 }
 
-// function returnImage ($text) {
-//     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
-//     $arrText = null;
-//     if($text != null){
-//         $pattern = '/\bhttps?:[^)\'\'\"]+\/user_images\/[^\)\'\'\"]+\.(?:jpg|jpeg|png)/';
-//         preg_match_all($pattern, $text, $matches);
-//         if(isset($matches[0]))
-//             $arrText = $matches[0];
-//     }
-//     return $arrText;
-// }
-
-// function returnText($text){
-
-//     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
-//     $text = preg_replace('/<img[^>]+src="[^"]+\.(?:png|jpg|jpeg)"[^>]+>/', "", $text);
-//     $text = preg_replace('/CANDYからの投稿/', "", $text);
-//     return $text;
-// }
 function cmp($a, $b)
 {
     return $a['entry_date'] == $b['entry_date'] ? 0 : ( $a['entry_date'] < $b['entry_date'] ) ? 1 : -1;
 }
-// function returnArrayData($arrUrl,$group) {
-//     foreach ($arrUrl as $key => $url) {
-//         $urlexplode = explode("/", $url);
-//         $folder = $urlexplode[5];
-
-//         if($group == 4)
-//                 $folder = "wp";
-//         $feed = fetch_feed($url);
-//         $items = $feed->get_items();
-//         $imagesFolder = get_stylesheet_directory()."/images";
-//         if (! file_exists($imagesFolder)) {
-//             mkdir($imagesFolder, 0766);
-//         }
-//         $imgSavePath = $imagesFolder.'/'.$folder;
-//         foreach ($items as $key => $item) {
-//             $image = returnImage($item->get_content());
-//             $tmp['title']  = $item->get_title();
-//             $tmp['title_link'] = $item->get_link();
-
-//             $tmp['date'] = strtotime($item->get_date('Y-m-d H:i:s'));
-//             $tmp['desc'] = returnText($item->get_description());
-//             if(!empty($image[0])){
-//                 $contentImage = file_get_contents($image[0]);
-//                 if (! file_exists($imgSavePath)) {
-//                     mkdir($imgSavePath, 0766);
-//                 }
-//                 $imgName = $imgSavePath.'/img'.$key.'.png';
-//                 file_put_contents($imgName, $contentImage);
-//                 $name = 'img'.$key.'.png';
-
-//                 $tmp['image'] = get_stylesheet_directory_uri()."/images/".$folder.'/'.$name;
-//             }
-//             switch ($group) {
-//                 case 1:
-//                     $tmp['blog_image'] = 'ttl_blog02.png';
-//                     break;
-//                 case 2:
-//                     $tmp['blog_image'] = 'ttl_blog06.png';
-//                     break;
-//                 case 3:
-//                     $tmp['blog_image'] = 'ttl_blog04.png';
-//                     break;
-//                 case 4:
-//                     $tmp['blog_image'] = 'ttl_blog01.png';
-//                 default:
-//                     # code...
-//                     break;
-//             }
-//             $arrItem[]=$tmp;
-//         }
-//     }
-
-//     return $arrItem;
-// }
 
 function getXMLData($url, $username, $password, $domain, $blog_type){
     $context = stream_context_create(array(
@@ -351,38 +278,38 @@ function get_rss_config_set () {
     ];
 
     return  [
-        // BLOG_TYPE_PETIT_MO  => [
-        //     'http://52.68.157.55/blog/?feed=rss2'   => [
-        //         'get_title'             => function ($entry_dom, $rss_node) {
-        //             return $rss_node->getElementsByTagName('title')->item(0)->nodeValue;
-        //         },
-        //         'get_entry_field'       => function ($entry_dom, $rss_node) {
-        //             foreach ($entry_dom->getElementById('main')->getElementsByTagName('div') as $div) {
-        //                 if ($div->getAttribute('class') === 'blog-main') {
-        //                     return $div;
-        //                 }
-        //             }
-        //             return null;
-        //         },
-        //         'get_description'       => function ($entry_field, $entry_dom, $rss_node) {
-        //             return adjust_description($entry_field->C14N());
-        //         },
-        //         'get_entry_date'        => function ($entry_field, $entry_dom, $rss_node) {
-        //             return strtotime($rss_node->getElementsByTagName('pubDate')->item(0)->nodeValue);
-        //         },
-        //         'get_entry_img_list'    => function ($entry_field, $entry_dom, $rss_node, $entry_url) {
-        //             $img_url_list = [];
-        //             foreach ($entry_field->getElementsByTagName('img') as $img) {
-        //                 $src = $img->getAttribute('src');
-        //                 if (substr(parse_url($src, \PHP_URL_PATH), 0, 8) === '/photos/') {
-        //                     $img_url_list[] = $src;
-        //                 }
-        //             }
-        //             return $img_url_list;
-        //         },
-        //         'blog_type'             => BLOG_TYPE_PETIT_MO,
-        //     ],
-        // ],
+        BLOG_TYPE_PETIT_MO  => [
+            'http://52.68.157.55/blog/?feed=rss2'   => [
+                'get_title'             => function ($entry_dom, $rss_node) {
+                    return $rss_node->getElementsByTagName('title')->item(0)->nodeValue;
+                },
+                'get_entry_field'       => function ($entry_dom, $rss_node) {
+                    foreach ($entry_dom->getElementById('main')->getElementsByTagName('div') as $div) {
+                        if ($div->getAttribute('class') === 'blog-main') {
+                            return $div;
+                        }
+                    }
+                    return null;
+                },
+                'get_description'       => function ($entry_field, $entry_dom, $rss_node) {
+                    return adjust_description($entry_field->C14N());
+                },
+                'get_entry_date'        => function ($entry_field, $entry_dom, $rss_node) {
+                    return strtotime($rss_node->getElementsByTagName('pubDate')->item(0)->nodeValue);
+                },
+                'get_entry_img_list'    => function ($entry_field, $entry_dom, $rss_node, $entry_url) {
+                    $img_url_list = [];
+                    foreach ($entry_field->getElementsByTagName('img') as $img) {
+                        $src = $img->getAttribute('src');
+                        if (substr(parse_url($src, \PHP_URL_PATH), 0, 8) === '/photos/') {
+                            $img_url_list[] = $src;
+                        }
+                    }
+                    return $img_url_list;
+                },
+                'blog_type'             => BLOG_TYPE_PETIT_MO,
+            ],
+        ],
         BLOG_TYPE_SUPER_DOKUMO  => [
             'http://rssblog.ameba.jp/sayaka1627/rss20.xml'          => $template_super_dokumo,
             'http://rssblog.ameba.jp/yurika-love-kiss/rss20.xml'    => $template_super_dokumo,
