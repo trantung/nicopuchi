@@ -151,7 +151,7 @@
 		<div class="module-body bg-type03 pb10">
 			<h2 class="module-head-ttl"><img class="full" src="/common/img/sp/04/ttl03.png" alt="カレンダー"></h2>
 			<div class="calendar">
-				<?php get_my_calendar_sp(); ?>
+				<?php get_my_calendar_sp('blog'); ?>
 			</div>
 			<h2 class="module-head-ttl"><img class="full" src="/common/img/sp/04/ttl04.png" alt="最近のコメント"></h2>
 			<?php $comments = get_comments(array('status' => 'approve', 'number' => 10)); ?>
