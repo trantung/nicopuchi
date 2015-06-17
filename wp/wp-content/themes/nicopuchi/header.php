@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/common/css/slick.css">
     <link rel="stylesheet" href="/common/css/magnific-popup.css">
     <link rel="stylesheet" media="print" href="/common/css/print.css">
+    <?php wp_head(); ?>
 </head>
 <body class="<?php my_body_class(); ?>">
 

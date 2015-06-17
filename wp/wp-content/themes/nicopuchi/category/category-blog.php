@@ -24,6 +24,7 @@
                             </select>
                         </dd>
                     </dl>
+                    <?php echo get_monthly_archive(1); ?>
                 </div>
             </div>
             <div class="module-body">
