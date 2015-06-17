@@ -1102,4 +1102,48 @@ function getJsonData()
     $jsonData !== null ?: $jsonData = [];
     return $jsonData;
 }
+function commonRenderHTMLIndex($data,$alt,$width,$height, $description_height, $status)
+{
+    $html ='';
+    if($status == 1 && $class_new !=NULL){
+       $html.= '<a href="'.$data['entry_url'].' class="new" ">
+        <img class="thumbsnail" src="'.$data['image_list'][0].'" alt="'.$alt.'" width="'.$width.'" height="'.$height.'">'; 
+    }
+    if($status == 1 && $class_new ==NULL){
+       $html.= '<a href="'.$data['entry_url'].' ">
+        <img class="thumbsnail" src="'.$data['image_list'][0].'" alt="'.$alt.'" width="'.$width.'" height="'.$height.'">'; 
+    }
+
+    if($status == 2){
+        $html.= '<a href="'.$data['entry_url'].' " class="new">
+                <img src="'.$data['image_list'][0].'" alt="'.$alt.'" width="'.$width.'" height="'.$height.'">';
+    }
+
+    if($status == 1){
+        $html.='<span class="update">'.date('Y m d', $data['entry_date']).'</span>';
+    }
+    if($status == 2){
+        $url = get_blog_type_img_name_list()[$data['blog_type']];
+        $html.='
+            <dl class="update">
+            <dt><img src="/common/img/pc/'.$url.'" alt="プチモ☆ブログ情報" width="123" height="28"></dt>';
+        $html.= '<dd>'.date('Y m d | g:i a', $data['entry_date']).'</dd>
+                </dl>';
+        
+    }
+    $html.= '<span class="blog-ttl">'.$data['title'].'</span>
+    <span class="blog-theme" class="blog-theme" class="description" style="height: '.$description_height.'; overflow:hidden !important;">'.$data['description'].'</span>' ;
+    if ($data['entry_date'] == strtotime(date('Y-m-d'))){ 
+        if($status == 1){
+            $html.= '<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">' ;
+        }
+        if($status == 2){
+            $html.= '<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">' ;
+        }
+    } 
+    $html.='</a>' ;
+    return $html;
+                        
+                        
+}
 
