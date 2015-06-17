@@ -53,7 +53,7 @@ $blogsData = $blogsObj->getData($page);
                     <ul class="masonry-inner mt10">
                         <?php foreach ($blogsData as $key => $blogData) {?>
                         <li class="item" id ="<?php echo $key ?>">
-                            <?php echo commonRenderHTMLIndex($blogData,'',246,164, '50px', 2,1)?>
+                            <?php echo renderHtmlTimeline($blogData)?>
                         </li>
                         <?php } ?>
                     </ul>

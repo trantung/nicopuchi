@@ -93,8 +93,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             { ?>
                                 <li class="item <?php if($key >11) echo 'more-item' ?> "
                                  <?php if($key >11) echo 'style="display:none"' ?> >
-                                    <?php echo commonRenderHTMLIndex($blogData,'',246,164, '50px', 2,1)?>
-
+                                    <?php echo renderHtmlTimeline($blogData)?>
                                 </li>
                             <?php }
                             else
@@ -165,7 +164,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             <?php foreach ($jsonData as $key => $blogData) {?>
                             <?php if($blogData['blog_type'] == BLOG_TYPE_NICOPETIT_ED){ ?>
                             <li>
-                                <?php echo commonRenderHTMLIndex($blogData,'' ,140,94,'25px', 1,1)?>
+                                <?php echo commonRenderHTMLIndex($blogData,'' ,140,94,'25px', 1)?>
 
                             </li>
                             <?php } ?>
@@ -275,7 +274,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                         <?php foreach ($jsonData as $key => $blogData) {?>
                         <?php if($blogData['blog_type'] == BLOG_TYPE_SUPER_DOKUMO && $key < DOKUMO_NUMBER){ ?>
                         <li>
-                        <?php echo commonRenderHTMLIndex($blogData,'斉藤梨鈴',134,90, '15px', 1,NULL) ?>
+                        <?php echo commonRenderHTMLIndex($blogData,'斉藤梨鈴',134,90, '15px', NULL) ?>
 
                         </li>
                         <?php } ?>
