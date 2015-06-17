@@ -953,8 +953,8 @@ function get_my_calendar_sp($cat_name) {
 	$cat_id = get_category_by_slug($category_name);
 	$cat_id = $cat_id->cat_ID;
 
-	$current_y = date_i18n('Y');
-	$current_m = date_i18n('m');
+	$current_y = (get_query_var('year')) ? get_query_var('yera') : date_i18n('Y');
+	$current_m = (get_query_var('monthnum')) ? get_query_var('monthnum') : date_i18n('m');
 	$current_d = date_i18n('d');
 
 	$calendar_ym = $current_y.'-'.$current_m;
