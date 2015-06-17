@@ -1,5 +1,10 @@
 <?php
 get_header();
+
+$jsonData = getJsonData();
+
+$disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_TIMELINE);
+
 ?>
 
 <article id="main">
@@ -136,118 +141,25 @@ get_header();
 		<div class="module-body bg-type02">
 			<div id="timeline">
 				<ul class="timeline-inner">
+					<?php foreach ($jsonData as $key => $blogData) : ?>
+					<?php if ($key < 10) : ?>
 					<li class="item">
-						<a href="" class="new">
-							<img class="full" src="/common/img/pc/index/img_sample02a.png" alt="">
+						<a href="<?php echo $blogData['title_link']; ?>" class="new">
+							<img class="full" src="<?php echo $blogData['image']; ?>" alt="">
 							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog01.png" alt="プチモ☆ブログ情報"></dt>
-								<dd>2014.08.14 PM8:00</dd>
+								<dt><img class="full" src="/common/img/sp/<?php echo $blogData['blog_image']; ?>" alt="プチモ☆ブログ情報"></dt>
+								<dd><?php echo date('Y m d | g:i a', $blogData['date']); ?></dd>
 							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入りま</span>
+							<span class="blog-ttl"><?php echo $blogData['title']; ?></span>
+							<?php if ($blogData['date'] == strtotime(date('Y-m-d'))) : ?>
 							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
+							<?php endif; ?>
 						</a>
 					</li>
-					<li class="item">
-						<a href="" class="new">
-							<img class="full" src="/common/img/pc/index/img_sample02b.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog02.png" alt="ス-パー読モブログ"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02d.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog03.png" alt="プチ撮影日記"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02e.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog04.png" alt="ニコ☆プチ編集部ブログ"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02a.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog01.png" alt="プチモ☆ブログ情報"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02b.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog02.png" alt="ス-パー読モブログ"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02d.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog03.png" alt="プチ撮影日記"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02e.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog04.png" alt="ニコ☆プチ編集部ブログ"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02a.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog01.png" alt="プチモ☆ブログ情報"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
-					<li class="item">
-						<a href="">
-							<img class="full" src="/common/img/pc/index/img_sample02b.png" alt="">
-							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/ttl_blog02.png" alt="ス-パー読モブログ"></dt>
-								<dd>2014.08.14 PM8:00</dd>
-							</dl>
-							<span class="blog-ttl">タイトルが入りますタイトルが入ります</span>
-							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
-						</a>
-					</li>
+					<?php endif; ?>
+					<?php endforeach; ?>
 				</ul>
-				<a href="" class="btn type01 tx_c mt10"><span class="tx12">一覧</span></a>
+				<a href="<?php echo home_url('timeline');?>" class="btn type01 tx_c mt10"><span class="tx12">一覧</span></a>
 				<!--/#timeline--></div>
 		</div>
 		<!--/.module-type01--></div>

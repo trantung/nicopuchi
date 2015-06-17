@@ -945,6 +945,116 @@ function get_monthly_archive($cat)
     return $html;
 }
 
+// カレンダー
+function get_my_calendar_sp($cat_name) {
+
+	$category_name = (!$cat_name) ? 'blog' : $cat_name;
+
+	$current_y = date_i18n('Y');
+	$current_m = date_i18n('m');
+	$current_d = date_i18n('d');
+
+	$calendar_ym = $current_y.'-'.$current_m;
+
+	$args = array(
+		'category_name'	=> $category_name,
+		'post_status' => 'publish',
+		'posts_per_page' => -1, // 全件取得
+		'year'	=> $current_y,
+		'month'	=> $current_m,
+        /*
+		'meta_query' => array(
+			array(
+				'key' => 'event_date',
+				'value' => $calendar_ym,
+				'compare' => 'LIKE'
+			)
+		)
+        */
+	);
+
+	$event_posts = get_posts( $args );
+	$events = array();
+	if ( $event_posts ) {
+		foreach ( $event_posts as $post ) {
+			$event_date = date_i18n('Y-m-d', strtotime($post->post_date));
+			$events[$event_date] = 1;
+		}
+	}
+
+	// 表示年月の日数を取得
+	$calendar_t = date_i18n('t', strtotime($calendar_ym.'-01'));
+
+	$calendar_html = <<<__EOF__
+				<div class="calendar_header cFix">
+					<ul class="pageNav03">
+						<li class="fl_l"><a href="#"><img src="/common/img/sp/04/icn_cal_l.gif" width="22" height="22"></a></li>
+						<li>{$current_m}月</li>
+						<li class="fl_r"><a href="#"><img src="/common/img/sp/04/icn_cal_r.gif" width="22" height="22"></a></li>
+					</ul>
+				</div>
+				<table class="calendar_body">
+					<tr>
+						<th scope="col" class="sun">日</th>
+						<th scope="col">月</th>
+						<th scope="col">火</th>
+						<th scope="col">水</th>
+						<th scope="col">木</th>
+						<th scope="col">金</th>
+						<th scope="col" class="sat">土</th>
+					</tr>
+					<tr>
+__EOF__;
+
+	$index = 0;
+	for ( $i = 1; $i <= $calendar_t; $i++ ) {
+		$calendar_day = date_i18n('w', strtotime($calendar_ym . '-' . $i));
+		$calendar_date = ( $i < 10 ) ? '0' . $i : $i;
+
+		if ($i == 1 && $calendar_day != 0) {
+			for ( $index = 0; $index < $calendar_day; $index++ ) {
+				$calendar_html .= '<td class="gray">&nbsp;</td>';
+			}
+		}
+
+		if ($calendar_day == 0) {
+			$class = 'sun';
+		} else {
+			$class = '';
+		}
+
+		if ($events[$calendar_ym.'-'.$calendar_date] == '1') {
+			$day_url = '/'.$category_name.'/'.$current_y.'/'.$current_m.'/'.$i;
+			$day_link_html = '<a href="'.$day_url.'">'.$i.'</a>';
+		} else {
+			$day_link_html = $i;
+		}
+		$calendar_html .= '<td class="'.$class.'">'.$day_link_html.'</td>';
+
+		if ($calendar_day == 6) {
+			$calendar_html .= '</tr>';
+		}
+
+		$index ++;
+
+		if ( $i == $calendar_t && $index < 42 ) {
+			for ( $index; $index < 42; $index++ ) {
+				if ( $calendar_day == 6 ) {
+					$calendar_day = 0;
+					$calendar_html .= '</tr><tr>';
+				} elseif ($calendar_day < 6) {
+					$calendar_day ++;
+					$calendar_html .= '<td>'.$i.'</td>';
+				}
+			}
+		}
+	}
+
+	$calendar_html .= '</tr></table>';
+
+	echo $calendar_html;
+
+}
 
 /**
  * BLOG画像のリストを返します。
