@@ -175,78 +175,25 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <div class="module-body bg-type04">
                     <div id="staffblog" class="slider-area">
                         <ul class="slider-type02 index-list">
+                            <?php foreach ($jsonData as $key => $blogData) {?>
+                            <?php if($blogData['blog_type'] == BLOG_TYPE_NICOPETIT_ED){ ?>
                             <li>
-                                <a href="" class="new">
-                                    <img class="thumbsnail" src="/common/img/pc/index/img_sample04a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
+                                <a href="<?=$blogData['entry_url']?>" class="new">
+                                    <img class="thumbsnail" src="<?=$blogData['image_list'][0] ?>" alt="" width="140" height="94">
+                                    <span class="update"><?=date('Y m d', $blogData['entry_date'])?></span>
+                                    <span class="blog-ttl"><?=$blogData['title']?></span>
+                                    <div class="blog-theme" class="description" style="height: 25px; overflow:hidden !important;">
+                                    <?=$blogData['description']?></div>
+                                    <?php if ($blogData['entry_date'] == strtotime(date('Y-m-d')))
+                                        { ?>
+                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
+                                        <?php } ?>
                                 </a>
                             </li>
-                            <li>
-                                <a href="" class="new">
-                                    <img src="/common/img/pc/index/img_sample04b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample04a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample04b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample04a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample04b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample04a.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <img src="/common/img/pc/index/img_sample04b.png" alt="" width="140" height="94">
-                                    <span class="update">2014.08.14</span>
-                                    <span class="blog-ttl">タイトルが入りますタイトルが入りますタイトルが入りますタイトルが入ります</span>
-                                    <span class="blog-theme">テーマが入ります。</span>
-                                    <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">
-                                </a>
-                            </li>
+                            <?php } ?>
+                            <?php } ?>
+
+                            
                         </ul>
                         <!--/#staffblog--></div>
                 </div>
