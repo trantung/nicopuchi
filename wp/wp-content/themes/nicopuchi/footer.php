@@ -74,7 +74,7 @@
                 <ul>
                     <li><a href="" class="fdb"><img src="/common/img/pc/fnav09.png" alt="ニコプチとは？" width="104" height="16"></a></li>
                     <li><a href="" class="fdb"><img src="/common/img/pc/fnav10.png" alt="プライバシーポリシー" width="145" height="16"></a></li>
-                    <li><a href="" class="fdb"><img src="/common/img/pc/fnav11.png" alt="お問い合わせ" width="97" height="16"></a></li>
+                    <li><a href="/contact/" class="fdb"><img src="/common/img/pc/fnav11.png" alt="お問い合わせ" width="97" height="16"></a></li>
                 </ul>
                 <ul>
                     <li><a href="" class="fdb" target="_blank"><img src="/common/img/pc/fnav12.png" alt="二コラネット" width="107" height="16"></a></li>
