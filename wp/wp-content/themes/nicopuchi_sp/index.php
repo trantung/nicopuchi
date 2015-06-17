@@ -145,13 +145,13 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
 					<?php if ($key < 10) : ?>
 					<li class="item">
 						<a href="<?php echo $blogData['title_link']; ?>" class="new">
-							<img class="full" src="<?php echo $blogData['image']; ?>" alt="">
+							<img class="full" src="<?php echo $blogData['image_list'][0]; ?>" alt="">
 							<dl class="update">
-								<dt><img class="full" src="/common/img/sp/<?php echo $blogData['blog_image']; ?>" alt="プチモ☆ブログ情報"></dt>
-								<dd><?php echo date('Y m d | g:i a', $blogData['date']); ?></dd>
+								<dt><img class="full" src="/common/img/sp/<?php echo get_blog_type_img_name_list().$blogData['blog_type']; ?>" alt="プチモ☆ブログ情報"></dt>
+								<dd><?php echo date('Y m d | g:i a', $blogData['entry_date']); ?></dd>
 							</dl>
 							<span class="blog-ttl"><?php echo $blogData['title']; ?></span>
-							<?php if ($blogData['date'] == strtotime(date('Y-m-d'))) : ?>
+							<?php if ($blogData['entry_date'] == strtotime(date('Y-m-d'))) : ?>
 							<span class="icn-new"><img class="full" src="/common/img/sp/icn_new.png" alt="NEW"></span>
 							<?php endif; ?>
 						</a>
