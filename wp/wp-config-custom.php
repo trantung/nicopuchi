@@ -39,6 +39,8 @@ define('BLOG_TYPE_NICOPETIT_ED'       , '4');   //ニコプチ編集部ブログ
 define('BLOG_TYPE_NICOPETIT_SUPPORT'  , '5');   // SUPPORT
 define('BLOG_TYPE_NICOPETIT_PUCHISNA' , '6');   // PUCHISNA
 
+define('DOKUMO_NUMBER' , '6');   // PUCHISNA
+
 //BLOGのデフォルトキャラクタセット
 define('BLOG_CHAR_SET', 'UTF-8');
 

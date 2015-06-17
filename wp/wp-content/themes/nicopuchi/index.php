@@ -94,21 +94,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             { ?>
                                 <li class="item <?php if($key >11) echo 'more-item' ?> "
                                  <?php if($key >11) echo 'style="display:none"' ?> >
-                                    <a href="<?= $blogData['entry_url'] ?>" class="new">
-                                        <img src="<?= $blogData['image_list'][0] ?>" alt="" width="246" height="164">
-                                        <dl class="update">
-                                            <dt><img src="/common/img/pc/<?=get_blog_type_img_name_list()[$blogData['blog_type']]?>" alt="プチモ☆ブログ情報" width="123" height="28"></dt>
-                                            <dd><?= date('Y m d | g:i a', $blogData['entry_date']) ?></dd>
-                                        </dl>
-                                        <span class="blog-ttl"><?= $blogData['title'] ?></span>
-                                        <div class="blog-desc" class="description" style="height: 50px; overflow:hidden !important;">
-                                            <?= $blogData['description'] ?>
-                                        </div>
-                                        <?php if ($blogData['entry_date'] == strtotime(date('Y-m-d')))
-                                        { ?>
-                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                        <?php } ?>
-                                    </a>
+                                    <?php echo renderHtmlTimeline($blogData)?>
                                 </li>
                             <?php }
                             else
@@ -179,17 +165,8 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                             <?php foreach ($jsonData as $key => $blogData) {?>
                             <?php if($blogData['blog_type'] == BLOG_TYPE_NICOPETIT_ED){ ?>
                             <li>
-                                <a href="<?=$blogData['entry_url']?>" class="new">
-                                    <img class="thumbsnail" src="<?=$blogData['image_list'][0] ?>" alt="" width="140" height="94">
-                                    <span class="update"><?=date('Y m d', $blogData['entry_date'])?></span>
-                                    <span class="blog-ttl"><?=$blogData['title']?></span>
-                                    <div class="blog-theme" class="description" style="height: 25px; overflow:hidden !important;">
-                                    <?=$blogData['description']?></div>
-                                    <?php if ($blogData['entry_date'] == strtotime(date('Y-m-d')))
-                                        { ?>
-                                            <img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">
-                                        <?php } ?>
-                                </a>
+                                <?php echo commonRenderHTMLIndex($blogData,'' ,140,94,'25px', 1)?>
+
                             </li>
                             <?php } ?>
                             <?php } ?>
@@ -282,6 +259,24 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                         </ul>
                     <?php endif; ?>
                     <?php wp_reset_postdata(); ?>
+                </div>
+                <!--/.module-type01--></div>
+
+            <div class="module-type01">
+                <div class="module-head">
+                    <h2 class="icn type03"><img src="/common/img/pc/index/ttl07.png" alt="スーパー読モブログ" width="194" height="32"></h2>
+                </div>
+                <div class="module-body bg-type01 inner15">
+                    <ul id="readersblog" class="index-list type-side01">
+                        <?php foreach ($jsonData as $key => $blogData) {?>
+                        <?php if($blogData['blog_type'] == BLOG_TYPE_SUPER_DOKUMO && $key < DOKUMO_NUMBER){ ?>
+                        <li>
+                        <?php echo commonRenderHTMLIndex($blogData,'斉藤梨鈴',134,90, '15px', NULL) ?>
+
+                        </li>
+                        <?php } ?>
+                        <?php } ?>
+                        <!--/#readersblog--></ul>
                 </div>
                 <!--/.module-type01--></div>
 

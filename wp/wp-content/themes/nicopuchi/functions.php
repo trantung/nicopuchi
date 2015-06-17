@@ -1102,4 +1102,50 @@ function getJsonData()
     $jsonData !== null ?: $jsonData = [];
     return $jsonData;
 }
+function commonRenderHTMLIndex($data,$alt,$width,$height, $description_height, $class_new)
+{
+    $html ='';
+    if($class_new !=NULL){
+       $html.= '<a href="'.$data['entry_url'].' class="new" ">
+        <img class="thumbsnail" src="'.$data['image_list'][0].'" alt="'.$alt.'" width="'.$width.'" height="'.$height.'">'; 
+    }
+    if($class_new ==NULL){
+       $html.= '<a href="'.$data['entry_url'].' ">
+        <img class="thumbsnail" src="'.$data['image_list'][0].'" alt="'.$alt.'" width="'.$width.'" height="'.$height.'">'; 
+    }
+    $html.='<span class="update">'.date('Y m d', $data['entry_date']).'</span>';
+
+    $html.= '<span class="blog-ttl">'.$data['title'].'</span>
+    <span class="blog-theme" class="blog-theme" class="description" style="height: '.$description_height.'; overflow:hidden !important;">'.$data['description'].'</span>' ;
+    if ($data['entry_date'] == strtotime(date('Y-m-d'))){ 
+        if($class_new !=NULL){
+            $html.= '<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">' ;
+        }
+        if($class_new ==NULL){
+            $html.= '' ;
+        }
+    } 
+    $html.='</a>' ;
+    
+    return $html;
+}
+function renderHtmlTimeline($data)
+{
+    $html = '';
+    $html.= '<a href="'.$data['entry_url'].' " class="new">
+                <img src="'.$data['image_list'][0].'" alt="" width="246" height="164">';
+    $url = get_blog_type_img_name_list()[$data['blog_type']];
+    $html.='
+        <dl class="update">
+        <dt><img src="/common/img/pc/'.$url.'" alt="プチモ☆ブログ情報" width="123" height="28"></dt>';
+    $html.= '<dd>'.date('Y m d | g:i a', $data['entry_date']).'</dd>
+            </dl>';
+    $html.= '<span class="blog-ttl">'.$data['title'].'</span>
+    <div class="blog-desc" class="blog-theme" class="description" style="height: 50px ; overflow:hidden !important;">'.$data['description'].'</div>' ;
+    if ($data['entry_date'] == strtotime(date('Y-m-d'))){
+        $html.= '<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">' ;
+    }
+    $html.='</a>' ;
+    return $html;
+}
 
