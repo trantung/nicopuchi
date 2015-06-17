@@ -1134,8 +1134,11 @@ function commonRenderHTMLIndex($data,$alt,$width,$height, $description_height, $
     $html.= '<span class="blog-ttl">'.$data['title'].'</span>
     <span class="blog-theme" class="blog-theme" class="description" style="height: '.$description_height.'; overflow:hidden !important;">'.$data['description'].'</span>' ;
     if ($data['entry_date'] == strtotime(date('Y-m-d'))){ 
-        if($status == 1){
+        if($status == 1 && $class_new !=NULL){
             $html.= '<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="36" height="36">' ;
+        }
+        if($status == 1 && $class_new ==NULL){
+            $html.= '' ;
         }
         if($status == 2){
             $html.= '<img class="icn-new" src="/common/img/pc/icn_new.png" alt="NEW" width="60" height="60">' ;

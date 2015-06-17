@@ -40,8 +40,7 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <?php wp_reset_postdata(); ?>
                 <!--/#mainvisual--></div>
 
-            <?php 
-            // require_once('common/inc/pc/blogsupporter.php'); ?>
+            <?php require_once('common/inc/pc/blogsupporter.php'); ?>
 
             <?php /* Comment for VN, Maker please check!
             <div class="module-type01">
