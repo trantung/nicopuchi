@@ -950,6 +950,9 @@ function get_my_calendar_sp($cat_name) {
 
 	$category_name = (!$cat_name) ? 'blog' : $cat_name;
 
+	$cat_id = get_category_by_slug($category_name);
+	$cat_id = $cat_id->cat_ID;
+
 	$current_y = date_i18n('Y');
 	$current_m = date_i18n('m');
 	$current_d = date_i18n('d');
@@ -985,12 +988,32 @@ function get_my_calendar_sp($cat_name) {
 	// 表示年月の日数を取得
 	$calendar_t = date_i18n('t', strtotime($calendar_ym.'-01'));
 
+	if ((int)$current_m == 1) {
+		$prev_year = $current_y - 1;
+		$prev_month = 12;
+		$next_year = $current_y;
+		$next_month = (int)$current_m + 1;
+	} elseif ((int)$current_m == 12) {
+		$prev_year = $current_y;
+		$prev_month = (int)$current_m - 1;
+		$next_year = $current_y + 1;
+		$next_month = 1;
+	} else {
+		$prev_year = $current_y;
+		$prev_month = (int)$current_m - 1;
+		$next_year = $current_y;
+		$next_month = (int)$current_m + 1;
+	}
+
+	$prev_link = '/date/'.$prev_year.'/'.$prev_month.'?cat='.$cat_id;
+	$next_link = '/date/'.$next_year.'/'.$next_month.'?cat='.$cat_id;
+
 	$calendar_html = <<<__EOF__
 				<div class="calendar_header cFix">
 					<ul class="pageNav03">
-						<li class="fl_l"><a href="#"><img src="/common/img/sp/04/icn_cal_l.gif" width="22" height="22"></a></li>
+						<li class="fl_l"><a href="{$prev_link}"><img src="/common/img/sp/04/icn_cal_l.gif" width="22" height="22"></a></li>
 						<li>{$current_m}月</li>
-						<li class="fl_r"><a href="#"><img src="/common/img/sp/04/icn_cal_r.gif" width="22" height="22"></a></li>
+						<li class="fl_r"><a href="{$next_link}"><img src="/common/img/sp/04/icn_cal_r.gif" width="22" height="22"></a></li>
 					</ul>
 				</div>
 				<table class="calendar_body">
@@ -1024,7 +1047,7 @@ __EOF__;
 		}
 
 		if ($events[$calendar_ym.'-'.$calendar_date] == '1') {
-			$day_url = '/'.$category_name.'/'.$current_y.'/'.$current_m.'/'.$i;
+			$day_url = '/date/'.$current_y.'/'.$current_m.'/'.$i.'?cat='.$cat_id;
 			$day_link_html = '<a href="'.$day_url.'">'.$i.'</a>';
 		} else {
 			$day_link_html = $i;
