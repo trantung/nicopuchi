@@ -1104,7 +1104,10 @@ function getJsonData()
 }
 function commonRenderHTMLIndex($data,$alt,$width,$height, $description_height, $class_new)
 {
-    $html ='';
+    $html = '';
+    if($class_new ==NULL){
+        $html.='<li>';
+    }
     if($class_new !=NULL){
        $html.= '<a href="'.$data['entry_url'].' class="new" ">
         <img class="thumbsnail" src="'.$data['image_list'][0].'" alt="'.$alt.'" width="'.$width.'" height="'.$height.'">'; 
@@ -1126,7 +1129,9 @@ function commonRenderHTMLIndex($data,$alt,$width,$height, $description_height, $
         }
     } 
     $html.='</a>' ;
-    
+    if($class_new ==NULL){
+        $html.='</li>';
+    }
     return $html;
 }
 function renderHtmlTimeline($data)
@@ -1148,4 +1153,43 @@ function renderHtmlTimeline($data)
     $html.='</a>' ;
     return $html;
 }
-
+function getFirstBlog($value,$type)
+{
+    $array = array();
+    if($value['blog_type'] == $type){
+        $array[] = $value;
+    }
+    reset($array);
+    return $array;
+}
+function getSixBlog($data)
+{
+    $html.='';
+    foreach ($data as $key => $value) {
+        if($value['blog_type'] == BLOG_TYPE_PETIT_MO){
+            $array_petit_mo[] = $value;
+        }
+        if($value['blog_type'] == BLOG_TYPE_SUPER_DOKUMO){
+            $array_super_dokumo[] = $value;
+        }
+        if($value['blog_type'] == BLOG_TYPE_PETIT_MO_OFFICIAL){
+            $array_mo_office[] = $value;
+        }
+        if($value['blog_type'] == BLOG_TYPE_NICOPETIT_ED){
+            $array_ed[] = $value;
+        }
+        if($value['blog_type'] == BLOG_TYPE_NICOPETIT_SUPPORT){
+            $array_support[] = $value;
+        }
+        if($value['blog_type'] == BLOG_TYPE_NICOPETIT_PUCHISNA){
+            $array_pusima[] = $value;
+        }
+    }
+        $html.= commonRenderHTMLIndex($array_petit_mo[0],'斉藤梨鈴',134,90, '15px', NULL);
+        $html.= commonRenderHTMLIndex($array_super_dokumo[0],'斉藤梨鈴',134,90, '15px', NULL);
+        $html.= commonRenderHTMLIndex($array_mo_office[0],'斉藤梨鈴',134,90, '15px', NULL);
+        $html.= commonRenderHTMLIndex($array_ed[0],'斉藤梨鈴',134,90, '15px', NULL);
+        $html.= commonRenderHTMLIndex($array_support[0],'斉藤梨鈴',134,90, '15px', NULL);
+        $html.= commonRenderHTMLIndex($array_pusima[0],'斉藤梨鈴',134,90, '15px', NULL);
+    return $html;
+}

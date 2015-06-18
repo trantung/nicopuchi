@@ -40,7 +40,8 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 <?php wp_reset_postdata(); ?>
                 <!--/#mainvisual--></div>
 
-            <?php require_once('common/inc/pc/blogsupporter.php'); ?>
+            <?php 
+            // require_once('common/inc/pc/blogsupporter.php'); ?>
 
             <?php /* Comment for VN, Maker please check!
             <div class="module-type01">
@@ -268,19 +269,12 @@ $disp_time_line = array_slice($jsonData, 0, ITEM_PER_TIMELINE * MORE_COUNT_PER_T
                 </div>
                 <div class="module-body bg-type01 inner15">
                     <ul id="readersblog" class="index-list type-side01">
-                        <?php foreach ($jsonData as $key => $blogData) {?>
-                        <?php if($blogData['blog_type'] == BLOG_TYPE_SUPER_DOKUMO && $key < DOKUMO_NUMBER){ ?>
-                        <li>
-                        <?php echo commonRenderHTMLIndex($blogData,'斉藤梨鈴',134,90, '15px', NULL) ?>
-
-                        </li>
-                        <?php } ?>
-                        <?php } ?>
+                        <?php echo getSixBlog($jsonData)?>
                         <!--/#readersblog--></ul>
                 </div>
                 <!--/.module-type01--></div>
 
-            <?php include(dirname(__FILE__).'/../../../../common/inc/pc/readersblog.html'); ?>
+            <?php //include(dirname(__FILE__).'/../../../../common/inc/pc/readersblog.html'); ?>
 
             <?php include(dirname(__FILE__).'/../../../../common/inc/pc/magazine.html'); ?>
 
